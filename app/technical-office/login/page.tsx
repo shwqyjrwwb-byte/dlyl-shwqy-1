@@ -1,0 +1,150 @@
+"use client"
+
+import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Lock, User, MapPin } from "lucide-react"
+
+// بيانات تسجيل الدخول لكل منطقة
+const areaCredentials: Record<number, { username: string; password: string; name: string }> = {
+  1: { username: "capital", password: "capital123", name: "العاصمة الإدارية" },
+  2: { username: "newcairo", password: "newcairo123", name: "القاهرة الجديدة" },
+  3: { username: "tagamoa", password: "tagamoa123", name: "التجمع الخامس" },
+  4: { username: "downtown", password: "downtown123", name: "وسط" },
+  5: { username: "october", password: "october123", name: "أكتوبر" },
+  6: { username: "regions", password: "regions123", name: "الأقاليم" },
+}
+
+export default function TechnicalOfficeLoginPage() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const areaId = searchParams.get("area")
+  
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const areaInfo = areaId ? areaCredentials[parseInt(areaId)] : null
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    setError("")
+    setLoading(true)
+
+    if (!areaId || !areaInfo) {
+      setError("منطقة غير صحيحة")
+      setLoading(false)
+      return
+    }
+
+    // التحقق من بيانات الدخول
+    if (username === areaInfo.username && password === areaInfo.password) {
+      // حفظ معلومات تسجيل الدخول في localStorage
+      localStorage.setItem(`area_${areaId}_auth`, "true")
+      localStorage.setItem(`area_${areaId}_timestamp`, Date.now().toString())
+      
+      // الانتقال إلى صفحة المنطقة
+      router.push(`/technical-office/area/${areaId}`)
+    } else {
+      setError("اسم المستخدم أو كلمة المرور غير صحيحة")
+    }
+    
+    setLoading(false)
+  }
+
+  if (!areaId || !areaInfo) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <Card className="p-8 max-w-md w-full text-center">
+          <p className="text-red-500 text-lg">منطقة غير صحيحة</p>
+          <Button 
+            onClick={() => router.push("/technical-office")} 
+            className="mt-4"
+          >
+            العودة للمكتب الفني
+          </Button>
+        </Card>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-primary/10 flex items-center justify-center p-4">
+      <Card className="p-8 max-w-md w-full shadow-2xl border-2 border-primary/20">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/30 mb-4">
+            <MapPin className="w-10 h-10 text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold text-foreground mb-2">تسجيل الدخول</h1>
+          <p className="text-lg text-muted-foreground font-semibold">{areaInfo.name}</p>
+        </div>
+
+        <form onSubmit={handleLogin} className="space-y-6">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+              <User className="w-4 h-4" />
+              اسم المستخدم
+            </label>
+            <Input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="أدخل اسم المستخدم"
+              className="h-12 text-lg"
+              required
+              dir="ltr"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+              <Lock className="w-4 h-4" />
+              كلمة المرور
+            </label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="أدخل كلمة المرور"
+              className="h-12 text-lg"
+              required
+              dir="ltr"
+            />
+          </div>
+
+          {error && (
+            <div className="bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-lg text-center font-semibold">
+              {error}
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            className="w-full h-12 text-lg font-bold"
+            disabled={loading}
+          >
+            {loading ? "جاري التحقق..." : "تسجيل الدخول"}
+          </Button>
+
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full h-12"
+            onClick={() => router.push("/technical-office")}
+          >
+            العودة للمكتب الفني
+          </Button>
+        </form>
+
+        <div className="mt-8 p-4 bg-muted/50 rounded-lg">
+          <p className="text-xs text-muted-foreground text-center">
+            للحصول على بيانات الدخول، يرجى التواصل مع الإدارة
+          </p>
+        </div>
+      </Card>
+    </div>
+  )
+}
