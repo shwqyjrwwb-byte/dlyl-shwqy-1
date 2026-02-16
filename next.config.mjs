@@ -7,6 +7,7 @@ const nextConfig = {
     unoptimized: true,
     qualities: [75, 90, 95],
   },
+  output: 'standalone',
 }
 
 export default nextConfig
