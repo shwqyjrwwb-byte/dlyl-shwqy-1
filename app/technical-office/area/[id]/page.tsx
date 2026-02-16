@@ -44,6 +44,34 @@ function detectGender(name: string): 'male' | 'female' {
 }
 
 
+// بيانات المناطق مع روابط Google Drive
+const areasData: Record<number, { name: string; driveLink: string }> = {
+  1: { 
+    name: "العاصمة الإدارية",
+    driveLink: "https://drive.google.com/drive/folders/1gbY2L__atgj4ldTAst5kt0MUk-UPECua?usp=drive_link"
+  },
+  2: { 
+    name: "القاهرة الجديدة",
+    driveLink: "https://drive.google.com/drive/folders/1FQx824rbptTI5XnerU1yL8jgr-exNJ28?usp=sharing"
+  },
+  3: { 
+    name: "التجمع الخامس",
+    driveLink: "https://drive.google.com/drive/folders/1rjRXzPYnBRvH781XMREKmT4a1lw4ksib?usp=sharing"
+  },
+  4: { 
+    name: "وسط",
+    driveLink: "https://drive.google.com/drive/folders/1PuuDkHNHADwikE14_cycaDjNeXJk3ia5?usp=sharing"
+  },
+  5: { 
+    name: "أكتوبر",
+    driveLink: "https://drive.google.com/drive/folders/16tr64CqiMXODWqet3foBkX3s5LUMu7Pj?usp=sharing"
+  },
+  6: { 
+    name: "الأقاليم",
+    driveLink: "https://drive.google.com/drive/folders/14RA5_-P6fG06u39LRpoYy_H9kTA9Xr1d?usp=sharing"
+  },
+}
+
 export default function AreaPage() {
   const router = useRouter()
   const params = useParams()
@@ -53,8 +81,8 @@ export default function AreaPage() {
   const [loading, setLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const areas = ["العاصمة الإدارية", "القاهرة الجديدة", "التجمع الخامس", "وسط", "أكتوبر", "الأقاليم"]
-  const areaName = areas[areaId - 1] || `المنطقة ${areaId}`
+  const areaInfo = areasData[areaId]
+  const areaName = areaInfo?.name || `المنطقة ${areaId}`
 
   // التحقق من تسجيل الدخول
   useEffect(() => {
@@ -140,7 +168,7 @@ export default function AreaPage() {
       <PageHeader title={areaName} description={`${clients.length} عميل`} icon={User} />
 
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex items-center justify-between flex-wrap gap-4">
           <Link href="/technical-office">
             <Button variant="outline" className="gap-2 border-border text-foreground hover:bg-secondary bg-transparent">
               <ArrowRight className="w-4 h-4" />
@@ -148,14 +176,26 @@ export default function AreaPage() {
             </Button>
           </Link>
           
-          <Button 
-            onClick={handleLogout}
-            variant="destructive"
-            className="gap-2"
-          >
-            <Lock className="w-4 h-4" />
-            تسجيل الخروج
-          </Button>
+          <div className="flex gap-3">
+            {areaInfo?.driveLink && (
+              <Button 
+                onClick={() => window.open(areaInfo.driveLink, '_blank')}
+                className="gap-2 bg-green-600 hover:bg-green-700"
+              >
+                <FileText className="w-4 h-4" />
+                فتح Google Drive
+              </Button>
+            )}
+            
+            <Button 
+              onClick={handleLogout}
+              variant="destructive"
+              className="gap-2"
+            >
+              <Lock className="w-4 h-4" />
+              تسجيل الخروج
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
