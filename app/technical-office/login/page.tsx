@@ -7,14 +7,44 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Lock, User, MapPin } from "lucide-react"
 
-// بيانات تسجيل الدخول لكل منطقة
-const areaCredentials: Record<number, { username: string; password: string; name: string }> = {
-  1: { username: "capital", password: "capital123", name: "العاصمة الإدارية" },
-  2: { username: "newcairo", password: "newcairo123", name: "القاهرة الجديدة" },
-  3: { username: "tagamoa", password: "tagamoa123", name: "التجمع الخامس" },
-  4: { username: "downtown", password: "downtown123", name: "وسط" },
-  5: { username: "october", password: "october123", name: "أكتوبر" },
-  6: { username: "regions", password: "regions123", name: "الأقاليم" },
+// بيانات تسجيل الدخول لكل منطقة مع روابط Google Drive
+const areaCredentials: Record<number, { username: string; password: string; name: string; driveLink: string }> = {
+  1: { 
+    username: "capital", 
+    password: "capital123", 
+    name: "العاصمة الإدارية",
+    driveLink: "https://drive.google.com/drive/folders/1gbY2L__atgj4ldTAst5kt0MUk-UPECua?usp=drive_link"
+  },
+  2: { 
+    username: "newcairo", 
+    password: "newcairo123", 
+    name: "القاهرة الجديدة",
+    driveLink: "https://drive.google.com/drive/folders/1FQx824rbptTI5XnerU1yL8jgr-exNJ28?usp=sharing"
+  },
+  3: { 
+    username: "tagamoa", 
+    password: "tagamoa123", 
+    name: "التجمع الخامس",
+    driveLink: "https://drive.google.com/drive/folders/1rjRXzPYnBRvH781XMREKmT4a1lw4ksib?usp=sharing"
+  },
+  4: { 
+    username: "downtown", 
+    password: "downtown123", 
+    name: "وسط",
+    driveLink: "https://drive.google.com/drive/folders/1PuuDkHNHADwikE14_cycaDjNeXJk3ia5?usp=sharing"
+  },
+  5: { 
+    username: "october", 
+    password: "october123", 
+    name: "أكتوبر",
+    driveLink: "https://drive.google.com/drive/folders/16tr64CqiMXODWqet3foBkX3s5LUMu7Pj?usp=sharing"
+  },
+  6: { 
+    username: "regions", 
+    password: "regions123", 
+    name: "الأقاليم",
+    driveLink: "https://drive.google.com/drive/folders/14RA5_-P6fG06u39LRpoYy_H9kTA9Xr1d?usp=sharing"
+  },
 }
 
 export default function TechnicalOfficeLoginPage() {
@@ -46,8 +76,8 @@ export default function TechnicalOfficeLoginPage() {
       localStorage.setItem(`area_${areaId}_auth`, "true")
       localStorage.setItem(`area_${areaId}_timestamp`, Date.now().toString())
       
-      // الانتقال إلى صفحة المنطقة
-      router.push(`/technical-office/area/${areaId}`)
+      // الانتقال مباشرة إلى Google Drive
+      window.location.href = areaInfo.driveLink
     } else {
       setError("اسم المستخدم أو كلمة المرور غير صحيحة")
     }
