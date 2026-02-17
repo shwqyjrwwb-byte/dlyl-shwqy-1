@@ -71,6 +71,37 @@ function getDepartmentIcon(departmentId: string) {
   return iconMap[departmentId] || Home
 }
 
+// دالة لتحديد صورة القسم (إذا كانت متوفرة)
+function getDepartmentImage(departmentId: string) {
+  const imageMap: Record<string, string> = {
+    "accounting": "/images/accounting.png",
+    "buffet": "/images/buffet.png",
+    "ceramics": "/images/ceramics.png",
+    "chairman-office": "/images/chairman-office.png",
+    "commerce": "/images/commerce.png",
+    "company-engineers": "/images/company-engineers.png",
+    "contracts": "/images/contracts.png",
+    "customer-service": "/images/customer-service.png",
+    "department-managers": "/images/department-managers.png",
+    "electricity-showroom": "/images/electricity-showroom.png",
+    "furniture": "/images/furniture.png",
+    "general-manager": "/images/general-manager.png",
+    "hr": "/images/hr.png",
+    "inspections": "/images/inspections.png",
+    "it": "/images/it.png",
+    "legal": "/images/legal.png",
+    "marble-showroom": "/images/marble-showroom.png",
+    "operations": "/images/operations.png",
+    "paint-showroom": "/images/paint-showroom.png",
+    "social-media": "/images/social-media.png",
+    "technical-office": "/images/technical-office.png",
+    "telesales": "/images/telesales.png",
+    "warehouse": "/images/warehouse.png",
+  }
+  
+  return imageMap[departmentId] || null
+}
+
 // دالة لتحديد لون الأيقونة لكل قسم
 function getDepartmentColor(departmentId: string) {
   const colorMap: Record<string, string> = {
@@ -1187,50 +1218,84 @@ const departmentsData: Department[] = [
   },
 ]
 
-function ExecutiveCard({ executive }: { executive: Executive }) {
+// بطاقة القيادة التنفيذية المتقلبة
+function ExecutiveFlipCard() {
+  const [isFlipped, setIsFlipped] = useState(false)
+  
   return (
-    <Card className="bg-gradient-to-br from-primary/20 to-card border-primary/40 p-8 text-center hover:shadow-2xl transition-all duration-300">
-      <div className="flex flex-col items-center gap-6">
-        <Badge className="bg-primary text-primary-foreground font-bold text-xl px-6 py-2 shadow-lg">
-          {executive.rank === 1 ? "👑 الرئيس" : "🏆 النائب"}
-        </Badge>
-
-        <div className="relative w-40 h-40 rounded-full overflow-hidden bg-muted shadow-2xl ring-4 ring-primary/30">
-          <Image
-            src={executive.image || "/placeholder.svg"}
-            alt={executive.name}
-            fill
-            className="object-cover object-top"
-            sizes="160px"
-            priority
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-primary">{executive.name}</h3>
-          <p className="text-base text-muted-foreground font-medium">{executive.position}</p>
-          <div className="flex items-center justify-center gap-2 text-lg font-mono bg-secondary/20 px-4 py-2 rounded-lg">
-            <Phone className="w-5 h-5 text-primary" />
-            <span className="font-bold tracking-wider" dir="ltr">{executive.phone}</span>
+    <div 
+      className="relative w-full h-[500px] perspective-1000"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+        {/* الوجه الأمامي - الصورة */}
+        <Card className="absolute inset-0 backface-hidden overflow-hidden">
+          <div className="relative w-full h-full bg-gradient-to-br from-gray-50 to-gray-100">
+            <Image
+              src="/images/executive-leadership.png"
+              alt="القيادة التنفيذية"
+              fill
+              className="object-contain"
+              sizes="600px"
+              priority
+            />
+            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+              <p className="text-sm text-muted-foreground animate-bounce">
+                ⬅️ حرك الماوس لرؤية التفاصيل
+              </p>
+            </div>
           </div>
-        </div>
+        </Card>
 
-        <div className="flex gap-3 w-full">
-          <Button size="lg" className="flex-1 bg-green-600 hover:bg-green-700 text-white gap-2 text-lg py-6 shadow-lg" asChild>
-            <a href={`tel:+20${executive.phone}`}>
-              <Phone className="w-6 h-6" />
-              اتصال
-            </a>
-          </Button>
-          <Button size="lg" className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white gap-2 text-lg py-6 shadow-lg" asChild>
-            <a href={`https://wa.me/20${executive.phone}`} target="_blank" rel="noreferrer">
-              <MessageCircle className="w-6 h-6" />
-              واتساب
-            </a>
-          </Button>
-        </div>
+        {/* الوجه الخلفي */}
+        <Card className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-primary/20 to-card border-primary/40 p-6 overflow-y-auto">
+          <div className="space-y-6">
+            {executivesData.map((exec) => (
+              <div key={exec.id} className="bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden bg-muted shadow-xl ring-4 ring-primary/30 flex-shrink-0">
+                    <Image
+                      src={exec.image}
+                      alt={exec.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="80px"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Badge className="bg-amber-500 text-white font-bold mb-2">
+                      {exec.rank === 1 ? "رئيس مجلس الإدارة" : "نائب رئيس مجلس الإدارة"}
+                    </Badge>
+                    <h3 className="text-xl font-bold text-primary">{exec.name}</h3>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2 text-base font-mono bg-secondary/30 px-4 py-2 rounded-lg mb-3">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span className="font-bold tracking-wider" dir="ltr">{exec.phone}</span>
+                </div>
+
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700 text-white gap-2" asChild>
+                    <a href={`tel:+20${exec.phone}`}>
+                      <Phone className="w-4 h-4" />
+                      اتصال
+                    </a>
+                  </Button>
+                  <Button size="sm" className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white gap-2" asChild>
+                    <a href={`https://wa.me/20${exec.phone}`} target="_blank" rel="noreferrer">
+                      <MessageCircle className="w-4 h-4" />
+                      واتساب
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
       </div>
-    </Card>
+    </div>
   )
 }
 
@@ -1239,36 +1304,51 @@ function ContactCard({
   isManager = false,
   onClick,
 }: { member: TeamMember; isManager?: boolean; onClick: () => void }) {
+  const [imageError, setImageError] = useState(false)
+  
   return (
     <div
       onClick={onClick}
-      className="bg-card border-2 border-border rounded-xl hover:border-primary/50 transition-all p-5 cursor-pointer hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.02] duration-200"
+      className="bg-card border-2 border-border rounded-xl hover:border-primary/50 transition-all p-6 cursor-pointer hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.02] duration-200"
     >
-      <div className="flex items-center gap-4">
-        <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 bg-muted shadow-lg ring-2 ring-primary/20">
-          {member.image ? (
+      <div className="flex items-center gap-5">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden flex-shrink-0 bg-muted shadow-lg ring-2 ring-primary/20">
+          {member.image && !imageError ? (
             <Image
-              src={member.image || "/placeholder.svg"}
+              src={member.image}
               alt={member.name}
               fill
               className="object-cover object-top"
-              sizes="96px"
+              sizes="128px"
+              onError={() => setImageError(true)}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold text-3xl">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold text-5xl">
               {member.name.charAt(0)}
             </div>
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <h4 className="font-bold text-foreground text-lg truncate">{member.name}</h4>
-            {isManager && <Crown className="w-5 h-5 text-yellow-500 flex-shrink-0" />}
+          <div className="flex items-center gap-3 mb-2">
+            <h4 className="font-bold text-foreground text-2xl truncate">{member.name}</h4>
+            {isManager && <Crown className="w-7 h-7 text-yellow-500 flex-shrink-0" />}
           </div>
-          <p className="text-sm text-muted-foreground truncate mb-2">{member.position}</p>
-          <div className="flex items-center gap-2 text-sm font-mono bg-secondary/30 px-3 py-1 rounded-md w-fit">
-            <Phone className="w-4 h-4 text-primary" />
-            <span className="font-semibold tracking-wide" dir="ltr">{member.phone}</span>
+          <p className="text-lg text-muted-foreground truncate mb-3">{member.position}</p>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-3 text-lg font-mono bg-secondary/30 px-4 py-2 rounded-lg flex-1">
+              <Phone className="w-6 h-6 text-primary" />
+              <span className="font-bold tracking-wide" dir="ltr">{member.phone}</span>
+            </div>
+            <a
+              href={`https://wa.me/20${member.phone}`}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white p-3 rounded-xl transition-colors shadow-md hover:shadow-lg flex-shrink-0"
+              title="واتساب"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </a>
           </div>
         </div>
       </div>
@@ -1277,6 +1357,8 @@ function ContactCard({
 }
 
 function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () => void }) {
+  const [imageError, setImageError] = useState(false)
+  
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div
@@ -1293,13 +1375,14 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
 
           <div className="flex flex-col items-center gap-6">
             <div className="relative w-40 h-40 rounded-full overflow-hidden bg-muted shadow-2xl ring-4 ring-background">
-              {member.image ? (
+              {member.image && !imageError ? (
                 <Image
-                  src={member.image || "/placeholder.svg"}
+                  src={member.image}
                   alt={member.name}
                   fill
                   className="object-cover object-top"
                   sizes="160px"
+                  onError={() => setImageError(true)}
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold text-6xl">
@@ -1454,10 +1537,8 @@ export function ContactsTable() {
                 <Star className="w-8 h-8 text-primary" />
                 <div className="h-1 w-12 bg-primary rounded"></div>
               </div>
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {filteredExecutives.map((exec) => (
-                  <ExecutiveCard key={exec.id} executive={exec} />
-                ))}
+              <div className="max-w-2xl mx-auto">
+                <ExecutiveFlipCard />
               </div>
             </section>
           )}
@@ -1475,32 +1556,48 @@ export function ContactsTable() {
               {filteredDepartments.map((dept) => {
                 const DeptIcon = getDepartmentIcon(dept.id)
                 const iconColor = getDepartmentColor(dept.id)
+                const deptImage = getDepartmentImage(dept.id)
                 
                 return (
                   <Card
                     key={dept.id}
-                    className="group relative p-6 cursor-pointer hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/20 bg-gradient-to-br from-card to-card/50 hover:scale-105 duration-300 overflow-hidden"
+                    className="group relative p-0 cursor-pointer hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/20 hover:scale-105 duration-300 overflow-hidden h-48"
                     onClick={() => setSelectedDepartment(dept.id)}
                   >
-                    <div className="flex flex-col gap-4">
-                      {/* أيقونة القسم */}
-                      <div className="flex items-center justify-between">
-                        <div className={`p-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300`}>
-                          <DeptIcon className={`w-8 h-8 ${iconColor} group-hover:scale-110 transition-transform duration-300`} />
-                        </div>
-                        <ChevronLeft className="w-6 h-6 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                    {/* الصورة كخلفية */}
+                    {deptImage ? (
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100">
+                        <Image
+                          src={deptImage}
+                          alt={dept.name}
+                          fill
+                          className="object-contain group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        />
+                      </div>
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-card to-card/50" />
+                    )}
+                    
+                    {/* المحتوى */}
+                    <div className="relative h-full p-6 flex flex-col justify-between">
+                      {/* السهم */}
+                      <div className="flex items-center justify-end">
+                        <ChevronLeft className={`w-6 h-6 ${deptImage ? 'text-primary bg-white/90 rounded-full p-1 shadow-lg' : 'text-primary'} group-hover:translate-x-1 transition-transform duration-300`} />
                       </div>
                       
-                      {/* معلومات القسم */}
-                      <div>
-                        <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors duration-300">
-                          {dept.name}
-                        </h3>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Users className="w-4 h-4" />
-                          <span>{dept.team.length + (dept.manager ? 1 : 0)} موظف</span>
+                      {/* معلومات القسم - فقط للبطاقات بدون صور */}
+                      {!deptImage && (
+                        <div>
+                          <h3 className="font-bold text-xl mb-3 group-hover:scale-105 transition-all duration-300 text-foreground group-hover:text-primary">
+                            {dept.name}
+                          </h3>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Users className="w-4 h-4" />
+                            <span className="font-semibold">{dept.team.length + (dept.manager ? 1 : 0)} موظف</span>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </Card>
                 )
@@ -1528,9 +1625,22 @@ export function ContactsTable() {
                   {(() => {
                     const DeptIcon = getDepartmentIcon(currentDepartment.id)
                     const iconColor = getDepartmentColor(currentDepartment.id)
+                    const deptImage = getDepartmentImage(currentDepartment.id)
                     return (
-                      <div className="p-4 rounded-xl bg-white/50 backdrop-blur-sm">
-                        <DeptIcon className={`w-10 h-10 ${iconColor}`} />
+                      <div className={`p-4 rounded-xl bg-white/50 backdrop-blur-sm ${deptImage ? 'p-0 overflow-hidden' : ''}`}>
+                        {deptImage ? (
+                          <div className="relative w-20 h-20">
+                            <Image
+                              src={deptImage}
+                              alt={currentDepartment.name}
+                              fill
+                              className="object-cover rounded-xl"
+                              sizes="80px"
+                            />
+                          </div>
+                        ) : (
+                          <DeptIcon className={`w-10 h-10 ${iconColor}`} />
+                        )}
                       </div>
                     )
                   })()}
