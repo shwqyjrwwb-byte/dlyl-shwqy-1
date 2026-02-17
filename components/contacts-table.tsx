@@ -6,13 +6,14 @@ import {
   Briefcase, UserCog, Package, Wrench, Calculator, Hammer, 
   Lightbulb, Palette, FileText, Headphones, Sofa, FileSignature,
   TrendingUp, PhoneCall, Layers, Cog, Coffee, Zap, 
-  Sparkles, Share2, Building2, Home
+  Sparkles, Share2, Building2, Home, ClipboardList
 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { getJobDescription } from "@/lib/job-descriptions"
 
 interface TeamMember {
   name: string
@@ -1315,6 +1316,19 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
         </div>
 
         <div className="p-6 space-y-4">
+          {/* الوصف الوظيفي */}
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
+            <div className="flex items-start gap-3">
+              <ClipboardList className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="text-sm font-semibold text-primary mb-2">الوصف الوظيفي</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {getJobDescription(member.position)}
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-secondary/20 rounded-xl p-4 text-center">
             <p className="text-sm text-muted-foreground mb-2">رقم الهاتف</p>
             <div className="flex items-center justify-center gap-2">

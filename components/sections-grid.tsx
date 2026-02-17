@@ -65,13 +65,6 @@ const sections = [
     href: "/contractors",
   },
   {
-    id: "job-descriptions",
-    title: "الوصف الوظيفي",
-    description: "أدوار ومسؤوليات الموظفين",
-    image: "/images/icons/icon-penalties.jpeg",
-    href: "/job-descriptions",
-  },
-  {
     id: "technical-office",
     title: "المكتب الفني",
     description: "بيانات ومعلومات المكتب الفني",
