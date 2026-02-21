@@ -35,7 +35,7 @@ const initialAreas: AreaData[] = [
     color: "from-blue-500/10 to-blue-600/10",
     image: "/images/areas/العاصمه .png",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/1gbY2L__atgj4ldTAst5kt0MUk-UPECua?usp=drive_link"
+    driveLink: "https://drive.google.com/drive/folders/1HbwL6NKJhIbPqONsczTWK7sXBl5l2qGv?usp=drive_link"
   },
   { 
     id: 2, 
@@ -44,7 +44,7 @@ const initialAreas: AreaData[] = [
     color: "from-green-500/10 to-green-600/10",
     image: "/images/areas/القاهره الجديده.jpeg",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/1FQx824rbptTI5XnerU1yL8jgr-exNJ28?usp=sharing"
+    driveLink: "https://drive.google.com/drive/folders/1hk92APPjFUGfWbWv_FdPZ6SRLGW01cOz?usp=sharing"
   },
   { 
     id: 3, 
@@ -53,7 +53,7 @@ const initialAreas: AreaData[] = [
     color: "from-purple-500/10 to-purple-600/10",
     image: "/images/areas/التجمع .jpeg",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/1rjRXzPYnBRvH781XMREKmT4a1lw4ksib?usp=sharing"
+    driveLink: "https://drive.google.com/drive/folders/1szoma6_PqGnsMmWtZkxL7PT51rMIfbRF?usp=sharing"
   },
   { 
     id: 4, 
@@ -62,7 +62,7 @@ const initialAreas: AreaData[] = [
     color: "from-orange-500/10 to-orange-600/10",
     image: "/images/areas/وسط.png",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/1PuuDkHNHADwikE14_cycaDjNeXJk3ia5?usp=sharing"
+    driveLink: "https://drive.google.com/drive/folders/161L8kXX93ZTVG9xHY0xuedQ1G01tB7Wp?usp=sharing"
   },
   { 
     id: 5, 
@@ -71,7 +71,7 @@ const initialAreas: AreaData[] = [
     color: "from-pink-500/10 to-pink-600/10",
     image: "/images/areas/اكتوبر.jpeg",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/16tr64CqiMXODWqet3foBkX3s5LUMu7Pj?usp=sharing"
+    driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
   },
   { 
     id: 6, 
@@ -80,87 +80,14 @@ const initialAreas: AreaData[] = [
     color: "from-teal-500/10 to-teal-600/10",
     image: "/images/areas/اقاليم .jpeg",
     clients: [],
-    driveLink: "https://drive.google.com/drive/folders/14RA5_-P6fG06u39LRpoYy_H9kTA9Xr1d?usp=sharing"
+    driveLink: "https://drive.google.com/drive/folders/1gp2s_AyuGdj1vFgLyy2GW1F8r_IQ3Dh0?usp=sharing"
   },
 ]
 
 export default function TechnicalOfficePage() {
   const router = useRouter()
   const [areas, setAreas] = useState<AreaData[]>(initialAreas)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchClientCounts = async () => {
-      try {
-        // Fetch all clients from Google Drive
-        const response = await fetch('/api/drive-clients')
-        if (response.ok) {
-          const data = await response.json()
-          if (data.success && data.clients) {
-            const allClients = data.clients
-            
-            // Group clients by area
-            const clientsByArea: Record<number, Client[]> = {}
-            allClients.forEach((client: any) => {
-              if (!clientsByArea[client.areaId]) {
-                clientsByArea[client.areaId] = []
-              }
-              clientsByArea[client.areaId].push({
-                id: client.id,
-                name: client.name,
-                code: client.code,
-                areaId: client.areaId,
-                filesCount: client.filesCount || 0
-              })
-            })
-
-            // Update areas with real counts from Drive
-            setAreas(prev => prev.map(area => ({
-              ...area,
-              clients: clientsByArea[area.id] || [],
-              clientsCount: (clientsByArea[area.id] || []).length,
-              driveLink: area.driveLink // Keep the original driveLink
-            })))
-          }
-        } else {
-          console.error('Failed to fetch from Drive, falling back to database')
-          // Fallback to database if Drive API fails
-          const dbResponse = await fetch('/api/clients')
-          if (dbResponse.ok) {
-            const dbData = await dbResponse.json()
-            if (dbData.success && dbData.clients) {
-              const allClients = dbData.clients
-              const clientsByArea: Record<number, Client[]> = {}
-              allClients.forEach((client: any) => {
-                if (!clientsByArea[client.areaId]) {
-                  clientsByArea[client.areaId] = []
-                }
-                clientsByArea[client.areaId].push({
-                  id: client.id,
-                  name: client.name,
-                  code: client.code,
-                  areaId: client.areaId,
-                  filesCount: client.filesCount || 0
-                })
-              })
-              setAreas(prev => prev.map(area => ({
-                ...area,
-                clients: clientsByArea[area.id] || [],
-                clientsCount: (clientsByArea[area.id] || []).length,
-                driveLink: area.driveLink
-              })))
-            }
-          }
-        }
-      } catch (error) {
-        console.error('Failed to load client counts:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchClientCounts()
-  }, [])
+  const [loading, setLoading] = useState(false)
 
   const totalClients = areas.reduce((sum, area) => sum + area.clientsCount, 0)
   return (

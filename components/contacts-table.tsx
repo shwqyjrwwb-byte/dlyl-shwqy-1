@@ -211,13 +211,13 @@ const departmentsData: Department[] = [
       {
         name: "م/ محمد يوسف",
         position: "مدير بند التكيفات والتوريدات",
-        phone: "1XXXXXXXXX",
-        image: "/images/placeholder.jpg",
+        phone: "1000766726",
+        image: "/images/محمد يوسف.jpeg",
       },
       {
         name: "م/ أحمد عبد الغني",
         position: "مدير بند توريدات الكهرباء",
-        phone: "1XXXXXXXXX",
+        phone: "1115706597",
         image: "/images/placeholder.jpg",
       },
     ],
