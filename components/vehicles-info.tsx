@@ -11,8 +11,8 @@ const vehicles = [
     region: "العاصمة الإدارية",
     plateNumber: "ك ر و 8352",
     image: "/images/car-capital.jpeg",
-    color: "بيضاء 2024",
-    phone: "خدمات مهندسين"
+    color: "رمادي",
+    phone: "01100412308"
   },
   {
     id: 2,
@@ -20,23 +20,23 @@ const vehicles = [
     plateNumber: "ز ق ذ 7522",
     image: "/images/car-newcairo..jpeg",
     color: "خضراء",
-    phone: "01XXXXXXXXX"
+    phone: "01114922438"
   },
   {
     id: 3,
     region: "التجمع الخامس",
     plateNumber: "ز ج ع 5130",
     image: "/images/car-tagamoa.jpeg",
-    color: "بيضاء",
-    phone: "01XXXXXXXXX"
+    color: "بيضاء 2024",
+    phone: "01114922576"
   },
   {
     id: 4,
     region: "وسط",
     plateNumber: "أ ك ر و 8259",
     image: "/images/car-downtow.jpeg",
-    color: "بيضاء",
-    phone: "01XXXXXXXXX"
+    color: "بيضاء 2024",
+    phone: "01114922576"
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const vehicles = [
     plateNumber: "ز ع أ 2751",
     image: "/images/car-regions.jpeg",
     color: "حمراء",
-    phone: "01XXXXXXXXX"
+    phone: "01154422084"
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const vehicles = [
     plateNumber: "ز ق ذ 2516",
     image: "/images/car-october.jpeg",
     color: "بيضاء",
-    phone: "01XXXXXXXXX"
+    phone: "01272705524"
   }
 ]
 
