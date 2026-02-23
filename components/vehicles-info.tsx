@@ -10,7 +10,7 @@ const vehicles = [
     id: 1,
     region: "العاصمة الإدارية",
     plateNumber: "ز س د 7217",
-    image: "/images/car-capital.jpg",
+    image: "/images/car-capital.jpeg",
     color: "أزرق غامق",
     phone: "01XXXXXXXXX"
   },
@@ -18,7 +18,7 @@ const vehicles = [
     id: 2,
     region: "القاهرة الجديدة",
     plateNumber: "ز ق ذ 7522",
-    image: "/images/car-newcairo.jpg",
+    image: "/images/car-newcairo..jpeg",
     color: "أبيض",
     phone: "01XXXXXXXXX"
   },
@@ -26,7 +26,7 @@ const vehicles = [
     id: 3,
     region: "التجمع الخامس",
     plateNumber: "ز ج ع 5130",
-    image: "/images/car-tagamoa.jpg",
+    image: "/images/car-tagamoa.jpeg",
     color: "تركواز",
     phone: "01XXXXXXXXX"
   },
@@ -34,7 +34,7 @@ const vehicles = [
     id: 4,
     region: "وسط",
     plateNumber: "أ ك ر و 8259",
-    image: "/images/car-downtown.jpg",
+    image: "/images/car-downtow.jpeg",
     color: "رصاصي",
     phone: "01XXXXXXXXX"
   },
@@ -42,7 +42,7 @@ const vehicles = [
     id: 5,
     region: "أكتوبر",
     plateNumber: "ز ق ذ 2516",
-    image: "/images/car-october.jpg",
+    image: "/images/car-october.jpeg",
     color: "أبيض",
     phone: "01XXXXXXXXX"
   },
@@ -50,7 +50,7 @@ const vehicles = [
     id: 6,
     region: "الأقاليم",
     plateNumber: "ز ع أ 2751",
-    image: "/images/car-regions.jpg",
+    image: "/images/car-regions.jpeg",
     color: "أحمر",
     phone: "01XXXXXXXXX"
   }
