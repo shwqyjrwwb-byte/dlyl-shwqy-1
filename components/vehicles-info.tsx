@@ -63,7 +63,7 @@ export function VehiclesInfo() {
         {/* Manager Card */}
         <Card className="bg-gradient-to-br from-zinc-900 to-zinc-800 border-zinc-700 p-6">
           <div className="flex items-center gap-6">
-            <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-gold/30">
+            <div className="relative w-32 h-40 rounded-lg overflow-hidden border-4 border-gold/30">
               <Image
                 src="/images/azzam.jpeg"
                 alt="عزام"
