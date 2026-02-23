@@ -65,7 +65,7 @@ export function VehiclesInfo() {
           <div className="flex items-center gap-6">
             <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-gold/30">
               <Image
-                src="/images/azzam.jpg"
+                src="/images/عزام.jpeg"
                 alt="عزام"
                 fill
                 className="object-cover"
