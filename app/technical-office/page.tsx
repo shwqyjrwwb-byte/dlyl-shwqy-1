@@ -31,7 +31,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 1, 
     name: "العاصمة الإدارية", 
-    clientsCount: 0, 
+    clientsCount: 25, 
     color: "from-blue-500/10 to-blue-600/10",
     image: "/images/areas/العاصمه .png",
     clients: [],
@@ -40,7 +40,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 2, 
     name: "القاهرة الجديدة", 
-    clientsCount: 0, 
+    clientsCount: 23, 
     color: "from-green-500/10 to-green-600/10",
     image: "/images/areas/القاهره الجديده.jpeg",
     clients: [],
@@ -49,7 +49,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 3, 
     name: "التجمع الخامس", 
-    clientsCount: 0, 
+    clientsCount: 17, 
     color: "from-purple-500/10 to-purple-600/10",
     image: "/images/areas/التجمع .jpeg",
     clients: [],
@@ -58,7 +58,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 4, 
     name: "وسط", 
-    clientsCount: 0, 
+    clientsCount: 23, 
     color: "from-orange-500/10 to-orange-600/10",
     image: "/images/areas/وسط.png",
     clients: [],
@@ -67,7 +67,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 5, 
     name: "أكتوبر", 
-    clientsCount: 0, 
+    clientsCount: 16, 
     color: "from-pink-500/10 to-pink-600/10",
     image: "/images/areas/اكتوبر.jpeg",
     clients: [],
@@ -76,7 +76,7 @@ const initialAreas: AreaData[] = [
   { 
     id: 6, 
     name: "الأقاليم", 
-    clientsCount: 0, 
+    clientsCount: 15, 
     color: "from-teal-500/10 to-teal-600/10",
     image: "/images/areas/اقاليم .jpeg",
     clients: [],
