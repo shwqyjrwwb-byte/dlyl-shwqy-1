@@ -1265,7 +1265,6 @@ const departmentsData: Department[] = [
         phone: "01272705524",
         image: "/images/car-october.jpeg",
       },
-      },
     ],
   },
 ]
