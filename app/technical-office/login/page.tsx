@@ -70,8 +70,11 @@ export default function TechnicalOfficeLoginPage() {
       return
     }
 
+    // Master account - يدخل على كل المناطق
+    const isMasterAccount = username === "admin" && password === "admin2026"
+    
     // التحقق من بيانات الدخول
-    if (username === areaInfo.username && password === areaInfo.password) {
+    if (isMasterAccount || (username === areaInfo.username && password === areaInfo.password)) {
       // حفظ معلومات تسجيل الدخول في localStorage
       localStorage.setItem(`area_${areaId}_auth`, "true")
       localStorage.setItem(`area_${areaId}_timestamp`, Date.now().toString())
