@@ -10,37 +10,37 @@ import { Lock, User, MapPin } from "lucide-react"
 // بيانات تسجيل الدخول لكل منطقة مع روابط Google Drive
 const areaCredentials: Record<number, { username: string; password: string; name: string; driveLink: string }> = {
   1: { 
-    username: "عاص", 
+    username: "cap", 
     password: "1", 
     name: "العاصمة الإدارية",
     driveLink: "https://drive.google.com/drive/folders/1HbwL6NKJhIbPqONsczTWK7sXBl5l2qGv?usp=drive_link"
   },
   2: { 
-    username: "قاه", 
+    username: "new", 
     password: "1", 
     name: "القاهرة الجديدة",
     driveLink: "https://drive.google.com/drive/folders/1hk92APPjFUGfWbWv_FdPZ6SRLGW01cOz?usp=sharing"
   },
   3: { 
-    username: "تجم", 
+    username: "tag", 
     password: "1", 
     name: "التجمع الخامس",
     driveLink: "https://drive.google.com/drive/folders/1szoma6_PqGnsMmWtZkxL7PT51rMIfbRF?usp=sharing"
   },
   4: { 
-    username: "وسط", 
+    username: "dow", 
     password: "1", 
     name: "وسط",
     driveLink: "https://drive.google.com/drive/folders/161L8kXX93ZTVG9xHY0xuedQ1G01tB7Wp?usp=sharing"
   },
   5: { 
-    username: "اكت", 
+    username: "oct", 
     password: "1", 
     name: "أكتوبر",
     driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
   },
   6: { 
-    username: "اقا", 
+    username: "reg", 
     password: "1", 
     name: "الأقاليم",
     driveLink: "https://drive.google.com/drive/folders/1gp2s_AyuGdj1vFgLyy2GW1F8r_IQ3Dh0?usp=sharing"
