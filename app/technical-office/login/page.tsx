@@ -10,38 +10,38 @@ import { Lock, User, MapPin } from "lucide-react"
 // بيانات تسجيل الدخول لكل منطقة مع روابط Google Drive
 const areaCredentials: Record<number, { username: string; password: string; name: string; driveLink: string }> = {
   1: { 
-    username: "capital", 
-    password: "capital123", 
+    username: "عاص", 
+    password: "1", 
     name: "العاصمة الإدارية",
     driveLink: "https://drive.google.com/drive/folders/1HbwL6NKJhIbPqONsczTWK7sXBl5l2qGv?usp=drive_link"
   },
   2: { 
-    username: "newcairo", 
-    password: "newcairo123", 
+    username: "قاه", 
+    password: "1", 
     name: "القاهرة الجديدة",
     driveLink: "https://drive.google.com/drive/folders/1hk92APPjFUGfWbWv_FdPZ6SRLGW01cOz?usp=sharing"
   },
   3: { 
-    username: "tagamoa", 
-    password: "tagamoa123", 
+    username: "تجم", 
+    password: "1", 
     name: "التجمع الخامس",
     driveLink: "https://drive.google.com/drive/folders/1szoma6_PqGnsMmWtZkxL7PT51rMIfbRF?usp=sharing"
   },
   4: { 
-    username: "downtown", 
-    password: "downtown123", 
+    username: "وسط", 
+    password: "1", 
     name: "وسط",
     driveLink: "https://drive.google.com/drive/folders/161L8kXX93ZTVG9xHY0xuedQ1G01tB7Wp?usp=sharing"
   },
   5: { 
-    username: "october", 
-    password: "october123", 
+    username: "اكت", 
+    password: "1", 
     name: "أكتوبر",
     driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
   },
   6: { 
-    username: "regions", 
-    password: "regions123", 
+    username: "اقا", 
+    password: "1", 
     name: "الأقاليم",
     driveLink: "https://drive.google.com/drive/folders/1gp2s_AyuGdj1vFgLyy2GW1F8r_IQ3Dh0?usp=sharing"
   },
