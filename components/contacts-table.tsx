@@ -1239,13 +1239,13 @@ const departmentsData: Department[] = [
         name: "سيارة القاهرة الجديدة",
         position: "سيارة خضراء - القاهرة الجديدة",
         phone: "01114922438",
-        image: "/images/car-newcairo..jpeg",
+        image: "/images/car-tagamoa.jpeg",
       },
       {
         name: "سيارة التجمع الخامس",
         position: "سيارة بيضاء 2024 - التجمع الخامس",
         phone: "01114922576",
-        image: "/images/car-tagamoa.jpeg",
+        image: "/images/car-newcairo..jpeg",
       },
       {
         name: "سيارة وسط",
