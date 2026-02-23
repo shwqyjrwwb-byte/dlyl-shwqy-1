@@ -9,17 +9,17 @@ const vehicles = [
   {
     id: 1,
     region: "العاصمة الإدارية",
-    plateNumber: "ز س د 7217",
+    plateNumber: "ك ر و 8352",
     image: "/images/car-capital.jpeg",
-    color: "أزرق غامق",
-    phone: "01XXXXXXXXX"
+    color: "بيضاء 2024",
+    phone: "خدمات مهندسين"
   },
   {
     id: 2,
     region: "القاهرة الجديدة",
     plateNumber: "ز ق ذ 7522",
     image: "/images/car-newcairo..jpeg",
-    color: "أبيض",
+    color: "خضراء",
     phone: "01XXXXXXXXX"
   },
   {
@@ -27,7 +27,7 @@ const vehicles = [
     region: "التجمع الخامس",
     plateNumber: "ز ج ع 5130",
     image: "/images/car-tagamoa.jpeg",
-    color: "تركواز",
+    color: "بيضاء",
     phone: "01XXXXXXXXX"
   },
   {
@@ -35,23 +35,23 @@ const vehicles = [
     region: "وسط",
     plateNumber: "أ ك ر و 8259",
     image: "/images/car-downtow.jpeg",
-    color: "رصاصي",
+    color: "بيضاء",
     phone: "01XXXXXXXXX"
   },
   {
     id: 5,
     region: "أكتوبر",
-    plateNumber: "ز ق ذ 2516",
-    image: "/images/car-october.jpeg",
-    color: "أبيض",
+    plateNumber: "ز ع أ 2751",
+    image: "/images/car-regions.jpeg",
+    color: "حمراء",
     phone: "01XXXXXXXXX"
   },
   {
     id: 6,
     region: "الأقاليم",
-    plateNumber: "ز ع أ 2751",
-    image: "/images/car-regions.jpeg",
-    color: "أحمر",
+    plateNumber: "ز ق ذ 2516",
+    image: "/images/car-october.jpeg",
+    color: "بيضاء",
     phone: "01XXXXXXXXX"
   }
 ]
@@ -76,7 +76,7 @@ export function VehiclesInfo() {
               <p className="text-2xl font-bold text-gold mb-2">عزام</p>
               <div className="flex items-center gap-2 text-zinc-300">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">01XXXXXXXXX</span>
+                <span className="text-sm">01111108751</span>
               </div>
             </div>
           </div>
