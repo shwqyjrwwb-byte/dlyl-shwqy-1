@@ -42,7 +42,7 @@ const vehicles = [
     id: 5,
     region: "أكتوبر",
     plateNumber: "ز ع أ 2751",
-    image: "/images/car-regions.jpeg",
+    image: "/images/car-october.jpeg",
     color: "حمراء",
     phone: "01154422084"
   },
@@ -50,7 +50,7 @@ const vehicles = [
     id: 6,
     region: "الأقاليم",
     plateNumber: "ز ق ذ 2516",
-    image: "/images/car-october.jpeg",
+    image: "/images/car-regions.jpeg",
     color: "بيضاء",
     phone: "01272705524"
   }
