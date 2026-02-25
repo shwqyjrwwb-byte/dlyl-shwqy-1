@@ -1,17 +1,48 @@
+"use client"
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageHeader } from "@/components/page-header"
-import { Settings, Users, Building2, FileText, FileCheck } from "lucide-react"
+import { Settings, Users, Building2, FileText, FileCheck, LogOut, ArrowRight } from "lucide-react"
 import { ContactsAdmin } from "@/components/admin/contacts-admin"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { AdminAuthCheck } from "@/components/admin-auth-check"
+import { useRouter } from "next/navigation"
 
-export default function AdminPage() {
+function AdminContent() {
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminLoggedIn")
+    localStorage.removeItem("adminLoginTime")
+    router.push("/admin/login")
+  }
+
   return (
     <main className="min-h-screen bg-background" dir="rtl">
       <PageHeader title="لوحة التحكم" description="إدارة المحتوى والموظفين" icon={Settings} />
 
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Header Buttons */}
+          <div className="flex items-center justify-between mb-6">
+            <Link href="/">
+              <Button variant="outline" className="gap-2">
+                <ArrowRight className="w-5 h-5" />
+                رجوع للصفحة الرئيسية
+              </Button>
+            </Link>
+
+            <Button 
+              variant="destructive" 
+              onClick={handleLogout}
+              className="gap-2"
+            >
+              <LogOut className="w-5 h-5" />
+              تسجيل الخروج
+            </Button>
+          </div>
+
           {/* Quick Actions */}
           <div className="mb-8 grid md:grid-cols-3 gap-4">
             <Link href="/admin/work-permits">
@@ -56,5 +87,13 @@ export default function AdminPage() {
         </div>
       </section>
     </main>
+  )
+}
+
+export default function AdminPage() {
+  return (
+    <AdminAuthCheck>
+      <AdminContent />
+    </AdminAuthCheck>
   )
 }

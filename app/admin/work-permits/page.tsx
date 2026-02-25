@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { 
   CheckCircle, XCircle, Clock, FileText, User, MapPin, 
-  Calendar, Phone, Eye, Download, Printer 
+  Calendar, Phone, Eye, Download, Printer, ArrowRight 
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { AdminAuthCheck } from "@/components/admin-auth-check"
 
 interface Worker {
   name: string
@@ -88,10 +90,18 @@ export default function WorkPermitsAdminPage() {
   const filteredPermits = permits.filter(p => filter === "all" || p.status === filter)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
+    <AdminAuthCheck>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header with back button */}
         <div className="mb-8">
+          <Link href="/admin">
+            <Button variant="outline" className="gap-2 mb-4 bg-white hover:bg-gray-100 shadow-lg">
+              <ArrowRight className="w-5 h-5" />
+              رجوع للوحة التحكم
+            </Button>
+          </Link>
+          
           <h1 className="text-4xl font-black text-gray-900 mb-3">إدارة تصاريح الأعمال</h1>
           <p className="text-lg text-gray-600">مراجعة والموافقة على طلبات التصاريح</p>
         </div>
@@ -388,5 +398,6 @@ export default function WorkPermitsAdminPage() {
         )}
       </div>
     </div>
+    </AdminAuthCheck>
   )
 }
