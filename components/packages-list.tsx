@@ -7,17 +7,19 @@ import { Button } from "@/components/ui/button"
 import { Star, Crown, Eye, ZoomIn, ZoomOut, RotateCcw } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
-// الباقات مرتبة من الأقل للأعلى
+// الباقات مرتبة من الأقل للأعلى بتصميم احترافي فاخر
 const packages = [
   {
     id: "economic",
     name: "ECONOMIC PACKAGE",
     nameAr: "الباقة الاقتصادية",
-    color: "bg-gradient-to-r from-cyan-500 to-blue-400",
-    borderColor: "border-cyan-400",
-    textColor: "text-cyan-600",
-    bgColor: "bg-gradient-to-br from-cyan-50 to-blue-50",
+    color: "bg-gradient-to-br from-gray-400 via-gray-500 to-gray-600",
+    borderColor: "border-gray-400",
+    textColor: "text-gray-800",
+    bgColor: "bg-gradient-to-br from-gray-50 via-white to-gray-100",
+    glowColor: "shadow-gray-400/50",
     order: 1,
+    icon: "💼",
     image: "/images/package-economic-details.jpg",
     detailImage: "/images/package-economic-details.jpg",
     description: "باقة اقتصادية مناسبة للميزانيات المحدودة",
@@ -26,52 +28,28 @@ const packages = [
     id: "medium",
     name: "MEDIUM PACKAGE",
     nameAr: "الباقة المتوسطة",
-    color: "bg-gradient-to-r from-blue-500 to-indigo-500",
+    color: "bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600",
     borderColor: "border-blue-500",
-    textColor: "text-blue-700",
-    bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
+    textColor: "text-blue-900",
+    bgColor: "bg-gradient-to-br from-blue-50 via-white to-blue-100",
+    glowColor: "shadow-blue-500/50",
     order: 2,
+    icon: "🏠",
     image: "/images/package-medium-details.jpg",
     detailImage: "/images/package-medium-details.jpg",
     description: "باقة متوازنة بجودة ممتازة وسعر مناسب",
   },
   {
-    id: "elite",
-    name: "ELITE PACKAGE",
-    nameAr: "باقة إيليت",
-    color: "bg-gradient-to-r from-red-600 to-gray-600",
-    borderColor: "border-red-500",
-    textColor: "text-red-800",
-    bgColor: "bg-gradient-to-br from-red-50 to-gray-100",
-    premium: true,
-    order: 3,
-    image: "/images/package-elite-details.jpg",
-    detailImage: "/images/package-elite-details.jpg",
-    description: "باقة راقية للعملاء المميزين",
-  },
-  {
-    id: "luxury",
-    name: "LUXURY PACKAGE",
-    nameAr: "باقة لاكشري",
-    color: "bg-gradient-to-r from-yellow-600 to-amber-600",
-    borderColor: "border-yellow-500",
-    textColor: "text-yellow-800",
-    bgColor: "bg-gradient-to-br from-yellow-50 to-amber-50",
-    featured: true,
-    order: 4,
-    image: "/images/package-luxury-details.jpg",
-    detailImage: "/images/package-luxury-details.jpg",
-    description: "باقة فاخرة لمحبي الرقي والتميز",
-  },
-  {
     id: "vip",
     name: "VIP PACKAGE",
     nameAr: "باقة في آي بي",
-    color: "bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600",
-    borderColor: "border-yellow-600",
-    textColor: "text-yellow-900",
-    bgColor: "bg-gradient-to-br from-yellow-100 via-amber-100 to-yellow-50",
-    order: 5,
+    color: "bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600",
+    borderColor: "border-amber-500",
+    textColor: "text-amber-900",
+    bgColor: "bg-gradient-to-br from-amber-50 via-white to-amber-100",
+    glowColor: "shadow-amber-500/60",
+    order: 3,
+    icon: "⭐",
     image: "/images/package-vip-details.jpg",
     detailImage: "/images/package-vip-details.jpg",
     description: "باقة راقية بخامات عالية الجودة",
@@ -80,11 +58,13 @@ const packages = [
     id: "ultra-vip",
     name: "ULTRA VIP PACKAGE",
     nameAr: "باقة ألترا في آي بي",
-    color: "bg-gradient-to-r from-red-600 via-orange-600 to-red-700",
-    borderColor: "border-red-600",
-    textColor: "text-red-900",
-    bgColor: "bg-gradient-to-br from-red-100 via-orange-100 to-red-50",
-    order: 6,
+    color: "bg-gradient-to-br from-orange-400 via-orange-500 to-red-500",
+    borderColor: "border-orange-500",
+    textColor: "text-orange-900",
+    bgColor: "bg-gradient-to-br from-orange-50 via-white to-red-50",
+    glowColor: "shadow-orange-500/60",
+    order: 4,
+    icon: "💎",
     image: "/images/package-ultra-vip-details.jpg",
     detailImage: "/images/package-ultra-vip-details.jpg",
     description: "أعلى مستويات الفخامة والرقي",
@@ -93,14 +73,49 @@ const packages = [
     id: "super-ultra-vip",
     name: "SUPER ULTRA VIP",
     nameAr: "باقة سوبر ألترا في آي بي",
-    color: "bg-gradient-to-r from-green-500 via-emerald-500 to-green-600",
-    borderColor: "border-green-500",
-    textColor: "text-green-950",
-    bgColor: "bg-gradient-to-br from-green-100 via-emerald-100 to-green-50",
-    order: 7,
+    color: "bg-gradient-to-br from-red-500 via-rose-600 to-red-700",
+    borderColor: "border-red-600",
+    textColor: "text-red-900",
+    bgColor: "bg-gradient-to-br from-red-50 via-white to-rose-100",
+    glowColor: "shadow-red-600/70",
+    premium: true,
+    order: 5,
+    icon: "👑",
     image: "/images/package-super-ultra-vip-details.jpg",
     detailImage: "/images/package-super-ultra-vip-details.jpg",
     description: "الباقة الملكية - لا حدود للإبداع والفخامة",
+  },
+  {
+    id: "elite",
+    name: "ELITE PACKAGE",
+    nameAr: "باقة إيليت",
+    color: "bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700",
+    borderColor: "border-purple-600",
+    textColor: "text-purple-900",
+    bgColor: "bg-gradient-to-br from-purple-50 via-white to-indigo-100",
+    glowColor: "shadow-purple-600/70",
+    featured: true,
+    order: 6,
+    icon: "🌟",
+    image: "/images/package-elite-details.jpg",
+    detailImage: "/images/package-elite-details.jpg",
+    description: "باقة راقية للعملاء المميزين",
+  },
+  {
+    id: "luxury",
+    name: "LUXURY PACKAGE",
+    nameAr: "باقة لاكشري",
+    color: "bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600",
+    borderColor: "border-yellow-500",
+    textColor: "text-yellow-900",
+    bgColor: "bg-gradient-to-br from-yellow-50 via-white to-amber-100",
+    glowColor: "shadow-yellow-500/70",
+    featured: true,
+    order: 7,
+    icon: "✨",
+    image: "/images/package-luxury-details.jpg",
+    detailImage: "/images/package-luxury-details.jpg",
+    description: "باقة فاخرة لمحبي الرقي والتميز",
   },
 ]
 
@@ -166,52 +181,57 @@ export function PackagesList() {
           {packages.map((pkg) => (
             <Card
               key={pkg.id}
-              className={`group relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl border-3 ${pkg.borderColor} bg-white rounded-xl`}
+              className={`group relative overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:${pkg.glowColor} border-4 ${pkg.borderColor} bg-white rounded-2xl transform hover:-translate-y-2`}
               onClick={() => setSelectedPackage(pkg)}
             >
-              {/* رقم الترتيب */}
-              <div className={`absolute top-3 left-3 z-10 w-10 h-10 rounded-full ${pkg.color} flex items-center justify-center text-white font-bold text-lg shadow-lg border-2 border-white`}>
-                {pkg.order}
+              {/* تأثير الإضاءة */}
+              <div className={`absolute inset-0 ${pkg.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              
+              {/* رقم الترتيب مع أيقونة */}
+              <div className={`absolute top-4 left-4 z-10 w-14 h-14 rounded-2xl ${pkg.color} flex flex-col items-center justify-center text-white font-black text-xl shadow-2xl border-3 border-white backdrop-blur-sm`}>
+                <span className="text-2xl">{pkg.icon}</span>
+                <span className="text-xs font-bold mt-0.5">{pkg.order}</span>
               </div>
               
               {pkg.premium && (
-                <Badge className="absolute top-3 right-3 z-10 bg-emerald-600 text-white border-0 shadow-lg px-3 py-1">
-                  <Crown className="h-4 w-4 ml-1" />
+                <Badge className="absolute top-4 right-4 z-10 bg-gradient-to-r from-red-600 to-rose-700 text-white border-2 border-white shadow-2xl px-4 py-2 text-sm font-bold animate-pulse">
+                  <Crown className="h-5 w-5 ml-1" />
                   الباقة الملكية
                 </Badge>
               )}
-              {pkg.featured && (
-                <Badge className="absolute top-3 right-3 z-10 bg-yellow-600 text-white border-0 shadow-lg px-3 py-1">
-                  <Star className="h-4 w-4 ml-1" />
+              {pkg.featured && !pkg.premium && (
+                <Badge className="absolute top-4 right-4 z-10 bg-gradient-to-r from-yellow-500 to-amber-600 text-white border-2 border-white shadow-2xl px-4 py-2 text-sm font-bold">
+                  <Star className="h-5 w-5 ml-1" />
                   الأكثر طلباً
                 </Badge>
               )}
 
-              {/* صورة الباقة - تظهر كاملة */}
-              <div className="relative w-full overflow-hidden bg-white">
+              {/* صورة الباقة */}
+              <div className="relative w-full overflow-hidden bg-gradient-to-br from-gray-50 to-white">
                 <img
                   src={pkg.image || "/placeholder.svg"}
                   alt={pkg.nameAr}
-                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-auto object-contain transition-all duration-700 group-hover:scale-110 group-hover:brightness-105"
                   style={{ maxHeight: "500px" }}
                 />
                 
-                {/* طبقة hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                {/* طبقة hover فاخرة */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center`}>
                   <Button
                     variant="secondary"
-                    className="bg-white text-foreground hover:bg-white/90 shadow-xl px-6 py-3 text-base font-semibold"
+                    className={`bg-white text-foreground hover:bg-white/95 shadow-2xl px-8 py-4 text-lg font-bold rounded-xl transform scale-90 group-hover:scale-100 transition-transform duration-300 ${pkg.borderColor} border-2`}
                   >
-                    <Eye className="h-5 w-5 ml-2" />
-                    عرض تفاصيل الباقة
+                    <Eye className="h-6 w-6 ml-2" />
+                    عرض التفاصيل
                   </Button>
                 </div>
               </div>
               
-              {/* اسم الباقة */}
-              <div className={`p-4 text-center ${pkg.bgColor} border-t-2 ${pkg.borderColor}`}>
-                <h3 className={`font-bold text-lg ${pkg.textColor}`}>{pkg.nameAr}</h3>
-                <p className="text-xs text-muted-foreground mt-1">{pkg.description}</p>
+              {/* اسم الباقة بتصميم فاخر */}
+              <div className={`p-6 text-center ${pkg.bgColor} border-t-4 ${pkg.borderColor} relative overflow-hidden`}>
+                <div className={`absolute inset-0 ${pkg.color} opacity-5`}></div>
+                <h3 className={`font-black text-xl ${pkg.textColor} relative z-10 tracking-wide`}>{pkg.nameAr}</h3>
+                <p className={`text-sm ${pkg.textColor} opacity-70 mt-2 relative z-10 font-semibold`}>{pkg.description}</p>
               </div>
             </Card>
           ))}
