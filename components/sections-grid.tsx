@@ -19,7 +19,7 @@ const sections = [
     id: "specs",
     title: "المواصفات الفنية للأعمال",
     description: "السيراميك • السباكة • الكهرباء • النجارة • الجبس • الرخام",
-    image: "/images/icons/icon-specifications.png",
+    image: "/images/technical_specs_final_arabic_fix.png",
     href: "/specifications",
   },
   {
@@ -54,7 +54,7 @@ const sections = [
     id: "vehicles",
     title: "خط سير السيارات",
     description: "مناطق التحرك والقواعد",
-    image: "/images/technical_specs_final_arabic_fix.png",
+    image: "/images/icons/icon-specifications.png",
     href: "/vehicles",
   },
   {

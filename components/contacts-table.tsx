@@ -47,6 +47,7 @@ function getDepartmentIcon(departmentId: string) {
     "hr": Users,
     "inventory": Package,
     "warehouse": Package,
+    "storage": Package,
     "company-engineers": Building2,
     "inspections": FileText,
     "legal": FileSignature,
@@ -97,7 +98,8 @@ function getDepartmentImage(departmentId: string) {
     "social-media": "/images/social-media.png",
     "technical-office": "/images/technical-office.png",
     "telesales": "/images/telesales.png",
-    "warehouse": "/images/warehouse (2).png",
+    "warehouse": "/images/warehouse_workers_design.png",
+    "storage": "/images/storage_workers_design.png",
     "vehicles": "/images/Car.png",
   }
   
@@ -317,10 +319,54 @@ const departmentsData: Department[] = [
     manager: null,
     team: [
       {
-        name: "عمال المخازن",
-        position: "فريق المخازن",
-        phone: "",
-        image: "/images/warehouse_workers_design.png",
+        name: "شريف فوزي",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "احمد سامي",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "جمال غريب النواي",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "رجب اشرف",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "احمد علي",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "يوسف رشاد",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "حسان سعودي",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "كريم عصام",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "محمد السيد",
+        position: "عامل مخزن",
+        phone: "0000000000",
+      },
+      {
+        name: "عصام رمضان",
+        position: "عامل مخزن",
+        phone: "0000000000",
       },
     ],
   },
@@ -330,10 +376,104 @@ const departmentsData: Department[] = [
     manager: null,
     team: [
       {
-        name: "عمال التشوينات",
-        position: "فريق التشوينات",
-        phone: "",
-        image: "/images/storage_workers_design.png",
+        name: "رمضان عبده",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "محمد رجب مغاوري",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "محمد جمعه",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "علي محمد السيد عوض",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "جمال جمعه",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "عبد الرحمن عبد الرازق",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "محمود شعبان",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "اشرف جمال",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "عبد الحميد الجمالي",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "احمد ربيع",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "علي رجب",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "هاني حسين",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "محمد سلامه",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "فرجون احمد",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "عبد الرحمن احمد",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "كريم محمد",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "محمد وليد",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "احمد حمدان",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "جمال محمد",
+        position: "عامل تشوينات",
+        phone: "0000000000",
+      },
+      {
+        name: "هاله الغفير",
+        position: "حارس الفيلا",
+        phone: "0000000000",
       },
     ],
   },
