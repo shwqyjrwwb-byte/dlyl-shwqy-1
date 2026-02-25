@@ -188,8 +188,13 @@ const departmentsData: Department[] = [
     manager: null,
     team: [
       {
+        name: "م/ أحمد عبد الغني",
+        position: "مدير البنود",
+        phone: "",
+      },
+      {
         name: "م/ محمود عبد الغني (أفندينا)",
-        position: "مدير قسم الجبسن بورد والرخام",
+        position: "مدير قسم الجبس بورد والرخام",
         phone: "1278861380",
       },
       {
@@ -212,7 +217,7 @@ const departmentsData: Department[] = [
       },
       {
         name: "م/ محمد يوسف",
-        position: "مدير بند التكيفات والتوريدات",
+        position: "مدير التكيفات والتوريدات",
         phone: "1000766726",
         image: "/images/محمد يوسف.jpeg",
       },
@@ -245,12 +250,6 @@ const departmentsData: Department[] = [
         position: "HR",
         phone: "1222356988",
         image: "/images/d9-87-d8-a8-d9-87-20-d8-ae-d8-a7-d9-84-d8-af-20.jpeg",
-      },
-      {
-        name: "محمود غريب",
-        position: "HR - شؤون قانونية",
-        phone: "1143734095",
-        image: "/images/محمود غريب.jpeg",
       },
       {
         name: "عبد الرحمن فايز علي",
@@ -286,12 +285,6 @@ const departmentsData: Department[] = [
         position: "Producer",
         phone: "1112340773",
         image: "/images/anas-atef-new.jpeg",
-      },
-      {
-        name: "محمد عزب عرب محمد السيد",
-        position: "Social Media Specialist",
-        phone: "1032654499",
-        image: "/images/mohamed-azab-updated.jpeg",
       },
       {
         name: "محمود علاء انصاري",
@@ -744,7 +737,14 @@ const departmentsData: Department[] = [
       phone: "1112088704",
       image: "/images/dr-amr.jpeg",
     },
-    team: [],
+    team: [
+      {
+        name: "محمود غريب",
+        position: "شؤون قانونية",
+        phone: "1143734095",
+        image: "/images/محمود غريب.jpeg",
+      },
+    ],
   },
   {
     id: "accounting",
@@ -1099,6 +1099,12 @@ const departmentsData: Department[] = [
     },
     team: [
       {
+        name: "محمد عزب عرب محمد السيد",
+        position: "تلي سيلز",
+        phone: "1032654499",
+        image: "/images/mohamed-azab-updated.jpeg",
+      },
+      {
         name: "فاطمه راضي أحمد صادق",
         position: "تلي سيلز",
         phone: "1155402956",
@@ -1201,10 +1207,10 @@ const departmentsData: Department[] = [
   },
   {
     id: "marble-showroom",
-    name: "معرض الرخام والجبسن بورد",
+    name: "معرض الرخام والجبس بورد",
     manager: {
       name: "م/ محمود عبد الغني (أفندينا)",
-      position: "مدير قسم الرخام والجبسن بورد",
+      position: "مدير قسم الرخام والجبس بورد",
       phone: "1278861380",
     },
     team: [],
