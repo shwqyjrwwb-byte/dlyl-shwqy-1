@@ -1775,13 +1775,13 @@ export function ContactsTable() {
                       // إذا كان العنصر header للمنطقة
                       if (member.position === "region-header") {
                         return (
-                          <div key={idx} className="col-span-full my-6">
+                          <div key={idx} className="col-span-full my-8">
                             <div className="flex items-center gap-4">
-                              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                              <h4 className="text-2xl font-black text-primary px-6 py-3 bg-primary/10 rounded-2xl border-2 border-primary shadow-lg">
+                              <div className="flex-1 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-yellow-600"></div>
+                              <h4 className="text-3xl font-black text-yellow-500 px-8 py-4 bg-black rounded-2xl border-2 border-yellow-500 shadow-2xl shadow-yellow-500/50">
                                 {member.name.replace(/━/g, '').trim()}
                               </h4>
-                              <div className="flex-1 h-px bg-gradient-to-r from-primary via-transparent to-transparent"></div>
+                              <div className="flex-1 h-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-transparent"></div>
                             </div>
                           </div>
                         )

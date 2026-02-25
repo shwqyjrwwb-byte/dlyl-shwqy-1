@@ -6,6 +6,8 @@ import { GlobalSearch } from "@/components/global-search"
 import { PartnersMarquee } from "@/components/partners-marquee"
 import { AssistantBot } from "@/components/assistant-bot"
 import { PageBackgroundSlideshow } from "@/components/page-background-slideshow"
+import Link from "next/link"
+import { Settings } from "lucide-react"
 
 function PageContent() {
   return (
@@ -39,6 +41,18 @@ function PageContent() {
       </div>
       
       <div className="pt-24">
+        {/* زر لوحة التحكم - ثابت في الزاوية */}
+        <Link href="/admin">
+          <div className="fixed bottom-8 left-8 z-50 group">
+            <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black p-4 rounded-full shadow-2xl shadow-yellow-500/50 hover:shadow-yellow-500/70 transition-all duration-300 hover:scale-110 cursor-pointer">
+              <Settings className="w-8 h-8 animate-spin-slow" />
+            </div>
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-yellow-500 px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap border-2 border-yellow-500">
+              لوحة التحكم
+            </div>
+          </div>
+        </Link>
+
         <WelcomeAvatar />
         <HeroSection />
 
