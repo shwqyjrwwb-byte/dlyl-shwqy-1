@@ -189,7 +189,7 @@ const departmentsData: Department[] = [
     team: [
       {
         name: "م/ أحمد عبد الغني",
-        position: "مدير البنود",
+        position: "مدير بند توريدات الكهرباء",
         phone: "",
       },
       {
