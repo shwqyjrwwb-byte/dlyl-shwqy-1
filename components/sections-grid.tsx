@@ -75,7 +75,7 @@ const sections = [
     id: "work-permit",
     title: "تصريح أعمال",
     description: "طلب تصريح دخول ومباشرة أعمال تشطيبات",
-    image: "/images/icons/icon-contractors.png",
+    image: "/images/تصريح اعمال.png",
     href: "/work-permit",
   },
 ]

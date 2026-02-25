@@ -19,8 +19,8 @@ export default function WorkPermitPage() {
             </Button>
           </Link>
 
-          <Link href="/admin">
-            <Button className="gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-lg">
+          <Link href="/admin/work-permits/login">
+            <Button className="gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg">
               <Settings className="w-5 h-5" />
               لوحة التحكم
             </Button>
