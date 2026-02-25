@@ -624,7 +624,7 @@ export function PhasesTimeline() {
     <section className="py-8 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Phase Selector */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8" dir="rtl">
           <Button
             variant={selectedPhase === "phase1" ? "default" : "outline"}
             onClick={() => setSelectedPhase("phase1")}
