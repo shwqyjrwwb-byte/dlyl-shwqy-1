@@ -767,7 +767,7 @@ const departmentsData: Department[] = [
         name: "مي عصام عبد العزيز",
         position: "محاسبة - الإدارة المالية",
         phone: "1223925721",
-        image: "/images/d9-85-d9-87-d8-a7-20-d8-a7-d9-84-d9-85-d8-b1-d8-aa-d8-b6-d8-a7.jpeg",
+        image: "/images/مي عصام.jpeg",
       },
       {
         name: "خالد محي الدين عبد القادر",
