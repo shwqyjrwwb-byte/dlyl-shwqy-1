@@ -1,7 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageHeader } from "@/components/page-header"
-import { Settings, Users, Building2, FileText } from "lucide-react"
+import { Settings, Users, Building2, FileText, FileCheck } from "lucide-react"
 import { ContactsAdmin } from "@/components/admin/contacts-admin"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function AdminPage() {
   return (
@@ -10,6 +12,19 @@ export default function AdminPage() {
 
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Quick Actions */}
+          <div className="mb-8 grid md:grid-cols-3 gap-4">
+            <Link href="/admin/work-permits">
+              <Button className="w-full h-24 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white gap-3 text-lg shadow-lg">
+                <FileCheck className="w-8 h-8" />
+                <div className="text-right">
+                  <div className="font-bold">تصاريح الأعمال</div>
+                  <div className="text-sm text-blue-100">مراجعة والموافقة</div>
+                </div>
+              </Button>
+            </Link>
+          </div>
+
           <Tabs defaultValue="contacts" className="w-full">
             <TabsList className="bg-zinc-900 border border-zinc-800 mb-6">
               <TabsTrigger value="contacts" className="data-[state=active]:bg-gold data-[state=active]:text-black">

@@ -475,7 +475,12 @@ const departmentsData: Department[] = [
     name: "مهندسين الشركة",
     manager: null,
     team: [
-      // ═══════════════ منطقة أكتوبر ═══════════════
+      // منطقة أكتوبر
+      {
+        name: "━━━━━━━ منطقة أكتوبر ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "احمد حامد",
         position: "مدير منطقة أكتوبر",
@@ -518,7 +523,12 @@ const departmentsData: Department[] = [
         image: "/images/علي محمد (اكتوبر).jpeg",
       },
       
-      // ═══════════════ منطقة القاهرة الجديدة ═══════════════
+      // منطقة القاهرة الجديدة
+      {
+        name: "━━━━━━━ منطقة القاهرة الجديدة ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "مصطفي كمال",
         position: "مدير منطقة القاهرة الجديدة",
@@ -544,7 +554,12 @@ const departmentsData: Department[] = [
         image: "/images/عبدالرحمن محمد.jpeg",
       },
       
-      // ═══════════════ منطقة العاصمة الإدارية ═══════════════
+      // منطقة العاصمة الإدارية
+      {
+        name: "━━━━━━━ منطقة العاصمة الإدارية ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "احمد العزبي",
         position: "مدير منطقة العاصمة الإدارية",
@@ -576,7 +591,12 @@ const departmentsData: Department[] = [
         image: "/images/محمد ماهر (العاصمه).jpeg",
       },
       
-      // ═══════════════ منطقة التجمع الخامس ═══════════════
+      // منطقة التجمع الخامس
+      {
+        name: "━━━━━━━ منطقة التجمع الخامس ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "محمد مدحت",
         position: "مدير منطقة التجمع الخامس",
@@ -620,7 +640,12 @@ const departmentsData: Department[] = [
         image: "/images/محمد غنام.jpeg",
       },
       
-      // ═══════════════ منطقة وسط ═══════════════
+      // منطقة وسط
+      {
+        name: "━━━━━━━ منطقة وسط ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "احمد بسيوني",
         position: "مدير منطقة وسط",
@@ -652,7 +677,12 @@ const departmentsData: Department[] = [
         image: "/images/بيشوي.jpeg",
       },
       
-      // ═══════════════ منطقة الأقاليم ═══════════════
+      // منطقة الأقاليم
+      {
+        name: "━━━━━━━ منطقة الأقاليم ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "محمد صلاح",
         position: "مدير منطقة الأقاليم",
@@ -702,7 +732,12 @@ const departmentsData: Department[] = [
         image: "/images/محمود ابو زيد.jpeg",
       },
       
-      // ═══════════════ قسم الجودة ═══════════════
+      // قسم الجودة
+      {
+        name: "━━━━━━━ قسم الجودة ━━━━━━━",
+        position: "region-header",
+        phone: "",
+      },
       {
         name: "محمود اسماعيل",
         position: "مدير الجودة",
@@ -1736,9 +1771,24 @@ export function ContactsTable() {
                     أعضاء الفريق
                   </h3>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {currentDepartment.team.map((member, idx) => (
-                      <ContactCard key={idx} member={member} onClick={() => setSelectedMember(member)} />
-                    ))}
+                    {currentDepartment.team.map((member, idx) => {
+                      // إذا كان العنصر header للمنطقة
+                      if (member.position === "region-header") {
+                        return (
+                          <div key={idx} className="col-span-full my-6">
+                            <div className="flex items-center gap-4">
+                              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                              <h4 className="text-2xl font-black text-primary px-6 py-3 bg-primary/10 rounded-2xl border-2 border-primary shadow-lg">
+                                {member.name.replace(/━/g, '').trim()}
+                              </h4>
+                              <div className="flex-1 h-px bg-gradient-to-r from-primary via-transparent to-transparent"></div>
+                            </div>
+                          </div>
+                        )
+                      }
+                      // عرض البطاقة العادية
+                      return <ContactCard key={idx} member={member} onClick={() => setSelectedMember(member)} />
+                    })}
                   </div>
                 </div>
               )}

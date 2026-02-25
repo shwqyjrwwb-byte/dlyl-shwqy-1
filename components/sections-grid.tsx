@@ -71,6 +71,13 @@ const sections = [
     image: "/images/icons/icon-specifications (3).png",
     href: "/technical-office",
   },
+  {
+    id: "work-permit",
+    title: "تصريح أعمال",
+    description: "طلب تصريح دخول ومباشرة أعمال تشطيبات",
+    image: "/images/icons/icon-contractors.png",
+    href: "/work-permit",
+  },
 ]
 
 export function SectionsGrid() {
