@@ -26,7 +26,7 @@ export function SectionCard({ section }: SectionCardProps) {
             src={section.image || "/placeholder.svg"} 
             alt={section.title}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-contain group-hover:scale-110 transition-transform duration-500"
             priority={section.id === "contacts" || section.id === "packages"}
           />
         </div>
