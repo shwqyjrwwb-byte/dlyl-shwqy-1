@@ -376,9 +376,9 @@ const departmentsData: Department[] = [
     manager: null,
     team: [
       {
-        name: "رمضان عبده",
+        name: "رمضان جمعه",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01115229595",
       },
       {
         name: "محمد رجب مغاوري",
@@ -391,19 +391,19 @@ const departmentsData: Department[] = [
         phone: "0000000000",
       },
       {
-        name: "علي محمد السيد عوض",
+        name: "علي محمد الاسيوطي",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01044560929",
       },
       {
         name: "جمال جمعه",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01148194438",
       },
       {
         name: "عبد الرحمن عبد الرازق",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01151172639",
       },
       {
         name: "محمود شعبان",
@@ -413,7 +413,7 @@ const departmentsData: Department[] = [
       {
         name: "اشرف جمال",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01100088077",
       },
       {
         name: "عبد الحميد الجمالي",
@@ -448,7 +448,7 @@ const departmentsData: Department[] = [
       {
         name: "عبد الرحمن احمد",
         position: "عامل تشوينات",
-        phone: "0000000000",
+        phone: "01144990846",
       },
       {
         name: "كريم محمد",
