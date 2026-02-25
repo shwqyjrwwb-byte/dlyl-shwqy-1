@@ -475,10 +475,10 @@ const departmentsData: Department[] = [
     name: "مهندسين الشركة",
     manager: null,
     team: [
-      // منطقة أكتوبر
+      // ═══════════════ منطقة أكتوبر ═══════════════
       {
         name: "احمد حامد",
-        position: "مهندس - أكتوبر",
+        position: "مدير منطقة أكتوبر",
         phone: "1113426815",
         image: "/images/احمد حامد.jpeg",
       },
@@ -517,10 +517,11 @@ const departmentsData: Department[] = [
         phone: "1003997103",
         image: "/images/علي محمد (اكتوبر).jpeg",
       },
-      // منطقة القاهرة الجديدة
+      
+      // ═══════════════ منطقة القاهرة الجديدة ═══════════════
       {
         name: "مصطفي كمال",
-        position: "مهندس - القاهرة الجديدة",
+        position: "مدير منطقة القاهرة الجديدة",
         phone: "1065589130",
         image: "/images/مصطفي كمال (القاهره الجديده).jpeg",
       },
@@ -529,12 +530,6 @@ const departmentsData: Department[] = [
         position: "مهندس - القاهرة الجديدة",
         phone: "1044498820",
         image: "/images/مصطفي عيد.jpeg",
-      },
-      {
-        name: "مازن محمد",
-        position: "مهندس - القاهرة الجديدة",
-        phone: "1159259368",
-        image: "/images/مازن )المستقبل).jpeg",
       },
       {
         name: "محمد جمال",
@@ -548,10 +543,11 @@ const departmentsData: Department[] = [
         phone: "1090159043",
         image: "/images/عبدالرحمن محمد.jpeg",
       },
-      // منطقة العاصمة
+      
+      // ═══════════════ منطقة العاصمة الإدارية ═══════════════
       {
         name: "احمد العزبي",
-        position: "مهندس - العاصمة الإدارية",
+        position: "مدير منطقة العاصمة الإدارية",
         phone: "1000273742",
         image: "/images/احمد العزبي.jpeg",
       },
@@ -579,10 +575,11 @@ const departmentsData: Department[] = [
         phone: "1147629354",
         image: "/images/محمد ماهر (العاصمه).jpeg",
       },
-      // منطقة التجمع
+      
+      // ═══════════════ منطقة التجمع الخامس ═══════════════
       {
         name: "محمد مدحت",
-        position: "مهندس - التجمع الخامس",
+        position: "مدير منطقة التجمع الخامس",
         phone: "1554593094",
         image: "/images/محمد مدحت.jpeg",
       },
@@ -622,10 +619,11 @@ const departmentsData: Department[] = [
         phone: "1200003089",
         image: "/images/محمد غنام.jpeg",
       },
-      // منطقة وسط
+      
+      // ═══════════════ منطقة وسط ═══════════════
       {
         name: "احمد بسيوني",
-        position: "مهندس - وسط",
+        position: "مدير منطقة وسط",
         phone: "1126221382",
         image: "/images/احمد بسيوني.jpeg",
       },
@@ -653,10 +651,11 @@ const departmentsData: Department[] = [
         phone: "1147948825",
         image: "/images/بيشوي.jpeg",
       },
-      // منطقة أقاليم
+      
+      // ═══════════════ منطقة الأقاليم ═══════════════
       {
         name: "محمد صلاح",
-        position: "مهندس - الأقاليم",
+        position: "مدير منطقة الأقاليم",
         phone: "1128416769",
         image: "/images/محمد صلاح.jpeg",
       },
@@ -702,10 +701,11 @@ const departmentsData: Department[] = [
         phone: "1140479394",
         image: "/images/محمود ابو زيد.jpeg",
       },
-      // الجودة
+      
+      // ═══════════════ قسم الجودة ═══════════════
       {
         name: "محمود اسماعيل",
-        position: "مهندس جودة",
+        position: "مدير الجودة",
         phone: "1113121549",
         image: "/images/محمود اسماعيل.jpeg",
       },
