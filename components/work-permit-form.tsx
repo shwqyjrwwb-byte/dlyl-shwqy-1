@@ -78,9 +78,9 @@ export function WorkPermitForm() {
 
       if (response.ok) {
         setSubmitSuccess(true)
-        // إعادة تعيين النموذج
+        // التوجه تلقائياً للوحة التحكم بعد 2 ثانية
         setTimeout(() => {
-          window.location.reload()
+          window.location.href = "/admin/work-permits/login"
         }, 2000)
       }
     } catch (error) {
@@ -96,7 +96,10 @@ export function WorkPermitForm() {
       <Card className="p-12 text-center bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 shadow-2xl">
         <CheckCircle className="w-24 h-24 text-green-600 mx-auto mb-6 animate-bounce" />
         <h2 className="text-4xl font-black text-green-900 mb-4">تم إرسال الطلب بنجاح!</h2>
-        <p className="text-xl text-green-700 font-bold">سيتم مراجعة طلبك والرد عليك في أقرب وقت</p>
+        <p className="text-xl text-green-700 font-bold mb-4">سيتم مراجعة طلبك والرد عليك في أقرب وقت</p>
+        <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-4 mt-6">
+          <p className="text-lg text-blue-800 font-black">جاري التوجيه إلى لوحة التحكم...</p>
+        </div>
       </Card>
     )
   }
@@ -131,7 +134,7 @@ export function WorkPermitForm() {
                 required
                 value={formData.startDate}
                 onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -146,7 +149,7 @@ export function WorkPermitForm() {
                 required
                 value={formData.endDate}
                 onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -162,7 +165,7 @@ export function WorkPermitForm() {
                 placeholder="مثال: كمبوند النرجس - الشيخ زايد"
                 value={formData.siteName}
                 onChange={(e) => setFormData({ ...formData, siteName: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -177,7 +180,7 @@ export function WorkPermitForm() {
                 placeholder="مثال: SZ-2024-001"
                 value={formData.siteCode}
                 onChange={(e) => setFormData({ ...formData, siteCode: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -192,7 +195,7 @@ export function WorkPermitForm() {
                 placeholder="مثال: الشيخ زايد"
                 value={formData.region}
                 onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -207,7 +210,7 @@ export function WorkPermitForm() {
                 placeholder="مثال: المرحلة الأولى - التأسيس"
                 value={formData.workPhase}
                 onChange={(e) => setFormData({ ...formData, workPhase: e.target.value })}
-                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+                className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
           </div>
@@ -235,7 +238,7 @@ export function WorkPermitForm() {
                   placeholder="الاسم الكامل للمقاول"
                   value={formData.contractorName}
                   onChange={(e) => setFormData({ ...formData, contractorName: e.target.value })}
-                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-green-500 bg-white"
+                  className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-green-500 bg-white"
                 />
               </div>
 
@@ -302,7 +305,7 @@ export function WorkPermitForm() {
                         placeholder="الاسم الكامل"
                         value={worker.name}
                         onChange={(e) => handleWorkerChange(index, "name", e.target.value)}
-                        className="h-12 text-base font-bold border-2 border-gray-300"
+                        className="h-12 text-base font-black text-black placeholder:text-gray-400 border-2 border-gray-300"
                       />
                     </div>
                     <div>
@@ -371,7 +374,7 @@ export function WorkPermitForm() {
                   placeholder="الاسم الكامل للمهندس"
                   value={formData.engineerName}
                   onChange={(e) => setFormData({ ...formData, engineerName: e.target.value })}
-                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-purple-500 bg-white"
+                  className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-purple-500 bg-white"
                 />
               </div>
 
@@ -386,7 +389,7 @@ export function WorkPermitForm() {
                   placeholder="01xxxxxxxxx"
                   value={formData.engineerPhone}
                   onChange={(e) => setFormData({ ...formData, engineerPhone: e.target.value })}
-                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-purple-500 bg-white"
+                  className="h-14 text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-purple-500 bg-white"
                 />
               </div>
             </div>
@@ -403,7 +406,7 @@ export function WorkPermitForm() {
             placeholder="أي ملاحظات أو تفاصيل إضافية تود إضافتها..."
             value={formData.notes}
             onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-            className="min-h-[120px] text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
+            className="min-h-[120px] text-lg font-black text-black placeholder:text-gray-400 border-2 border-gray-300 focus:border-blue-500"
           />
         </div>
 
