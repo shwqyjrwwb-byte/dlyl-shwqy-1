@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Calendar, Upload, User, MapPin, FileText, AlertCircle, CheckCircle } from "lucide-react"
+import { Calendar, Upload, User, MapPin, FileText, AlertCircle, CheckCircle, X, Plus } from "lucide-react"
 
 interface WorkerData {
   name: string
@@ -93,34 +93,36 @@ export function WorkPermitForm() {
 
   if (submitSuccess) {
     return (
-      <Card className="p-12 text-center bg-green-50 border-green-200">
-        <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-6" />
-        <h2 className="text-3xl font-bold text-green-900 mb-3">تم إرسال الطلب بنجاح!</h2>
-        <p className="text-lg text-green-700">سيتم مراجعة طلبك والرد عليك في أقرب وقت</p>
+      <Card className="p-12 text-center bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 shadow-2xl">
+        <CheckCircle className="w-24 h-24 text-green-600 mx-auto mb-6 animate-bounce" />
+        <h2 className="text-4xl font-black text-green-900 mb-4">تم إرسال الطلب بنجاح!</h2>
+        <p className="text-xl text-green-700 font-bold">سيتم مراجعة طلبك والرد عليك في أقرب وقت</p>
       </Card>
     )
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="p-8 shadow-2xl border-2">
+      <Card className="p-10 shadow-2xl border-4 border-blue-200 bg-white">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl mb-8 -mx-8 -mt-8">
-          <h2 className="text-2xl font-black text-center">تصريح دخول ومباشرة أعمال تشطيبات</h2>
-          <p className="text-center text-blue-100 mt-2">بناءً على العقد المبرم بيننا، يتم بموجب هذا منحكم التصريح لمباشرة الأعمال الموضحة أدناه</p>
+        <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 text-white p-8 rounded-2xl mb-10 -mx-10 -mt-10 shadow-xl">
+          <h2 className="text-3xl font-black text-center mb-3">تصريح دخول ومباشرة أعمال تشطيبات</h2>
+          <p className="text-center text-blue-100 text-lg font-semibold">بناءً على العقد المبرم بيننا، يتم بموجب هذا منحكم التصريح لمباشرة الأعمال الموضحة أدناه</p>
         </div>
 
         {/* القسم 1: بيانات الموقع والعمل */}
-        <div className="mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2 border-b-2 border-blue-600 pb-2">
-            <FileText className="w-6 h-6 text-blue-600" />
-            1. بيانات الموقع والعمل
-          </h3>
+        <div className="mb-10">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl mb-6 shadow-lg">
+            <h3 className="text-2xl font-black flex items-center gap-3">
+              <FileText className="w-7 h-7" />
+              القسم الأول: بيانات الموقع والعمل
+            </h3>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="startDate" className="text-base font-semibold flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="startDate" className="text-lg font-black flex items-center gap-2 mb-3 text-gray-800">
+                <Calendar className="w-5 h-5 text-blue-600" />
                 تاريخ بداية الأعمال
               </Label>
               <Input
@@ -129,13 +131,13 @@ export function WorkPermitForm() {
                 required
                 value={formData.startDate}
                 onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <Label htmlFor="endDate" className="text-base font-semibold flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="endDate" className="text-lg font-black flex items-center gap-2 mb-3 text-gray-800">
+                <Calendar className="w-5 h-5 text-blue-600" />
                 تاريخ انتهاء الأعمال
               </Label>
               <Input
@@ -144,58 +146,58 @@ export function WorkPermitForm() {
                 required
                 value={formData.endDate}
                 onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <Label htmlFor="siteName" className="text-base font-semibold flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="siteName" className="text-lg font-black flex items-center gap-2 mb-3 text-gray-800">
+                <MapPin className="w-5 h-5 text-blue-600" />
                 اسم الموقع
               </Label>
               <Input
                 id="siteName"
                 type="text"
                 required
-                placeholder="أدخل اسم الموقع"
+                placeholder="مثال: كمبوند النرجس - الشيخ زايد"
                 value={formData.siteName}
                 onChange={(e) => setFormData({ ...formData, siteName: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <Label htmlFor="siteCode" className="text-base font-semibold">
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="siteCode" className="text-lg font-black mb-3 text-gray-800 block">
                 كود الموقع
               </Label>
               <Input
                 id="siteCode"
                 type="text"
                 required
-                placeholder="أدخل كود الموقع"
+                placeholder="مثال: SZ-2024-001"
                 value={formData.siteCode}
                 onChange={(e) => setFormData({ ...formData, siteCode: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <Label htmlFor="region" className="text-base font-semibold">
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="region" className="text-lg font-black mb-3 text-gray-800 block">
                 المنطقة
               </Label>
               <Input
                 id="region"
                 type="text"
                 required
-                placeholder="أدخل المنطقة"
+                placeholder="مثال: الشيخ زايد"
                 value={formData.region}
                 onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <Label htmlFor="workPhase" className="text-base font-semibold">
+            <div className="bg-gray-50 p-5 rounded-xl border-2 border-gray-200">
+              <Label htmlFor="workPhase" className="text-lg font-black mb-3 text-gray-800 block">
                 مرحلة العمل
               </Label>
               <Input
@@ -205,183 +207,203 @@ export function WorkPermitForm() {
                 placeholder="مثال: المرحلة الأولى - التأسيس"
                 value={formData.workPhase}
                 onChange={(e) => setFormData({ ...formData, workPhase: e.target.value })}
-                className="mt-2 h-12 text-lg"
+                className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
               />
             </div>
           </div>
         </div>
 
         {/* القسم 2: بيانات المقاول */}
-        <div className="mb-8 bg-gray-50 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2 border-b-2 border-green-600 pb-2">
-            <User className="w-6 h-6 text-green-600" />
-            2. بيانات المقاول الرئيسي
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="contractorName" className="text-base font-semibold">
-                اسم المقاول
-              </Label>
-              <Input
-                id="contractorName"
-                type="text"
-                required
-                placeholder="أدخل اسم المقاول"
-                value={formData.contractorName}
-                onChange={(e) => setFormData({ ...formData, contractorName: e.target.value })}
-                className="mt-2 h-12 text-lg"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="contractorId" className="text-base font-semibold flex items-center gap-2">
-                <Upload className="w-4 h-4" />
-                صورة الرقم القومي للمقاول
-              </Label>
-              <Input
-                id="contractorId"
-                type="file"
-                required
-                accept="image/*"
-                onChange={(e) => setFormData({ ...formData, contractorNationalId: e.target.files?.[0] || null })}
-                className="mt-2 h-12"
-              />
-            </div>
+        <div className="mb-10">
+          <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-4 rounded-xl mb-6 shadow-lg">
+            <h3 className="text-2xl font-black flex items-center gap-3">
+              <User className="w-7 h-7" />
+              القسم الثاني: بيانات المقاول الرئيسي
+            </h3>
           </div>
+          
+          <div className="bg-green-50 p-6 rounded-xl border-2 border-green-200">
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <Label htmlFor="contractorName" className="text-lg font-black mb-3 text-gray-800 block">
+                  اسم المقاول الرئيسي
+                </Label>
+                <Input
+                  id="contractorName"
+                  type="text"
+                  required
+                  placeholder="الاسم الكامل للمقاول"
+                  value={formData.contractorName}
+                  onChange={(e) => setFormData({ ...formData, contractorName: e.target.value })}
+                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-green-500 bg-white"
+                />
+              </div>
 
-          {/* العمال المرافقين */}
-          <div className="mt-6">
-            <div className="flex items-center justify-between mb-4">
-              <Label className="text-base font-semibold">العمال المرافقين (اختياري - حتى 9 عمال)</Label>
-              <Button
-                type="button"
-                onClick={handleAddWorker}
-                disabled={workers.length >= 9}
-                variant="outline"
-                size="sm"
-                className="gap-2"
-              >
-                <User className="w-4 h-4" />
-                إضافة عامل
-              </Button>
+              <div>
+                <Label htmlFor="contractorId" className="text-lg font-black flex items-center gap-2 mb-3 text-gray-800">
+                  <Upload className="w-5 h-5 text-green-600" />
+                  صورة الرقم القومي للمقاول
+                </Label>
+                <Input
+                  id="contractorId"
+                  type="file"
+                  required
+                  accept="image/*"
+                  onChange={(e) => setFormData({ ...formData, contractorNationalId: e.target.files?.[0] || null })}
+                  className="h-14 text-base font-bold border-2 border-gray-300 focus:border-green-500 bg-white"
+                />
+              </div>
             </div>
 
-            {workers.map((worker, index) => (
-              <div key={index} className="grid md:grid-cols-3 gap-4 mb-4 p-4 bg-white rounded-lg border">
-                <div className="md:col-span-1">
-                  <Label className="text-sm">اسم العامل {index + 1}</Label>
-                  <Input
-                    type="text"
-                    required
-                    placeholder="أدخل الاسم"
-                    value={worker.name}
-                    onChange={(e) => handleWorkerChange(index, "name", e.target.value)}
-                    className="mt-1"
-                  />
-                </div>
-                <div className="md:col-span-1">
-                  <Label className="text-sm">صورة الرقم القومي</Label>
-                  <Input
-                    type="file"
-                    required
-                    accept="image/*"
-                    onChange={(e) => handleWorkerChange(index, "nationalIdImage", e.target.files?.[0] as File)}
-                    className="mt-1"
-                  />
-                </div>
-                <div className="flex items-end">
-                  <Button
-                    type="button"
-                    onClick={() => handleRemoveWorker(index)}
-                    variant="destructive"
-                    size="sm"
-                    className="w-full"
-                  >
-                    حذف
-                  </Button>
-                </div>
+            {/* العمال المرافقين */}
+            <div className="mt-8 pt-8 border-t-2 border-green-300">
+              <div className="flex items-center justify-between mb-6">
+                <Label className="text-xl font-black text-gray-800">العمال المرافقين (اختياري - حتى 9 عمال)</Label>
+                <Button
+                  type="button"
+                  onClick={handleAddWorker}
+                  disabled={workers.length >= 9}
+                  className="gap-2 bg-green-600 hover:bg-green-700 text-white font-bold h-12 px-6"
+                >
+                  <Plus className="w-5 h-5" />
+                  إضافة عامل
+                </Button>
               </div>
-            ))}
+
+              {workers.length === 0 && (
+                <div className="text-center py-8 bg-white rounded-xl border-2 border-dashed border-green-300">
+                  <User className="w-16 h-16 text-green-300 mx-auto mb-3" />
+                  <p className="text-gray-500 text-lg font-bold">لم يتم إضافة عمال بعد</p>
+                  <p className="text-gray-400 text-sm">اضغط على "إضافة عامل" لإضافة عمال مرافقين</p>
+                </div>
+              )}
+
+              {workers.map((worker, index) => (
+                <div key={index} className="bg-white p-5 rounded-xl border-2 border-green-200 mb-4 shadow-md">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-black text-gray-800">العامل رقم {index + 1}</h4>
+                    <Button
+                      type="button"
+                      onClick={() => handleRemoveWorker(index)}
+                      variant="destructive"
+                      size="sm"
+                      className="gap-2 font-bold"
+                    >
+                      <X className="w-4 h-4" />
+                      حذف
+                    </Button>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-base font-bold mb-2 block text-gray-700">اسم العامل</Label>
+                      <Input
+                        type="text"
+                        required
+                        placeholder="الاسم الكامل"
+                        value={worker.name}
+                        onChange={(e) => handleWorkerChange(index, "name", e.target.value)}
+                        className="h-12 text-base font-bold border-2 border-gray-300"
+                      />
+                    </div>
+                    <div>
+                      <Label className="text-base font-bold mb-2 block text-gray-700">صورة الرقم القومي</Label>
+                      <Input
+                        type="file"
+                        required
+                        accept="image/*"
+                        onChange={(e) => handleWorkerChange(index, "nationalIdImage", e.target.files?.[0] as File)}
+                        className="h-12 text-sm font-bold border-2 border-gray-300"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* القسم 3: الشروط والالتزامات */}
-        <div className="mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2 border-b-2 border-red-600 pb-2">
-            <AlertCircle className="w-6 h-6 text-red-600" />
-            3. الشروط والالتزامات
-          </h3>
+        <div className="mb-10">
+          <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-4 rounded-xl mb-6 shadow-lg">
+            <h3 className="text-2xl font-black flex items-center gap-3">
+              <AlertCircle className="w-7 h-7" />
+              القسم الثالث: الشروط والالتزامات
+            </h3>
+          </div>
           
-          <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6">
-            <ul className="space-y-3 text-gray-800">
-              <li className="flex items-start gap-3">
-                <span className="text-red-600 font-bold text-xl">•</span>
-                <span className="text-base">مراعاة اشتراطات الكمبوند</span>
+          <div className="bg-red-50 border-4 border-red-300 rounded-2xl p-8 shadow-lg">
+            <ul className="space-y-5">
+              <li className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md">
+                <span className="text-red-600 font-black text-3xl flex-shrink-0">1</span>
+                <span className="text-lg font-bold text-gray-800">مراعاة اشتراطات الكمبوند والالتزام بجميع القواعد المعمول بها</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-red-600 font-bold text-xl">•</span>
-                <span className="text-base">الالتزام التام بمعايير السلامة والصحة المهنية</span>
+              <li className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md">
+                <span className="text-red-600 font-black text-3xl flex-shrink-0">2</span>
+                <span className="text-lg font-bold text-gray-800">الالتزام التام بمعايير السلامة والصحة المهنية في جميع الأوقات</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-red-600 font-bold text-xl">•</span>
-                <span className="text-base">المقاول مسؤول عن ترحيل المخلفات الناتجة عن أعماله إلى الأماكن المخصصة يومياً</span>
+              <li className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md">
+                <span className="text-red-600 font-black text-3xl flex-shrink-0">3</span>
+                <span className="text-lg font-bold text-gray-800">المقاول مسؤول عن ترحيل المخلفات الناتجة عن أعماله إلى الأماكن المخصصة يومياً</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* القسم 4: مسؤول الموقع */}
-        <div className="mb-8 bg-blue-50 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2 border-b-2 border-blue-600 pb-2">
-            <User className="w-6 h-6 text-blue-600" />
-            4. مسؤول الموقع من طرفنا
-          </h3>
+        <div className="mb-10">
+          <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-4 rounded-xl mb-6 shadow-lg">
+            <h3 className="text-2xl font-black flex items-center gap-3">
+              <User className="w-7 h-7" />
+              القسم الرابع: مسؤول الموقع من طرفنا
+            </h3>
+          </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="engineerName" className="text-base font-semibold">
-                اسم المهندس المسؤول
-              </Label>
-              <Input
-                id="engineerName"
-                type="text"
-                required
-                placeholder="أدخل اسم المهندس"
-                value={formData.engineerName}
-                onChange={(e) => setFormData({ ...formData, engineerName: e.target.value })}
-                className="mt-2 h-12 text-lg"
-              />
-            </div>
+          <div className="bg-purple-50 p-6 rounded-xl border-2 border-purple-200">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="engineerName" className="text-lg font-black mb-3 text-gray-800 block">
+                  اسم المهندس المسؤول
+                </Label>
+                <Input
+                  id="engineerName"
+                  type="text"
+                  required
+                  placeholder="الاسم الكامل للمهندس"
+                  value={formData.engineerName}
+                  onChange={(e) => setFormData({ ...formData, engineerName: e.target.value })}
+                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-purple-500 bg-white"
+                />
+              </div>
 
-            <div>
-              <Label htmlFor="engineerPhone" className="text-base font-semibold">
-                رقم التواصل
-              </Label>
-              <Input
-                id="engineerPhone"
-                type="tel"
-                required
-                placeholder="01xxxxxxxxx"
-                value={formData.engineerPhone}
-                onChange={(e) => setFormData({ ...formData, engineerPhone: e.target.value })}
-                className="mt-2 h-12 text-lg"
-              />
+              <div>
+                <Label htmlFor="engineerPhone" className="text-lg font-black mb-3 text-gray-800 block">
+                  رقم التواصل
+                </Label>
+                <Input
+                  id="engineerPhone"
+                  type="tel"
+                  required
+                  placeholder="01xxxxxxxxx"
+                  value={formData.engineerPhone}
+                  onChange={(e) => setFormData({ ...formData, engineerPhone: e.target.value })}
+                  className="h-14 text-lg font-bold border-2 border-gray-300 focus:border-purple-500 bg-white"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* ملاحظات إضافية */}
-        <div className="mb-8">
-          <Label htmlFor="notes" className="text-base font-semibold">
+        <div className="mb-10">
+          <Label htmlFor="notes" className="text-xl font-black mb-4 text-gray-800 block">
             ملاحظات إضافية (اختياري)
           </Label>
           <Textarea
             id="notes"
-            placeholder="أي ملاحظات أو تفاصيل إضافية..."
+            placeholder="أي ملاحظات أو تفاصيل إضافية تود إضافتها..."
             value={formData.notes}
             onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-            className="mt-2 min-h-[100px] text-lg"
+            className="min-h-[120px] text-lg font-bold border-2 border-gray-300 focus:border-blue-500"
           />
         </div>
 
@@ -389,12 +411,12 @@ export function WorkPermitForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-14 text-xl font-bold bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-lg"
+          className="w-full h-16 text-2xl font-black bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-2xl transform hover:scale-105 transition-all"
         >
           {isSubmitting ? "جاري الإرسال..." : "إرسال طلب التصريح"}
         </Button>
 
-        <p className="text-center text-sm text-gray-500 mt-4">
+        <p className="text-center text-base text-gray-600 mt-6 font-bold">
           بعد الإرسال، سيتم مراجعة طلبك من قبل الإدارة وإخطارك بالقرار
         </p>
       </Card>
