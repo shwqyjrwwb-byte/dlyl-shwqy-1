@@ -78,10 +78,9 @@ export function WorkPermitForm() {
 
       if (response.ok) {
         setSubmitSuccess(true)
-        // التوجه تلقائياً للوحة التحكم بعد 2 ثانية
-        setTimeout(() => {
-          window.location.href = "/admin/work-permits/login"
-        }, 2000)
+        // لا يتم التوجيه - فقط رسالة نجاح
+      } else {
+        alert("حدث خطأ أثناء إرسال الطلب")
       }
     } catch (error) {
       console.error("Error submitting form:", error)
@@ -96,10 +95,17 @@ export function WorkPermitForm() {
       <Card className="p-12 text-center bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 shadow-2xl">
         <CheckCircle className="w-24 h-24 text-green-600 mx-auto mb-6 animate-bounce" />
         <h2 className="text-4xl font-black text-green-900 mb-4">تم إرسال الطلب بنجاح!</h2>
-        <p className="text-xl text-green-700 font-bold mb-4">سيتم مراجعة طلبك والرد عليك في أقرب وقت</p>
-        <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-4 mt-6">
-          <p className="text-lg text-blue-800 font-black">جاري التوجيه إلى لوحة التحكم...</p>
+        <p className="text-xl text-green-700 font-bold mb-4">تم إرسال طلبك إلى الإدارة</p>
+        <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-6 mt-6">
+          <p className="text-lg text-blue-800 font-black mb-2">سيتم مراجعة طلبك من قبل الإدارة</p>
+          <p className="text-base text-blue-700 font-bold">وسيتم إخطارك بالقرار في أقرب وقت</p>
         </div>
+        <Button
+          onClick={() => window.location.href = "/"}
+          className="mt-8 h-14 px-8 text-lg font-black bg-blue-600 hover:bg-blue-700"
+        >
+          العودة للصفحة الرئيسية
+        </Button>
       </Card>
     )
   }

@@ -62,17 +62,59 @@ export default function WorkPermitsAdminPage() {
   }
 
   const handleApprove = async (permitId: string) => {
-    // TODO: تنفيذ الموافقة
-    console.log("Approving permit:", permitId)
-    alert("تم الموافقة على التصريح")
+    try {
+      const response = await fetch("/api/work-permit", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          permitId,
+          status: "approved",
+          approvedBy: "admin",
+        }),
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        alert("تم الموافقة على التصريح بنجاح")
+        fetchPermits() // إعادة تحميل التصاريح
+      } else {
+        alert("حدث خطأ أثناء الموافقة")
+      }
+    } catch (error) {
+      console.error("Error approving permit:", error)
+      alert("حدث خطأ أثناء الموافقة")
+    }
   }
 
   const handleReject = async (permitId: string) => {
     const reason = prompt("سبب الرفض:")
     if (reason) {
-      // TODO: تنفيذ الرفض
-      console.log("Rejecting permit:", permitId, "Reason:", reason)
-      alert("تم رفض التصريح")
+      try {
+        const response = await fetch("/api/work-permit", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            permitId,
+            status: "rejected",
+            rejectionReason: reason,
+          }),
+        })
+
+        const data = await response.json()
+        if (data.success) {
+          alert("تم رفض التصريح")
+          fetchPermits() // إعادة تحميل التصاريح
+        } else {
+          alert("حدث خطأ أثناء الرفض")
+        }
+      } catch (error) {
+        console.error("Error rejecting permit:", error)
+        alert("حدث خطأ أثناء الرفض")
+      }
     }
   }
 
