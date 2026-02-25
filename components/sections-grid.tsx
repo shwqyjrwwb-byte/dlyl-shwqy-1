@@ -54,7 +54,7 @@ const sections = [
     id: "vehicles",
     title: "خط سير السيارات",
     description: "مناطق التحرك والقواعد",
-    image: "/images/icons/icon-specifications.png",
+    image: "/images/technical_specs_final_arabic_fix.png",
     href: "/vehicles",
   },
   {
