@@ -16,6 +16,15 @@ const sections = [
     href: "/packages",
   },
   {
+    id: "videos",
+    title: "فيديوهاتنا",
+    description: "شاهد أعمالنا ومشاريعنا المميزة",
+    image: "/images/فيديوهتنا.mp4",
+    href: "https://shawkygroup.com/",
+    isExternal: true,
+    isVideo: true,
+  },
+  {
     id: "specs",
     title: "المواصفات الفنية للأعمال",
     description: "السيراميك • السباكة • الكهرباء • النجارة • الجبس • الرخام",

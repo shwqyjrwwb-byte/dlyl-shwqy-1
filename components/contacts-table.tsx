@@ -1010,16 +1010,16 @@ const departmentsData: Department[] = [
     id: "furniture",
     name: "الفرش والديكور",
     manager: {
-      name: "سهيله ياسر علي سيد",
-      position: "مديرة قسم الفرش والديكور",
-      phone: "1119985349",
-      image: "/images/سهيله.jpeg",
+      name: "م/ أحمد عبد الغني",
+      position: "مدير قسم الفرش",
+      phone: "1115706597",
+      image: "/images/placeholder.jpg",
     },
     team: [
       {
         name: "ندى عمرو محمد",
         position: "مهندسة بقسم الفرش والديكور",
-        phone: "1100860103",
+        phone: "1278864759",
         image: "/images/nada-amr.jpeg",
       },
       {
@@ -1030,13 +1030,13 @@ const departmentsData: Department[] = [
       },
       {
         name: "أسماء حسين",
-        position: "خدمة عملاء قسم الفرش / تعاقدات",
+        position: "مسؤولة بند التكيفات",
         phone: "1278865758",
         image: "/images/مهندسه اسماء حسين.jpeg",
       },
       {
         name: "سعيد سمير عبد العزيز علي",
-        position: "سيلز قسم الفرش والتكييفات",
+        position: "مسؤل بند المشتريات الكهربي",
         phone: "1115086941",
         image: "/images/saeed-samir.jpeg",
       },
