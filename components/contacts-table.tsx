@@ -1086,14 +1086,15 @@ const departmentsData: Department[] = [
   {
     id: "telesales",
     name: "تلي سيلز",
-    manager: {
-      name: "ندى حامد سعيد حامد",
-      position: "مديرة تلي سيلز",
-      phone: "1278864748",
-      image:
-        "/images/d9-86-d8-af-d9-8a-20-d8-ad-d8-a7-d9-85-d8-af-20-d8-aa-d9-84-d9-8a-20-d8-b3-d9-8a-d9-84-d8-b2.jpeg",
-    },
+    manager: null,
     team: [
+      {
+        name: "ندى حامد سعيد حامد",
+        position: "موظفة تلي سيلز",
+        phone: "1278864748",
+        image:
+          "/images/d9-86-d8-af-d9-8a-20-d8-ad-d8-a7-d9-85-d8-af-20-d8-aa-d9-84-d9-8a-20-d8-b3-d9-8a-d9-84-d8-b2.jpeg",
+      },
       {
         name: "محمد عزب عرب محمد السيد",
         position: "تلي سيلز",
