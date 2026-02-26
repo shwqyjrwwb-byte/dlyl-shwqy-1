@@ -62,18 +62,7 @@ export function PartnersMarquee() {
 
         </div>
 
-        {/* إحصائيات */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mt-12 sm:mt-16 max-w-3xl mx-auto px-4">
-          <div className="bg-gradient-to-br from-blue-600/20 to-blue-700/20 backdrop-blur-xl border-2 border-blue-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 transition-transform duration-300">
-            <p className="text-4xl sm:text-5xl md:text-6xl font-black text-blue-400 mb-3">+50</p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-bold">علامة تجارية</p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-purple-600/20 to-purple-700/20 backdrop-blur-xl border-2 border-purple-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 transition-transform duration-300">
-            <p className="text-4xl sm:text-5xl md:text-6xl font-black text-purple-400 mb-3">+15</p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-bold">سنة خبرة</p>
-          </div>
-        </div>
+
       </div>
 
       {/* تأثيرات إضافية */}
