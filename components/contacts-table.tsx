@@ -196,6 +196,7 @@ const departmentsData: Department[] = [
         name: "م/ محمود عبد الغني (أفندينا)",
         position: "مدير قسم الجبس بورد والرخام",
         phone: "1278861380",
+        image: "/images/م محمود عبد الغني (أفندينا).jpg",
       },
       {
         name: "م/ محمد شوقي",
@@ -265,7 +266,7 @@ const departmentsData: Department[] = [
       name: "م/ مصطفى شوقي",
       position: "Social Media Manager",
       phone: "1002776674",
-      image: "/images/مصطفي شوقي.jpeg",
+      image: "/images/مصطفي شوقي.jpg",
     },
     team: [
       {
@@ -1247,6 +1248,7 @@ const departmentsData: Department[] = [
       name: "م/ محمود عبد الغني (أفندينا)",
       position: "مدير قسم الرخام والجبس بورد",
       phone: "1278861380",
+      image: "/images/م محمود عبد الغني (أفندينا).jpg",
     },
     team: [],
   },
