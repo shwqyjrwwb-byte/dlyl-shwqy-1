@@ -92,20 +92,46 @@ export function WorkPermitForm() {
 
   if (submitSuccess) {
     return (
-      <Card className="p-12 text-center bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 shadow-2xl">
-        <CheckCircle className="w-24 h-24 text-green-600 mx-auto mb-6 animate-bounce" />
-        <h2 className="text-4xl font-black text-green-900 mb-4">تم إرسال الطلب بنجاح!</h2>
-        <p className="text-xl text-green-700 font-bold mb-4">تم إرسال طلبك إلى الإدارة</p>
-        <div className="bg-blue-100 border-2 border-blue-300 rounded-xl p-6 mt-6">
-          <p className="text-lg text-blue-800 font-black mb-2">سيتم مراجعة طلبك من قبل الإدارة</p>
-          <p className="text-base text-blue-700 font-bold">وسيتم إخطارك بالقرار في أقرب وقت</p>
+      <Card className="p-12 text-center bg-gradient-to-br from-green-50 via-white to-green-50 border-4 border-green-400 shadow-2xl">
+        <div className="bg-green-500 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl animate-pulse">
+          <CheckCircle className="w-20 h-20 text-white" />
         </div>
-        <Button
-          onClick={() => window.location.href = "/"}
-          className="mt-8 h-14 px-8 text-lg font-black bg-blue-600 hover:bg-blue-700"
-        >
-          العودة للصفحة الرئيسية
-        </Button>
+        <h2 className="text-5xl font-black text-green-900 mb-4 tracking-tight">تم إرسال الطلب بنجاح!</h2>
+        <p className="text-2xl text-green-700 font-bold mb-6">تم إرسال طلب التصريح إلى الإدارة</p>
+        
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-8 mt-8 shadow-xl">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <AlertCircle className="w-8 h-8" />
+            <p className="text-2xl font-black">الخطوات القادمة</p>
+          </div>
+          <div className="space-y-3 text-right">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+              <p className="text-lg font-bold">✓ سيتم مراجعة طلبك من قبل الإدارة</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+              <p className="text-lg font-bold">✓ سيتم التواصل معك في حالة الموافقة أو الرفض</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+              <p className="text-lg font-bold">✓ يمكنك متابعة حالة التصريح من خلال الإدارة</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-4 mt-10">
+          <Button
+            onClick={() => window.location.href = "/"}
+            className="flex-1 h-16 text-xl font-black bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg"
+          >
+            العودة للصفحة الرئيسية
+          </Button>
+          <Button
+            onClick={() => window.location.reload()}
+            variant="outline"
+            className="flex-1 h-16 text-xl font-black border-2 border-green-600 text-green-700 hover:bg-green-50"
+          >
+            تقديم طلب جديد
+          </Button>
+        </div>
       </Card>
     )
   }
