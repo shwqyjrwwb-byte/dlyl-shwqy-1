@@ -188,11 +188,6 @@ const departmentsData: Department[] = [
     manager: null,
     team: [
       {
-        name: "م/ أحمد عبد الغني",
-        position: "مدير بند توريدات الكهرباء",
-        phone: "",
-      },
-      {
         name: "م/ محمود عبد الغني (أفندينا)",
         position: "مدير قسم الجبس بورد والرخام",
         phone: "1278861380",
