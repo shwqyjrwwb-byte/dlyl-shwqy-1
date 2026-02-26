@@ -1343,43 +1343,45 @@ function ExecutiveFlipCard() {
         </Card>
 
         {/* الوجه الخلفي */}
-        <Card className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-primary/20 to-card border-primary/40 p-6 overflow-y-auto">
-          <div className="space-y-6">
+        <Card className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-primary/20 to-card border-primary/40 p-8 overflow-y-auto">
+          <div className="space-y-8">
             {executivesData.map((exec) => (
-              <div key={exec.id} className="bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden bg-muted shadow-xl ring-4 ring-primary/30 flex-shrink-0">
+              <div key={exec.id} className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-2 border-primary/30">
+                <div className="flex flex-col items-center gap-6 mb-6">
+                  {/* صورة القيادة - كبيرة وواضحة */}
+                  <div className="relative w-48 h-48 rounded-3xl overflow-hidden bg-muted shadow-2xl ring-8 ring-amber-500/50 flex-shrink-0">
                     <Image
                       src={exec.image}
                       alt={exec.name}
                       fill
-                      className="object-cover object-top"
-                      sizes="80px"
+                      className="object-cover object-center"
+                      sizes="192px"
+                      priority
                     />
                   </div>
-                  <div className="flex-1">
-                    <Badge className="bg-amber-500 text-white font-bold mb-2">
+                  <div className="text-center">
+                    <Badge className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-black text-base px-6 py-2 mb-3 shadow-lg">
                       {exec.rank === 1 ? "رئيس مجلس الإدارة" : "نائب رئيس مجلس الإدارة"}
                     </Badge>
-                    <h3 className="text-xl font-bold text-primary">{exec.name}</h3>
+                    <h3 className="text-3xl font-black text-primary mb-2">{exec.name}</h3>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-2 text-base font-mono bg-secondary/30 px-4 py-2 rounded-lg mb-3">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <span className="font-bold tracking-wider" dir="ltr">{exec.phone}</span>
+                <div className="flex items-center justify-center gap-3 text-xl font-mono bg-gradient-to-r from-secondary/50 to-secondary/30 px-6 py-4 rounded-2xl mb-6 border-2 border-primary/20 shadow-lg">
+                  <Phone className="w-6 h-6 text-primary" />
+                  <span className="font-black tracking-wider" dir="ltr">{exec.phone}</span>
                 </div>
 
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700 text-white gap-2" asChild>
+                <div className="grid grid-cols-2 gap-4">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white gap-3 py-6 text-lg font-black shadow-xl" asChild>
                     <a href={`tel:+20${exec.phone}`}>
-                      <Phone className="w-4 h-4" />
+                      <Phone className="w-5 h-5" />
                       اتصال
                     </a>
                   </Button>
-                  <Button size="sm" className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white gap-2" asChild>
+                  <Button size="lg" className="bg-[#25D366] hover:bg-[#20BA5A] text-white gap-3 py-6 text-lg font-black shadow-xl" asChild>
                     <a href={`https://wa.me/20${exec.phone}`} target="_blank" rel="noreferrer">
-                      <MessageCircle className="w-4 h-4" />
+                      <MessageCircle className="w-5 h-5" />
                       واتساب
                     </a>
                   </Button>
@@ -1403,45 +1405,67 @@ function ContactCard({
   return (
     <div
       onClick={onClick}
-      className="bg-card border-2 border-border rounded-xl hover:border-primary/50 transition-all p-6 cursor-pointer hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.02] duration-200"
+      className="bg-card border-2 border-border rounded-2xl hover:border-primary/50 transition-all p-6 cursor-pointer hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.03] duration-300"
     >
-      <div className="flex items-center gap-5">
-        <div className="relative w-32 h-32 rounded-full overflow-hidden flex-shrink-0 bg-muted shadow-lg ring-2 ring-primary/20">
+      <div className="flex flex-col items-center text-center gap-4">
+        {/* صورة الموظف - أكبر وأوضح */}
+        <div className="relative w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 bg-muted shadow-2xl ring-4 ring-primary/30 hover:ring-primary/50 transition-all">
           {member.image && !imageError ? (
             <Image
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover object-top"
-              sizes="128px"
+              className="object-cover object-center hover:scale-110 transition-transform duration-500"
+              sizes="160px"
               onError={() => setImageError(true)}
+              priority
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold text-5xl">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-6xl shadow-inner">
               {member.name.charAt(0)}
             </div>
           )}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-2">
-            <h4 className="font-bold text-foreground text-2xl truncate">{member.name}</h4>
-            {isManager && <Crown className="w-7 h-7 text-yellow-500 flex-shrink-0" />}
-          </div>
-          <p className="text-lg text-muted-foreground truncate mb-3">{member.position}</p>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="flex items-center gap-3 text-lg font-mono bg-secondary/30 px-4 py-2 rounded-lg flex-1">
-              <Phone className="w-6 h-6 text-primary" />
-              <span className="font-bold tracking-wide" dir="ltr">{member.phone}</span>
+          {isManager && (
+            <div className="absolute top-2 right-2 bg-yellow-500 p-2 rounded-full shadow-xl animate-pulse">
+              <Crown className="w-6 h-6 text-white" />
             </div>
+          )}
+        </div>
+        
+        {/* معلومات الموظف */}
+        <div className="w-full space-y-3">
+          <div>
+            <h4 className="font-black text-foreground text-xl mb-1 leading-tight">{member.name}</h4>
+            <p className="text-base text-muted-foreground font-semibold leading-snug">{member.position}</p>
+          </div>
+          
+          {/* رقم الهاتف */}
+          <div className="flex items-center justify-center gap-2 text-base font-mono bg-gradient-to-r from-secondary/40 to-secondary/20 px-4 py-3 rounded-xl border border-primary/20">
+            <Phone className="w-5 h-5 text-primary" />
+            <span className="font-bold tracking-wider" dir="ltr">{member.phone}</span>
+          </div>
+          
+          {/* أزرار التواصل */}
+          <div className="flex gap-2">
+            <a
+              href={`tel:+20${member.phone}`}
+              onClick={(e) => e.stopPropagation()}
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
+              title="اتصال"
+            >
+              <Phone className="w-5 h-5" />
+              <span>اتصال</span>
+            </a>
             <a
               href={`https://wa.me/20${member.phone}`}
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white p-3 rounded-xl transition-colors shadow-md hover:shadow-lg flex-shrink-0"
+              className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
               title="واتساب"
             >
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-5 h-5" />
+              <span>واتساب</span>
             </a>
           </div>
         </div>
@@ -1454,84 +1478,90 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
   const [imageError, setImageError] = useState(false)
   
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div
-        className="bg-card rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-300"
+        className="bg-card rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-in fade-in zoom-in duration-300"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 p-8">
+        <div className="relative bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 p-10">
           <button
             onClick={onClose}
-            className="absolute top-4 left-4 bg-background/80 hover:bg-background rounded-full p-2 transition-colors shadow-lg"
+            className="absolute top-4 left-4 bg-background/90 hover:bg-background rounded-full p-3 transition-all shadow-xl hover:scale-110"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
 
           <div className="flex flex-col items-center gap-6">
-            <div className="relative w-40 h-40 rounded-full overflow-hidden bg-muted shadow-2xl ring-4 ring-background">
+            {/* صورة الموظف - كبيرة وواضحة جداً */}
+            <div className="relative w-56 h-56 rounded-3xl overflow-hidden bg-muted shadow-2xl ring-8 ring-background hover:ring-primary/50 transition-all">
               {member.image && !imageError ? (
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover object-top"
-                  sizes="160px"
+                  className="object-cover object-center"
+                  sizes="224px"
                   onError={() => setImageError(true)}
+                  priority
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold text-6xl">
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-8xl shadow-inner">
                   {member.name.charAt(0)}
                 </div>
               )}
             </div>
 
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl font-bold text-foreground">{member.name}</h3>
-              <p className="text-base text-muted-foreground font-medium">{member.position}</p>
+            <div className="text-center space-y-3">
+              <h3 className="text-3xl font-black text-foreground leading-tight">{member.name}</h3>
+              <p className="text-lg text-muted-foreground font-bold px-6 py-2 bg-white/50 rounded-xl">{member.position}</p>
             </div>
           </div>
         </div>
 
-        <div className="p-6 space-y-4">
+        <div className="p-8 space-y-6">
           {/* الوصف الوظيفي */}
-          <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
-            <div className="flex items-start gap-3">
-              <ClipboardList className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-primary mb-2">الوصف الوظيفي</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+          <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary/30 rounded-2xl p-6 shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/20 p-3 rounded-xl">
+                <ClipboardList className="w-6 h-6 text-primary flex-shrink-0" />
+              </div>
+              <div className="flex-1">
+                <p className="text-base font-black text-primary mb-3">الوصف الوظيفي</p>
+                <p className="text-base text-muted-foreground leading-relaxed font-medium">
                   {getJobDescription(member.position)}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-secondary/20 rounded-xl p-4 text-center">
-            <p className="text-sm text-muted-foreground mb-2">رقم الهاتف</p>
-            <div className="flex items-center justify-center gap-2">
-              <Phone className="w-5 h-5 text-primary" />
-              <span className="text-2xl font-bold font-mono tracking-wider" dir="ltr">{member.phone}</span>
+          {/* رقم الهاتف */}
+          <div className="bg-gradient-to-r from-secondary/30 to-secondary/10 rounded-2xl p-6 text-center border-2 border-secondary shadow-lg">
+            <p className="text-sm text-muted-foreground font-bold mb-3">رقم الهاتف</p>
+            <div className="flex items-center justify-center gap-3">
+              <Phone className="w-6 h-6 text-primary" />
+              <span className="text-3xl font-black font-mono tracking-wider" dir="ltr">{member.phone}</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          {/* أزرار التواصل */}
+          <div className="grid grid-cols-2 gap-4">
             <Button
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white gap-2 py-6 text-base shadow-lg"
+              className="bg-green-600 hover:bg-green-700 text-white gap-3 py-7 text-lg font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
               asChild
             >
               <a href={`tel:+20${member.phone}`}>
-                <Phone className="w-5 h-5" />
+                <Phone className="w-6 h-6" />
                 اتصال مباشر
               </a>
             </Button>
             <Button
               size="lg"
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white gap-2 py-6 text-base shadow-lg"
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white gap-3 py-7 text-lg font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
               asChild
             >
               <a href={`https://wa.me/20${member.phone}`} target="_blank" rel="noreferrer">
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-6 h-6" />
                 واتساب
               </a>
             </Button>
@@ -1539,7 +1569,7 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
 
           <Button
             variant="outline"
-            className="w-full"
+            className="w-full py-6 text-lg font-bold border-2"
             onClick={onClose}
           >
             إغلاق
@@ -1750,11 +1780,13 @@ export function ContactsTable() {
 
               {/* Manager */}
               {currentDepartment.manager && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Crown className="w-6 h-6 text-yellow-500" />
-                    مدير القسم
-                  </h3>
+                <div className="mb-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-yellow-500 p-3 rounded-xl shadow-lg">
+                      <Crown className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-black text-foreground">مدير القسم</h3>
+                  </div>
                   <ContactCard
                     member={currentDepartment.manager}
                     isManager
@@ -1766,22 +1798,24 @@ export function ContactsTable() {
               {/* Team Members */}
               {currentDepartment.team.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Users className="w-6 h-6 text-primary" />
-                    أعضاء الفريق
-                  </h3>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-primary p-3 rounded-xl shadow-lg">
+                      <Users className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-black text-foreground">أعضاء الفريق</h3>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {currentDepartment.team.map((member, idx) => {
                       // إذا كان العنصر header للمنطقة
                       if (member.position === "region-header") {
                         return (
-                          <div key={idx} className="col-span-full my-8">
+                          <div key={idx} className="col-span-full my-10">
                             <div className="flex items-center gap-4">
-                              <div className="flex-1 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-yellow-600"></div>
-                              <h4 className="text-3xl font-black text-yellow-500 px-8 py-4 bg-black rounded-2xl border-2 border-yellow-500 shadow-2xl shadow-yellow-500/50">
+                              <div className="flex-1 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-yellow-600 rounded-full"></div>
+                              <h4 className="text-3xl font-black text-yellow-500 px-10 py-5 bg-gradient-to-r from-black via-gray-900 to-black rounded-2xl border-4 border-yellow-500 shadow-2xl shadow-yellow-500/50 animate-pulse">
                                 {member.name.replace(/━/g, '').trim()}
                               </h4>
-                              <div className="flex-1 h-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-transparent"></div>
+                              <div className="flex-1 h-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-transparent rounded-full"></div>
                             </div>
                           </div>
                         )
