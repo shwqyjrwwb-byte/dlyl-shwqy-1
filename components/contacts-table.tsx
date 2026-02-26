@@ -1367,67 +1367,67 @@ function ContactCard({
   return (
     <div
       onClick={onClick}
-      className="bg-card border-2 border-border rounded-2xl hover:border-primary/50 transition-all p-6 cursor-pointer hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.03] duration-300"
+      className="bg-card border-2 border-border rounded-2xl hover:border-primary/50 transition-all p-3 sm:p-4 md:p-6 cursor-pointer hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] sm:hover:scale-[1.03] duration-300"
     >
-      <div className="flex flex-col items-center text-center gap-4">
-        {/* صورة الموظف - أكبر وأوضح */}
-        <div className="relative w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 bg-muted shadow-2xl ring-4 ring-primary/30 hover:ring-primary/50 transition-all">
+      <div className="flex flex-col items-center text-center gap-2 sm:gap-3 md:gap-4">
+        {/* صورة الموظف - متجاوبة */}
+        <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden flex-shrink-0 bg-muted shadow-2xl ring-2 sm:ring-3 md:ring-4 ring-primary/30 hover:ring-primary/50 transition-all">
           {member.image && !imageError ? (
             <Image
               src={member.image}
               alt={member.name}
               fill
-              className="object-scale-down p-2"
-              sizes="160px"
+              className="object-scale-down p-1 sm:p-2"
+              sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, 160px"
               onError={() => setImageError(true)}
               priority
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-6xl shadow-inner">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-4xl sm:text-5xl md:text-6xl shadow-inner">
               {member.name.charAt(0)}
             </div>
           )}
           {isManager && (
-            <div className="absolute top-2 right-2 bg-yellow-500 p-2 rounded-full shadow-xl animate-pulse">
-              <Crown className="w-6 h-6 text-white" />
+            <div className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-yellow-500 p-1 sm:p-2 rounded-full shadow-xl animate-pulse">
+              <Crown className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
             </div>
           )}
         </div>
         
         {/* معلومات الموظف */}
-        <div className="w-full space-y-3">
+        <div className="w-full space-y-2 sm:space-y-3">
           <div>
-            <h4 className="font-black text-foreground text-xl mb-1 leading-tight">{member.name}</h4>
-            <p className="text-base text-muted-foreground font-semibold leading-snug">{member.position}</p>
+            <h4 className="font-black text-foreground text-base sm:text-lg md:text-xl mb-1 leading-tight break-words">{member.name}</h4>
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-semibold leading-snug break-words">{member.position}</p>
           </div>
           
           {/* رقم الهاتف */}
-          <div className="flex items-center justify-center gap-2 text-base font-mono bg-gradient-to-r from-secondary/40 to-secondary/20 px-4 py-3 rounded-xl border border-primary/20">
-            <Phone className="w-5 h-5 text-primary" />
+          <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base font-mono bg-gradient-to-r from-secondary/40 to-secondary/20 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 rounded-xl border border-primary/20">
+            <Phone className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
             <span className="font-bold tracking-wider" dir="ltr">{member.phone}</span>
           </div>
           
           {/* أزرار التواصل */}
-          <div className="flex gap-2">
+          <div className="flex gap-1.5 sm:gap-2">
             <a
               href={`tel:+20${member.phone}`}
               onClick={(e) => e.stopPropagation()}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 sm:py-2.5 md:py-3 px-2 sm:px-3 md:px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-xs sm:text-sm md:text-base"
               title="اتصال"
             >
-              <Phone className="w-5 h-5" />
-              <span>اتصال</span>
+              <Phone className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+              <span className="hidden xs:inline">اتصال</span>
             </a>
             <a
               href={`https://wa.me/20${member.phone}`}
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 font-bold"
+              className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white py-2 sm:py-2.5 md:py-3 px-2 sm:px-3 md:px-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-xs sm:text-sm md:text-base"
               title="واتساب"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>واتساب</span>
+              <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+              <span className="hidden xs:inline">واتساب</span>
             </a>
           </div>
         </div>
@@ -1440,47 +1440,47 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
   const [imageError, setImageError] = useState(false)
   
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-4" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 p-2 sm:p-4" onClick={onClose}>
       <div
-        className="bg-card rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-in fade-in zoom-in duration-300"
+        className="bg-card rounded-2xl sm:rounded-3xl shadow-2xl max-w-lg w-full max-h-[95vh] overflow-y-auto animate-in fade-in zoom-in duration-300"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 p-10">
+        <div className="relative bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 p-6 sm:p-8 md:p-10">
           <button
             onClick={onClose}
-            className="absolute top-4 left-4 bg-background/90 hover:bg-background rounded-full p-3 transition-all shadow-xl hover:scale-110"
+            className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-background/90 hover:bg-background rounded-full p-2 sm:p-3 transition-all shadow-xl hover:scale-110"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
-          <div className="flex flex-col items-center gap-6">
-            {/* صورة الموظف - كبيرة وواضحة جداً */}
-            <div className="relative w-56 h-56 rounded-3xl overflow-hidden bg-muted shadow-2xl ring-8 ring-background hover:ring-primary/50 transition-all">
+          <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+            {/* صورة الموظف - متجاوبة */}
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden bg-muted shadow-2xl ring-4 sm:ring-6 md:ring-8 ring-background hover:ring-primary/50 transition-all">
               {member.image && !imageError ? (
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-scale-down p-4"
-                  sizes="224px"
+                  className="object-scale-down p-2 sm:p-3 md:p-4"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, 224px"
                   onError={() => setImageError(true)}
                   priority
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-8xl shadow-inner">
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary via-primary/80 to-primary/60 text-primary-foreground font-black text-6xl sm:text-7xl md:text-8xl shadow-inner">
                   {member.name.charAt(0)}
                 </div>
               )}
             </div>
 
-            <div className="text-center space-y-3">
-              <h3 className="text-3xl font-black text-foreground leading-tight">{member.name}</h3>
-              <p className="text-lg text-muted-foreground font-bold px-6 py-2 bg-white/50 rounded-xl">{member.position}</p>
+            <div className="text-center space-y-2 sm:space-y-3">
+              <h3 className="text-2xl sm:text-2xl md:text-3xl font-black text-foreground leading-tight break-words px-2">{member.name}</h3>
+              <p className="text-base sm:text-lg text-muted-foreground font-bold px-4 sm:px-6 py-2 bg-white/50 rounded-xl break-words">{member.position}</p>
             </div>
           </div>
         </div>
 
-        <div className="p-8 space-y-6">
+        <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-5 md:space-y-6">
           {/* الوصف الوظيفي */}
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary/30 rounded-2xl p-6 shadow-lg">
             <div className="flex items-start gap-4">
@@ -1566,7 +1566,7 @@ export function ContactsTable() {
   const currentDepartment = selectedDepartment ? departmentsData.find((d) => d.id === selectedDepartment) : null
 
   return (
-    <div className="container mx-auto px-4 py-8 relative">
+    <div className="container mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 relative">
       {/* Header */}
       <div className="text-center mb-10 relative">
         {/* بانر رمضاني احترافي */}
@@ -1633,12 +1633,12 @@ export function ContactsTable() {
           <section className="relative">
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="h-1 w-12 bg-primary rounded"></div>
-              <Users className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl font-bold text-foreground">الأقسام والإدارات</h2>
-              <Users className="w-8 h-8 text-primary" />
+              <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">الأقسام والإدارات</h2>
+              <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               <div className="h-1 w-12 bg-primary rounded"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
               {filteredDepartments.map((dept) => {
                 const DeptIcon = getDepartmentIcon(dept.id)
                 const iconColor = getDepartmentColor(dept.id)
@@ -1766,7 +1766,7 @@ export function ContactsTable() {
                     </div>
                     <h3 className="text-2xl font-black text-foreground">أعضاء الفريق</h3>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                     {currentDepartment.team.map((member, idx) => {
                       // إذا كان العنصر header للمنطقة
                       if (member.position === "region-header") {
