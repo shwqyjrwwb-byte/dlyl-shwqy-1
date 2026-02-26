@@ -1351,7 +1351,7 @@ function ExecutiveFlipCard() {
                       src={exec.image}
                       alt={exec.name}
                       fill
-                      className="object-cover object-center"
+                      className="object-scale-down p-4"
                       sizes="192px"
                       priority
                     />
@@ -1412,7 +1412,7 @@ function ContactCard({
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover object-center hover:scale-110 transition-transform duration-500"
+              className="object-scale-down p-2"
               sizes="160px"
               onError={() => setImageError(true)}
               priority
@@ -1496,7 +1496,7 @@ function EmployeeModal({ member, onClose }: { member: TeamMember; onClose: () =>
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover object-center"
+                  className="object-scale-down p-4"
                   sizes="224px"
                   onError={() => setImageError(true)}
                   priority
