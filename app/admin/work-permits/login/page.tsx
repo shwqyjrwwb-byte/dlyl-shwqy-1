@@ -23,7 +23,7 @@ export default function WorkPermitAdminLoginPage() {
     setIsLoading(true)
 
     // التحقق من بيانات الدخول
-    if (username === "admin" && password === "2026") {
+    if (username === "admin" && password === "admin2026") {
       // حفظ حالة تسجيل الدخول للتصاريح فقط
       localStorage.setItem("workPermitAdminLoggedIn", "true")
       localStorage.setItem("workPermitAdminLoginTime", new Date().toISOString())

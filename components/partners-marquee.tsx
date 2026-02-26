@@ -60,37 +60,18 @@ export function PartnersMarquee() {
             </div>
           </div>
 
-          {/* شارات جانبية */}
-          <div className="absolute -right-4 sm:-right-8 top-1/4 hidden lg:block">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl p-4 sm:p-6 shadow-2xl border-4 border-blue-400/50 transform rotate-6 hover:rotate-0 transition-transform duration-500">
-              <Award className="w-10 h-10 sm:w-12 sm:h-12 mb-2 mx-auto" />
-              <p className="text-xs sm:text-sm font-black text-center whitespace-nowrap">شراكات عالمية</p>
-            </div>
-          </div>
-
-          <div className="absolute -left-4 sm:-left-8 bottom-1/4 hidden lg:block">
-            <div className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl p-4 sm:p-6 shadow-2xl border-4 border-purple-400/50 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
-              <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 mb-2 mx-auto" />
-              <p className="text-xs sm:text-sm font-black text-center whitespace-nowrap">جودة مضمونة</p>
-            </div>
-          </div>
         </div>
 
         {/* إحصائيات */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 max-w-4xl mx-auto px-4">
-          <div className="bg-gradient-to-br from-blue-600/20 to-blue-700/20 backdrop-blur-xl border-2 border-blue-500/30 rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:scale-105 transition-transform duration-300">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-black text-blue-400 mb-2">+50</p>
-            <p className="text-xs sm:text-sm md:text-base text-gray-300 font-bold">علامة تجارية</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mt-12 sm:mt-16 max-w-3xl mx-auto px-4">
+          <div className="bg-gradient-to-br from-blue-600/20 to-blue-700/20 backdrop-blur-xl border-2 border-blue-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl sm:text-5xl md:text-6xl font-black text-blue-400 mb-3">+50</p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-bold">علامة تجارية</p>
           </div>
           
-          <div className="bg-gradient-to-br from-purple-600/20 to-purple-700/20 backdrop-blur-xl border-2 border-purple-500/30 rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:scale-105 transition-transform duration-300">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-black text-purple-400 mb-2">100%</p>
-            <p className="text-xs sm:text-sm md:text-base text-gray-300 font-bold">جودة مضمونة</p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-pink-600/20 to-pink-700/20 backdrop-blur-xl border-2 border-pink-500/30 rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:scale-105 transition-transform duration-300 col-span-2 sm:col-span-1">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-black text-pink-400 mb-2">+15</p>
-            <p className="text-xs sm:text-sm md:text-base text-gray-300 font-bold">سنة خبرة</p>
+          <div className="bg-gradient-to-br from-purple-600/20 to-purple-700/20 backdrop-blur-xl border-2 border-purple-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 transition-transform duration-300">
+            <p className="text-4xl sm:text-5xl md:text-6xl font-black text-purple-400 mb-3">+15</p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-bold">سنة خبرة</p>
           </div>
         </div>
       </div>
