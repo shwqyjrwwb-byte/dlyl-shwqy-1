@@ -172,6 +172,11 @@ export default function LoginPage() {
                   ✉️ info@shawkygroup.com
                 </a>
               </div>
+              <div className="mt-4">
+                <p className="text-amber-300 text-xs font-bold drop-shadow-md">
+                  الإصدار v0.1.1
+                </p>
+              </div>
             </div>
           </div>
         </div>
