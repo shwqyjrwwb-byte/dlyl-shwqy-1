@@ -1,8 +1,8 @@
 "use client"
 
-import { Suspense, useState } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { PageHeader } from "@/components/page-header"
-import { Briefcase, Search, X, Phone, MessageCircle } from "lucide-react"
+import { Briefcase, Search, X, Phone, MessageCircle, Circle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -179,8 +179,34 @@ function JobDescriptionsContent() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [onlineUsers, setOnlineUsers] = useState<any[]>([])
 
-  const filteredEmployees = employeesData.filter(
+  useEffect(() => {
+    // جلب المستخدمين الأونلاين
+    const fetchOnlineUsers = async () => {
+      try {
+        const response = await fetch("/api/users/online")
+        const data = await response.json()
+        if (data.success) {
+          setOnlineUsers(data.users)
+        }
+      } catch (error) {
+        console.error("Error fetching online users:", error)
+      }
+    }
+
+    fetchOnlineUsers()
+    const interval = setInterval(fetchOnlineUsers, 30000) // كل 30 ثانية
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // فلترة الموظفين لعرض الأونلاين فقط
+  const onlineEmployees = employeesData.filter(employee => 
+    onlineUsers.some(user => user.userName === employee.name)
+  )
+
+  const filteredEmployees = onlineEmployees.filter(
     (employee) =>
       employee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       employee.position.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -199,6 +225,23 @@ function JobDescriptionsContent() {
   return (
     <>
       <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
+        {/* Header Info */}
+        <div className="bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl p-6 text-white shadow-xl">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-black mb-2">الموظفين المتصلين الآن</h2>
+              <p className="text-amber-100">يتم عرض الموظفين المسجلين دخول على الدليل فقط</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3">
+              <div className="flex items-center gap-2">
+                <Circle className="w-3 h-3 text-green-400 fill-green-400 animate-pulse" />
+                <span className="text-2xl font-black">{onlineEmployees.length}</span>
+                <span className="text-sm">متصل</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Search Bar */}
         <div className="relative">
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
@@ -233,11 +276,17 @@ function JobDescriptionsContent() {
                       {employee.name.charAt(0)}
                     </div>
                   )}
+                  {/* Online Indicator */}
+                  <div className="absolute bottom-0 right-0 w-5 h-5 bg-green-500 border-2 border-zinc-900 rounded-full"></div>
                 </div>
 
                 <div className="flex-1 min-w-0">
                   <h4 className="font-semibold text-white truncate">{employee.name}</h4>
                   <p className="text-sm text-gold truncate">{employee.position}</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    <Circle className="w-2 h-2 text-green-400 fill-green-400 animate-pulse" />
+                    <span className="text-xs text-green-400 font-bold">متصل الآن</span>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -246,7 +295,9 @@ function JobDescriptionsContent() {
 
         {filteredEmployees.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-zinc-400">لا توجد نتائج للبحث</p>
+            <Circle className="w-16 h-16 text-zinc-600 mx-auto mb-4" />
+            <p className="text-zinc-400 text-lg font-bold mb-2">لا يوجد موظفين متصلين</p>
+            <p className="text-zinc-500 text-sm">سيظهر الموظفون هنا عند تسجيل دخولهم للدليل</p>
           </div>
         )}
       </div>

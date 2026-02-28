@@ -66,11 +66,11 @@ export function AudioPlayer({ audioUrl }: AudioPlayerProps) {
       {showButton && !isStarted && (
         <button
           onClick={startAudio}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white px-6 py-3 rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 animate-pulse"
+          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500 hover:from-amber-600 hover:via-amber-700 hover:to-amber-600 text-white px-6 py-3 rounded-2xl shadow-2xl shadow-amber-500/50 hover:shadow-amber-600/70 transition-all duration-300 hover:scale-105 border-2 border-amber-300/50 backdrop-blur-sm"
           title="تشغيل الموسيقى"
         >
-          <Volume2 className="w-5 h-5" />
-          <span className="font-semibold">تشغيل الموسيقى</span>
+          <Volume2 className="w-6 h-6" />
+          <span className="font-bold text-lg">تشغيل الموسيقى</span>
         </button>
       )}
     </>

@@ -304,6 +304,20 @@ export default function WorkPermitsAdminPage() {
                         </Button>
                       </>
                     )}
+                    {permit.status === "approved" && (
+                      <Button
+                        size="sm"
+                        className="bg-green-600 hover:bg-green-700 text-white gap-2 h-10 px-4 font-bold shadow-lg"
+                        onClick={() => {
+                          const phone = permit.engineerPhone.replace(/^0/, '2')
+                          const message = `مرحباً ${permit.engineerName}،\n\nتم الموافقة على تصريح العمل:\n\n📋 رقم التصريح: ${permit.permitId}\n🏗️ الموقع: ${permit.siteName}\n📍 المنطقة: ${permit.region}\n📅 من ${permit.startDate} إلى ${permit.endDate}\n\nشوقي جروب`
+                          window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank')
+                        }}
+                      >
+                        <Phone className="w-4 h-4" />
+                        إرسال للواتساب
+                      </Button>
+                    )}
                   </div>
                 </div>
 
@@ -530,6 +544,17 @@ export default function WorkPermitsAdminPage() {
                   )}
                   {selectedPermit.status === "approved" && (
                     <>
+                      <Button 
+                        className="flex-1 h-14 gap-2 text-lg font-black shadow-xl bg-green-600 hover:bg-green-700 text-white"
+                        onClick={() => {
+                          const phone = selectedPermit.engineerPhone.replace(/^0/, '2')
+                          const message = `مرحباً ${selectedPermit.engineerName}،\n\nتم الموافقة على تصريح العمل:\n\n📋 رقم التصريح: ${selectedPermit.permitId}\n🏗️ الموقع: ${selectedPermit.siteName}\n📍 المنطقة: ${selectedPermit.region}\n📅 من ${selectedPermit.startDate} إلى ${selectedPermit.endDate}\n👷 المقاول: ${selectedPermit.contractorName}\n\nشوقي جروب`
+                          window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank')
+                        }}
+                      >
+                        <Phone className="w-6 h-6" />
+                        إرسال للواتساب
+                      </Button>
                       <Button className="flex-1 h-14 gap-2 text-lg font-black shadow-xl">
                         <Printer className="w-6 h-6" />
                         طباعة التصريح

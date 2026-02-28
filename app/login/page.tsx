@@ -11,7 +11,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { PageBackgroundSlideshow } from "@/components/page-background-slideshow"
 
-export default function HomePage() {
+export default function LoginPage() {
   const router = useRouter()
   const [userId, setUserId] = useState("")
   const [password, setPassword] = useState("")
@@ -23,123 +23,17 @@ export default function HomePage() {
     setError("")
     setIsLoading(true)
 
-    if (!userId || !password) {
-      setError("يرجى إدخال ID وكلمة المرور")
-      setIsLoading(false)
-      return
-    }
-
-    // التحقق من يوزر المدير الخاص للدليل
-    if (userId === "owner9528" && password === "123456") {
+    // التحقق من بيانات الدخول
+    if (userId && password) {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
-      localStorage.setItem("employeeData", JSON.stringify({
-        name: "م/ أحمد شوقي",
-        position: "رئيس مجلس الإدارة",
-        department: "الإدارة العليا",
-        image: "/images/d8-aa-d8-b5-d9-85-d9-8a-d9-85-20-d8-a8-d8-af-d9-88-d9-86-20-d8-b9-d9-86-d9-88-d8-a7-d9-86-20-281-29.jpeg"
-      }))
       localStorage.setItem("loginTime", new Date().toISOString())
-
-      // تسجيل المدير كأونلاين
-      try {
-        await fetch("/api/users/online", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId: userId,
-            userName: "م/ أحمد شوقي",
-            userPosition: "رئيس مجلس الإدارة",
-          }),
-        })
-      } catch (error) {
-        console.error("Error updating online status:", error)
-      }
-
-      router.push("/home")
-      setIsLoading(false)
-      return
+      router.push("/")
+    } else {
+      setError("يرجى إدخال ID وكلمة المرور")
     }
 
-    // التحقق من يوزرات الموظفين
-    const employeeUsers = localStorage.getItem("employeeUsers")
-    if (employeeUsers) {
-      const users = JSON.parse(employeeUsers)
-      const user = users.find((u: any) => u.userId === userId && u.password === password)
-      
-      if (user) {
-        // تسجيل دخول ناجح
-        localStorage.setItem("userLoggedIn", "true")
-        localStorage.setItem("userId", userId)
-        localStorage.setItem("employeeData", JSON.stringify({
-          name: user.name,
-          position: user.position,
-          department: user.department,
-          image: user.image
-        }))
-        localStorage.setItem("loginTime", new Date().toISOString())
-
-        // تسجيل المستخدم كأونلاين
-        try {
-          await fetch("/api/users/online", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              userId: userId,
-              userName: user.name,
-              userPosition: user.position,
-            }),
-          })
-        } catch (error) {
-          console.error("Error updating online status:", error)
-        }
-
-        router.push("/home")
-        setIsLoading(false)
-        return
-      }
-    }
-
-    // التحقق من اليوزرات الخاصة
-    const specialUsers = localStorage.getItem("specialUsers")
-    if (specialUsers) {
-      const users = JSON.parse(specialUsers)
-      const user = users.find((u: any) => u.userId === userId && u.password === password)
-      
-      if (user) {
-        localStorage.setItem("userLoggedIn", "true")
-        localStorage.setItem("userId", userId)
-        localStorage.setItem("employeeData", JSON.stringify({
-          name: user.name,
-          position: "مستخدم خاص",
-          department: "إدارة",
-          image: undefined
-        }))
-        localStorage.setItem("loginTime", new Date().toISOString())
-
-        router.push("/home")
-        setIsLoading(false)
-        return
-      }
-    }
-
-    setError("ID أو كلمة المرور غير صحيحة")
     setIsLoading(false)
-  }
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-amber-600 mx-auto mb-4"></div>
-          <p className="text-xl font-bold text-gray-600">جاري التحميل...</p>
-        </div>
-      </div>
-    )
   }
 
   return (
@@ -259,7 +153,7 @@ export default function HomePage() {
 
               <div className="mt-8 pt-6 border-t-2 border-gray-200">
                 <p className="text-sm text-gray-600 text-center leading-relaxed">
-                  للحصول على بيانات الدخول، التواصل مع الإدارة
+                  للحصول على بيانات الدخول، التواصل مع AI Developer
                 </p>
               </div>
             </Card>
