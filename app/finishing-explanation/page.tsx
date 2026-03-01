@@ -1,0 +1,221 @@
+"use client"
+
+import { useState } from "react"
+import { PageHeader } from "@/components/page-header"
+import { Card } from "@/components/ui/card"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { FileText, Droplets, Zap, ExternalLink } from "lucide-react"
+
+const finishingVideos = [
+  {
+    id: "plumbing-electrical",
+    name: "بنود السباكة",
+    icon: Droplets,
+    videos: [
+      {
+        title: "إزاي تضمن إن شغل الكهرباء في مشروعك يكون دقيق ومستمر بدون مفاجآت؟ ⚡",
+        url: "https://www.youtube.com/watch?v=H7jwhnslpBY"
+      },
+      {
+        title: "إيه اللي يخلي SmartLight اختيارنا الأول في أعمال الكهرباء؟ 🤔⚡",
+        url: "https://www.youtube.com/watch?v=0IAFbV3yTdg"
+      },
+      {
+        title: "هل فكرت في يوم عن المخاطر اللي ممكن تسببها لو ركبت كهرباء التكييف والسخان غلط؟ ⚡",
+        url: "https://www.youtube.com/watch?v=NzPMqee0JQ0"
+      },
+      {
+        title: "هل فكرت قبل كده ليه بطلنا نستخدم مواسير الزهر في السباكة ؟ 👍",
+        url: "https://www.youtube.com/watch?v=baoqNj1Jy-0"
+      },
+      {
+        title: "لو عايز تعرف إزاي تبدأ تأسيس كهرباء الساوند سيستم وكهرباء المطبخ من البداية بطريقة صحيحة؟",
+        url: "https://www.youtube.com/watch?v=FfasPKAKkkQ"
+      },
+      {
+        title: "ازاي تخلي سلم الفيلا ينور اول ما تدوس عليه وازاي بيتم التأسيس ليه؟ 👌",
+        url: "https://www.youtube.com/watch?v=BrQwChi8XoU"
+      },
+      {
+        title: "لو مش عايز تلاقي نفسك بتكسر في الحيطة عشان توصّل التليفزيون بعد التشطيب؟ أعرف الأساس الصح من الأول⚡",
+        url: "https://www.youtube.com/watch?v=lhb8RVwU2KI"
+      },
+      {
+        title: "عارف إن أي غلطة في تركيب بؤوج الكهرباء ممكن تسبب مشاكل كتير في التشطيب ؟! 🤔",
+        url: "https://www.youtube.com/watch?v=TH8vCtFN-_0"
+      },
+      {
+        title: "لو عايز تفهم تأسيسات الكهرباء صح وتعرف الفرق بين لوحة الكهرباء وأجهزة السمارت ⚡",
+        url: "https://www.youtube.com/watch?v=ei9kxOzfYgU"
+      },
+      {
+        title: "شرح مجموعة التليفزيون ✨",
+        url: "https://www.youtube.com/watch?v=zhRx5yzHn2c"
+      },
+      {
+        title: "استخدامات القواطع ✨",
+        url: "https://www.youtube.com/watch?v=7mtudRd7w_A"
+      },
+      {
+        title: "طريقة تأسيس مجموعة البوتجاز ✨",
+        url: "https://www.youtube.com/watch?v=wAMXTWYnFZ8"
+      },
+      {
+        title: "تأسيس نظام الـ Smart✨",
+        url: "https://www.youtube.com/watch?v=oqKFbjc9heU"
+      },
+      {
+        title: "تأسيس الـ LED Profile في السقف ✨",
+        url: "https://www.youtube.com/watch?v=k2rBEykuXUM"
+      },
+      {
+        title: "تأسيسات الكهرباء في الموقع✨",
+        url: "https://www.youtube.com/watch?v=verTPi5UdXY"
+      },
+      {
+        title: "تأسيس كهرباء نقط المطبخ ✨",
+        url: "https://www.youtube.com/watch?v=mfoTUPF5rqk"
+      },
+      {
+        title: "تأسيس الكهرباء مجموعة البوتجاز✨",
+        url: "https://www.youtube.com/watch?v=2_POdZXTxyM"
+      },
+      {
+        title: "تأسيس الكهرباء لــ Magnetec Track✨",
+        url: "https://www.youtube.com/watch?v=Zrywiw3C9RA"
+      },
+      {
+        title: "تأسيس الكهرباء للوزر المضئ الجزء الثالث✨",
+        url: "https://www.youtube.com/watch?v=Kocghe2_arU"
+      },
+      {
+        title: "تأسيس الكهرباء للوزر المضئ الجزء الثاني✨",
+        url: "https://www.youtube.com/watch?v=-biFY2OKDT4"
+      },
+      {
+        title: "تأسيس الكهرباء للوزر المضئ ✨",
+        url: "https://www.youtube.com/watch?v=5Fn_Xy1wVvU"
+      },
+      {
+        title: "تعديل لتأسيس الكهرباء في المطبخ✨",
+        url: "https://www.youtube.com/watch?v=8bgYOCD-Lb4"
+      },
+      {
+        title: "نصيحة مهمة لو هتعمل خوارنق جوة الكابينة الشاور ✨",
+        url: "https://www.youtube.com/watch?v=tYETZaWjsSI"
+      },
+      {
+        title: "خطوات تنفيذ تأسيس الكهرباء الجزء الثاني✨",
+        url: "https://www.youtube.com/watch?v=_w3uUHv_ufU"
+      },
+      {
+        title: "خطوات تنفيذ تأسيس الكهرباء الجزء الاول✨",
+        url: "https://www.youtube.com/watch?v=Kl-lxBd1r4A"
+      },
+      {
+        title: "خطوات ظبط منسوب نقاط الكهرباء الجزء الثاني✨",
+        url: "https://www.youtube.com/watch?v=aiL5SLShSvI"
+      },
+      {
+        title: "خطوات ظبط منسوب نقاط الكهرباء الجزء الاول✨",
+        url: "https://www.youtube.com/watch?v=48JAZK0VT5A"
+      },
+      {
+        title: "خطوات تأسيس مجموعة التليفزيون الجزء الثاني ✨",
+        url: "https://www.youtube.com/watch?v=FcCYgwoMhKs"
+      },
+    ],
+  },
+]
+
+export default function FinishingExplanationPage() {
+  const [selected, setSelected] = useState(finishingVideos[0].id)
+  const selectedCategory = finishingVideos.find((c) => c.id === selected)
+
+  return (
+    <main className="min-h-screen bg-background" dir="rtl">
+      <PageHeader
+        title="شرح بنود التشطيب"
+        description="فيديوهات تعليمية شاملة لجميع بنود التشطيب"
+        icon={FileText}
+      />
+      
+      <section className="py-8 px-4" dir="rtl">
+        <div className="max-w-6xl mx-auto">
+          {/* Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {finishingVideos.map((category) => {
+              const Icon = category.icon
+              const isActive = selected === category.id
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelected(category.id)}
+                  className={`flex items-center gap-4 p-6 rounded-xl border-2 transition-all ${
+                    isActive
+                      ? "bg-primary/10 border-primary text-primary shadow-lg"
+                      : "bg-card border-border text-muted-foreground hover:border-primary/50 hover:shadow-md"
+                  }`}
+                >
+                  <div className={`p-3 rounded-lg ${isActive ? "bg-primary/20" : "bg-muted"}`}>
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <div className="text-right flex-1">
+                    <h3 className="text-lg font-bold">{category.name}</h3>
+                    <p className="text-sm opacity-70">{category.videos.length} فيديو</p>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Videos List */}
+          {selectedCategory && (
+            <Card className="bg-card border-2 border-border p-6">
+              <div className="flex items-center gap-3 mb-6">
+                {(() => {
+                  const Icon = selectedCategory.icon
+                  return <Icon className="w-6 h-6 text-primary" />
+                })()}
+                <h2 className="text-2xl font-black text-primary">{selectedCategory.name}</h2>
+                <span className="mr-auto bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-bold">
+                  {selectedCategory.videos.length} فيديو
+                </span>
+              </div>
+
+              <ScrollArea className="h-[600px]" dir="rtl">
+                <div className="space-y-3 pr-4">
+                  {selectedCategory.videos.map((video, index) => (
+                    <a
+                      key={index}
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-4 items-start p-4 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all group"
+                    >
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 text-primary text-sm flex items-center justify-center font-black group-hover:bg-primary group-hover:text-white transition-all">
+                        {index + 1}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-foreground text-base leading-relaxed font-bold group-hover:text-primary transition-all">
+                          {video.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-2">
+                          <ExternalLink className="w-3 h-3" />
+                          اضغط للمشاهدة على YouTube
+                        </p>
+                      </div>
+                      <div className="flex-shrink-0 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
+                        YouTube
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </ScrollArea>
+            </Card>
+          )}
+        </div>
+      </section>
+    </main>
+  )
+}

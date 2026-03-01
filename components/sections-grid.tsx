@@ -28,7 +28,7 @@ const sections = [
     title: "شرح بنود التشطيب",
     description: "دليل شامل لجميع بنود التشطيب والمواصفات",
     image: "/images/شرح بنود التشطيب.png",
-    href: "/specifications",
+    href: "/finishing-explanation",
   },
   {
     id: "specs",
