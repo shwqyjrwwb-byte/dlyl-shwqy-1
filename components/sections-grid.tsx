@@ -97,7 +97,7 @@ const sections = [
     id: "custody-request",
     title: "طلب صرف عهدة",
     description: "نموذج طلب صرف عهدة احترافي",
-    image: "/images/icons/icon-payment.png",
+    image: "/images/طلب صرف عهدة.png",
     href: "/admin/custody-request",
   },
 ]
