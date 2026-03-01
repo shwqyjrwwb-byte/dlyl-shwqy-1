@@ -99,6 +99,34 @@ export default function UsersManagementPage() {
     }, 1000)
   }
 
+  const downloadExcel = () => {
+    if (users.length === 0) {
+      alert("لا توجد يوزرات لتحميلها")
+      return
+    }
+
+    // إنشاء محتوى CSV
+    let csvContent = "\uFEFF" // BOM for UTF-8
+    csvContent += "اسم الموظف,المسمى الوظيفي,القسم,اليوزر,الرقم السري\n"
+    
+    users.forEach(user => {
+      csvContent += `${user.name},${user.position},${user.department},${user.userId},${user.password}\n`
+    })
+
+    // إنشاء Blob وتحميله
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement("a")
+    const url = URL.createObjectURL(blob)
+    
+    link.setAttribute("href", url)
+    link.setAttribute("download", `يوزرات_الموظفين_${new Date().toLocaleDateString('ar-EG')}.csv`)
+    link.style.visibility = 'hidden'
+    
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   const regeneratePassword = (userId: string) => {
     const updatedUsers = users.map(user => 
       user.userId === userId 
@@ -156,18 +184,29 @@ export default function UsersManagementPage() {
           )}
 
           {users.length > 0 && (
-            <Button
-              onClick={() => {
-                if (confirm('هل أنت متأكد من حذف جميع اليوزرات؟')) {
-                  setUsers([])
-                  localStorage.removeItem("employeeUsers")
-                }
-              }}
-              className="gap-3 h-14 px-8 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white font-black text-lg"
-            >
-              <X className="w-6 h-6" />
-              مسح جميع اليوزرات
-            </Button>
+            <div className="flex gap-3">
+              <Button
+                onClick={downloadExcel}
+                className="gap-3 h-14 px-8 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-black text-lg"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                تحميل Excel
+              </Button>
+              <Button
+                onClick={() => {
+                  if (confirm('هل أنت متأكد من حذف جميع اليوزرات؟')) {
+                    setUsers([])
+                    localStorage.removeItem("employeeUsers")
+                  }
+                }}
+                className="gap-3 h-14 px-8 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white font-black text-lg"
+              >
+                <X className="w-6 h-6" />
+                مسح جميع اليوزرات
+              </Button>
+            </div>
           )}
         </div>
 
