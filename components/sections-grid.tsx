@@ -93,6 +93,13 @@ const sections = [
     image: "/images/تصريح اعمال.png",
     href: "/work-permit",
   },
+  {
+    id: "custody-request",
+    title: "طلب صرف عهدة",
+    description: "نموذج طلب صرف عهدة احترافي",
+    image: "/images/طلب صرف عهده.png",
+    href: "/admin/custody-request",
+  },
 ]
 
 export function SectionsGrid() {

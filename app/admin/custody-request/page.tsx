@@ -11,7 +11,6 @@ import {
   DollarSign, FileText, Printer, Download, ArrowRight 
 } from "lucide-react"
 import Link from "next/link"
-import { WorkPermitAdminAuthCheck } from "@/components/work-permit-admin-auth-check"
 
 export default function CustodyRequestPage() {
   const [formData, setFormData] = useState({
@@ -37,15 +36,14 @@ export default function CustodyRequestPage() {
   }
 
   return (
-    <WorkPermitAdminAuthCheck>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
+      <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <Link href="/admin/work-permits">
+            <Link href="/home">
               <Button variant="outline" className="gap-2 bg-white hover:bg-gray-100 shadow-lg border-2 h-12 px-6 mb-6">
                 <ArrowRight className="w-5 h-5" />
-                رجوع للوحة التحكم
+                رجوع للصفحة الرئيسية
               </Button>
             </Link>
             
@@ -281,6 +279,6 @@ export default function CustodyRequestPage() {
           }
         }
       `}</style>
-    </WorkPermitAdminAuthCheck>
+    </div>
   )
 }
