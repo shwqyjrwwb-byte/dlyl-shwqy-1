@@ -63,7 +63,167 @@ export default function HomePage() {
       return
     }
 
-    // التحقق من يوزرات الموظفين
+    // قاموس اليوزرات الثابتة - جميع الموظفين
+    const defaultUsers: Record<string, { name: string; password: string; position: string; department: string }> = {
+      "malak": { name: "ملك رؤوف", password: "482498", position: "مديرة مكتب م/ أحمد شوقي", department: "مكتب م/ أحمد شوقي" },
+      "mohamed.hassan": { name: "محمد حسن", password: "511776", position: "المدير العام", department: "الإدارة العامة" },
+      "mahmoud.afandina": { name: "م/ محمود عبد الغني (أفندينا)", password: "861380", position: "مدير قسم الجبس بورد والرخام", department: "مديرين البنود" },
+      "mohamed.shawky": { name: "م/ محمد شوقي", password: "593311", position: "مدير قسم النجارة", department: "مديرين البنود" },
+      "mohamed.naguib": { name: "م/ محمد نجيب", password: "726955", position: "مدير بند الكهرباء", department: "مديرين البنود" },
+      "ahmed.abdelbaset": { name: "م/ أحمد عبد الباسط", password: "706597", position: "مدير بند السيراميك", department: "مديرين البنود" },
+      "mohamed.youssef": { name: "م/ محمد يوسف", password: "766726", position: "مدير التكيفات والتوريدات", department: "مديرين البنود" },
+      "ahmed.abdelghani": { name: "م/ أحمد عبد الغني", password: "706598", position: "مدير بند توريدات الكهرباء", department: "مديرين البنود" },
+      "mohamed.abdelmoneam": { name: "محمد عبد المنعم", password: "800543", position: "مدير الموارد البشرية", department: "الموارد البشرية" },
+      "hagar": { name: "هاجر عبد العزيز", password: "800544", position: "HR", department: "الموارد البشرية" },
+      "heba.khaled": { name: "هبه خالد", password: "356988", position: "HR", department: "الموارد البشرية" },
+      "abdelrahman.fayez": { name: "عبد الرحمن فايز علي", password: "448579", position: "HR", department: "الموارد البشرية" },
+      "mostafa.shawky": { name: "م/ مصطفى شوقي", password: "776674", position: "Social Media Manager", department: "السوشيال ميديا" },
+      "ahmed.keta": { name: "أحمد عبد الغني (كيتا)", password: "800526", position: "Deputy Manager", department: "السوشيال ميديا" },
+      "ashraf.zaki": { name: "اشرف ذكي", password: "827701", position: "Producer - Photographer", department: "السوشيال ميديا" },
+      "anas.atef": { name: "انس عاطف محمد", password: "340773", position: "Producer", department: "السوشيال ميديا" },
+      "mahmoud.alaa": { name: "محمود علاء انصاري", password: "010618", position: "Moderator", department: "السوشيال ميديا" },
+      "moamen.mostafa": { name: "مؤمن مصطفى", password: "587005", position: "Content Creator", department: "السوشيال ميديا" },
+      "ahmed.hamed": { name: "احمد حامد", password: "426815", position: "مدير منطقة أكتوبر", department: "مهندسين - أكتوبر" },
+      "ahmed.ragab": { name: "احمد رجب", password: "912261", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "mohamed.obaida": { name: "محمد عبيده", password: "690947", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "ahmed.ashraf": { name: "احمد اشرف", password: "500188", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "mohamed.amin": { name: "محمد امين", password: "860050", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "islam.adel": { name: "اسلام عادل", password: "044029", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "ali.mohamed": { name: "علي", password: "997103", position: "مهندس - أكتوبر", department: "مهندسين - أكتوبر" },
+      "mostafa.kamal": { name: "مصطفي كمال", password: "589130", position: "مدير منطقة القاهرة الجديدة", department: "مهندسين - القاهرة الجديدة" },
+      "mostafa.eid": { name: "مصطفي عيد", password: "498820", position: "مهندس - القاهرة الجديدة", department: "مهندسين - القاهرة الجديدة" },
+      "mohamed.gamal": { name: "محمد جمال", password: "864455", position: "مهندس - القاهرة الجديدة", department: "مهندسين - القاهرة الجديدة" },
+      "abdelrahman.mohamed": { name: "عبدالرحمن محمد", password: "159043", position: "مهندس - القاهرة الجديدة", department: "مهندسين - القاهرة الجديدة" },
+      "ahmed.elazaby": { name: "احمد العزبي", password: "273742", position: "مدير منطقة العاصمة الإدارية", department: "مهندسين - العاصمة" },
+      "hussein.faid": { name: "حسين فيض الله", password: "322922", position: "مهندس - العاصمة الإدارية", department: "مهندسين - العاصمة" },
+      "mohamed.ashraf": { name: "محمد اشرف", password: "492117", position: "مهندس - العاصمة الإدارية", department: "مهندسين - العاصمة" },
+      "mahmoud.mohsen": { name: "محمود محسن", password: "640037", position: "مهندس - العاصمة الإدارية", department: "مهندسين - العاصمة" },
+      "mohamed.maher": { name: "محمد ماهر", password: "629354", position: "مهندس - العاصمة الإدارية", department: "مهندسين - العاصمة" },
+      "mohamed.medhat": { name: "محمد مدحت", password: "593094", position: "مدير منطقة التجمع الخامس", department: "مهندسين - التجمع" },
+      "hossam.ghandour": { name: "حسام الغدور", password: "244495", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "karim.samy": { name: "كريم سامي", password: "183789", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "mohsen.abdelrazek": { name: "محسن عبدالرازق", password: "091234", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "abdelnaby.morgan": { name: "عبدالنبي مرجان", password: "334460", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "emad.shalaby": { name: "عماد شلبي", password: "455556", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "mohamed.ghannam": { name: "محمد غنام", password: "003089", position: "مهندس - التجمع الخامس", department: "مهندسين - التجمع" },
+      "ahmed.bassyouni": { name: "احمد بسيوني", password: "221382", position: "مدير منطقة وسط", department: "مهندسين - وسط" },
+      "mohamed.gameel": { name: "محمد محمود الجميل", password: "264221", position: "مهندس - وسط", department: "مهندسين - وسط" },
+      "amr.khaled": { name: "عمرو خالد", password: "107025", position: "مهندس - وسط", department: "مهندسين - وسط" },
+      "abdelrahman.iraqi": { name: "عبدالرحمن العراقي", password: "074988", position: "مهندس - وسط", department: "مهندسين - وسط" },
+      "bishoy": { name: "بيشوي", password: "948825", position: "مهندس - وسط", department: "مهندسين - وسط" },
+      "mohamed.salah": { name: "محمد صلاح", password: "416769", position: "مدير منطقة الأقاليم", department: "مهندسين - الأقاليم" },
+      "ali.mokhtar": { name: "علي مختار", password: "602018", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "ahmed.elsheikh": { name: "احمد الشيخ (السادات)", password: "277915", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "bayoumy": { name: "بيومي", password: "973235", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "shenouda": { name: "شنوده", password: "285129", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "ahmed.awad": { name: "احمد عوض", password: "936377", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "mohamed.abdelazeem": { name: "محمد عبدالعظيم", password: "020263", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "mahmoud.abouzeid": { name: "محمود ابو زيد", password: "479394", position: "مهندس - الأقاليم", department: "مهندسين - الأقاليم" },
+      "mahmoud.ismail": { name: "محمود اسماعيل", password: "121549", position: "مدير الجودة", department: "الجودة" },
+      "shady.mazhar": { name: "شادي مظهر", password: "704637", position: "مهندس جودة", department: "الجودة" },
+      "moamen.yousry": { name: "مؤمن يسري", password: "293383", position: "مسئول الخدمات / المشتريات", department: "المعاينات" },
+      "amr.abdullah": { name: "المستشار عمرو عبد الله", password: "088704", position: "مدير الإدارة القانونية", department: "الشؤون القانونية" },
+      "mahmoud.gharib": { name: "محمود غريب", password: "734095", position: "شؤون قانونية", department: "الشؤون القانونية" },
+      "wael.rafat": { name: "وائل رأفت أمين", password: "660739", position: "مدير الحسابات", department: "الحسابات" },
+      "rady.shehata": { name: "راضي شحاته", password: "864533", position: "أمين خزينة", department: "الحسابات" },
+      "mai.essam": { name: "مي عصام عبد العزيز", password: "925721", position: "محاسبة", department: "الحسابات" },
+      "khaled.mohyeldin": { name: "خالد محي الدين عبد القادر", password: "296258", position: "محاسب", department: "الحسابات" },
+      "khaled.atef": { name: "خالد عاطف عبد الغني محمد", password: "329792", position: "محاسب مخزن", department: "الحسابات" },
+      "heba.tawfik": { name: "هبه توفيق", password: "183223", position: "مسئولة تحويلات", department: "الحسابات" },
+      "karim.atef": { name: "كريم عاطف", password: "922582", position: "مسئول إضافات", department: "الحسابات" },
+      "hasnaa.emad": { name: "حسناء عماد", password: "544901", position: "مسئول إضافات", department: "الحسابات" },
+      "abdullah.essam": { name: "عبد الله عصام", password: "672999", position: "مسئول إضافات", department: "الحسابات" },
+      "mohamed.salem": { name: "محمد سالم صلاح الدين", password: "494073", position: "مسئول إضافات", department: "الحسابات" },
+      "ashraf.saber": { name: "أشرف صابر", password: "165846", position: "جودة نجارة", department: "النجارة" },
+      "esraa.galal": { name: "إسراء جلال", password: "594811", position: "مسئول معرض الأثاث", department: "النجارة" },
+      "heba.aboelmagd": { name: "هبه أبو المجد", password: "827704", position: "سكرتيرة", department: "النجارة" },
+      "basmala.zaki": { name: "بسمله زكي عزت السعيد", password: "101122", position: "خدمة عملاء النجارة", department: "النجارة" },
+      "mahmoud.hesham": { name: "محمود هشام محمود نجاتي", password: "861381", position: "محاسب قسم النجارة", department: "النجارة" },
+      "abdelrahman.bahary": { name: "عبد الرحمن البحري", password: "705524", position: "سواق", department: "النجارة" },
+      "hesham.magdy": { name: "هشام مجدي كمال", password: "253329", position: "محاسب قسم النجارة", department: "النجارة" },
+      "ahmed.hassan": { name: "أحمد حسن مصطفى حسن عبده", password: "466551", position: "مهندس نجارة", department: "النجارة" },
+      "hadeer.mahmoud": { name: "هدير محمود محمد", password: "259055", position: "تصميمات النجارة", department: "النجارة" },
+      "abdelmoneam.yahya": { name: "عبد المنعم يحيى عبد المنعم", password: "788530", position: "مسئول قسم النجارة", department: "النجارة" },
+      "hassan.mahmoud": { name: "حسن محمود عبد الحميد", password: "621041", position: "نجار", department: "النجارة" },
+      "abdelrahman.hesham": { name: "عبد الرحمن هشام", password: "250312", position: "عامل النجارة", department: "النجارة" },
+      "amr.hesham": { name: "عمرو هشام محمد", password: "148438", position: "عامل مصنع النجارة", department: "النجارة" },
+      "islam.khaled": { name: "إسلام خالد", password: "679887", position: "مدير المكتب الفني", department: "المكتب الفني" },
+      "yara.yousry": { name: "يارا يسري شعبان", password: "997506", position: "مهندسة مكتب فني", department: "المكتب الفني" },
+      "sara.ahmed": { name: "سارة أحمد محمد أحمد", password: "101181", position: "مهندس مكتب فني", department: "المكتب الفني" },
+      "kyrillos.zakaria": { name: "كيرلس زكريا غطاس عوض", password: "411913", position: "مهندس مكتب فني", department: "المكتب الفني" },
+      "aya.naeem": { name: "آيه نعيم أنور محمود", password: "800548", position: "مهندس مكتب فني", department: "المكتب الفني" },
+      "farah.tamer": { name: "فرح تامر محمد", password: "473346", position: "مهندس مكتب فني", department: "المكتب الفني" },
+      "abdullah.reda": { name: "عبد الله رضا محمد عبد العزيز", password: "119496", position: "مهندس مكتب فني", department: "المكتب الفني" },
+      "maryam.youssef": { name: "مريم يوسف", password: "593289", position: "مهندسة مكتب فني", department: "المكتب الفني" },
+      "bassant.antar": { name: "بسنت عنتر", password: "864603", position: "مديرة خدمة العملاء", department: "خدمة العملاء" },
+      "asmaa.mohamed": { name: "اسماء محمد عبد العليم", password: "800518", position: "خدمه عملاء العاصمة", department: "خدمة العملاء" },
+      "doaa.gamal": { name: "دعاء جمال عبد المنعم", password: "841543", position: "خدمة عملاء القاهرة الجديدة", department: "خدمة العملاء" },
+      "youssef.magdy": { name: "يوسف مجدي محرم", password: "119629", position: "خدمة عملاء التجمع", department: "خدمة العملاء" },
+      "ayat.hamed": { name: "ايات حامد حسن علي", password: "504072", position: "خدمه عملاء", department: "خدمة العملاء" },
+      "ahmed.abdelghani2": { name: "م/ أحمد عبد الغني", password: "706599", position: "مدير قسم الفرش", department: "الفرش والديكور" },
+      "nada.amr": { name: "ندى عمرو محمد", password: "864759", position: "مهندسة بقسم الفرش والديكور", department: "الفرش والديكور" },
+      "hossam.khaled": { name: "حسام خالد محمود", password: "883633", position: "مهندس 3d", department: "الفرش والديكور" },
+      "asmaa.hussein": { name: "أسماء حسين", password: "865758", position: "مسؤولة بند التكيفات", department: "الفرش والديكور" },
+      "saeed.samir": { name: "سعيد سمير عبد العزيز علي", password: "086941", position: "مسؤل بند المشتريات الكهربي", department: "الفرش والديكور" },
+      "habiba.mansour": { name: "حبيبه منصور", password: "367635", position: "موظفه تعاقدات", department: "التعاقدات" },
+      "rana.waheed": { name: "رنا وحيد", password: "630606", position: "موظفه تعاقدات", department: "التعاقدات" },
+      "neveen.eid": { name: "نيفين عيد محمد", password: "545667", position: "موظفه تعاقدات", department: "التعاقدات" },
+      "youssef.alaa": { name: "يوسف علاء محمد عبد الهادي", password: "620606", position: "موظف تعاقدات - سيلز", department: "التعاقدات" },
+      "malak.khaled": { name: "ملك خالد خليل", password: "863141", position: "موظفه تعاقدات", department: "التعاقدات" },
+      "hadeer.khaled": { name: "هدير خالد", password: "800534", position: "مسئولة تعاقدات", department: "التعاقدات" },
+      "nada.hamed": { name: "ندى حامد سعيد حامد", password: "864748", position: "موظفة تلي سيلز", department: "تلي سيلز" },
+      "mohamed.azab": { name: "محمد عزب عرب محمد السيد", password: "654499", position: "تلي سيلز", department: "تلي سيلز" },
+      "fatma.rady": { name: "فاطمه راضي أحمد صادق", password: "402956", position: "تلي سيلز", department: "تلي سيلز" },
+      "mohamed.yahya": { name: "محمد يحيي عبدالحميد عبد الرازق", password: "946616", position: "مسؤول قسم السيراميك", department: "السيراميك" },
+      "omnia.mostafa": { name: "امنيه مصطفى", password: "800552", position: "منسق سيراميك", department: "السيراميك" },
+      "mohamed.yousry": { name: "محمد يسري", password: "605351", position: "منسق سيراميك", department: "السيراميك" },
+      "mohamed.saeed": { name: "محمد سعيد محمد", password: "865930", position: "مدير قسم التشغيل", department: "التشغيل" },
+      "sameh.abdelsabour": { name: "م/ سامح عبد الصبور", password: "864735", position: "مدير مشاريع", department: "التشغيل" },
+      "osama.hamdy": { name: "اسامة حمدي أحمد ابراهيم", password: "800523", position: "مسئول مقاولين", department: "التشغيل" },
+      "ahmed.khaled": { name: "احمد خالد", password: "612784", position: "مسئول مقاولين", department: "التشغيل" },
+      "hossam.ashraf": { name: "حسام اشرف فرج احمد", password: "836360", position: "مسئول البوفيه", department: "البوفيه" },
+      "hanan.abbas": { name: "حنان عباس", password: "088455", position: "بوفيه", department: "البوفيه" },
+      "mohamed.abdelhalim": { name: "محمد محمد عبد العليم", password: "767222", position: "مسئول معرض الكهرباء", department: "معرض الكهرباء" },
+      "mahmoud.ali": { name: "محمود علي", password: "093894", position: "مسئول معرض الدهانات", department: "معرض الدهانات" },
+      "ahmed.abulsoud": { name: "م/ أحمد أبو السعود", password: "444748", position: "مدير تكنولوجيا المعلومات", department: "IT" },
+      "azzam": { name: "عزام", password: "108751", position: "مسؤول السيارات", department: "السيارات" },
+    }
+
+    // التحقق من اليوزرات الثابتة أولاً
+    if (defaultUsers[userId] && defaultUsers[userId].password === password) {
+      const user = defaultUsers[userId]
+      localStorage.setItem("userLoggedIn", "true")
+      localStorage.setItem("userId", userId)
+      localStorage.setItem("employeeData", JSON.stringify({
+        name: user.name,
+        position: user.position,
+        department: user.department,
+        image: undefined
+      }))
+      localStorage.setItem("loginTime", new Date().toISOString())
+
+      try {
+        await fetch("/api/users/online", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userId,
+            userName: user.name,
+            userPosition: user.position,
+          }),
+        })
+      } catch (error) {
+        console.error("Error updating online status:", error)
+      }
+
+      router.push("/home")
+      setIsLoading(false)
+      return
+    }
+
+    // التحقق من يوزرات الموظفين من localStorage
     const employeeUsers = localStorage.getItem("employeeUsers")
     if (employeeUsers) {
       const users = JSON.parse(employeeUsers)
