@@ -384,6 +384,11 @@ export default function HomePage() {
                     placeholder="أدخل الـ ID الخاص بك"
                     className="h-14 text-xl border-2 border-gray-300 focus:border-amber-500 font-semibold text-gray-900"
                     style={{ fontSize: '1.25rem', fontWeight: '600' }}
+                    autoComplete="username"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck="false"
+                    inputMode="text"
                   />
                 </div>
 
@@ -394,13 +399,18 @@ export default function HomePage() {
                   </Label>
                   <Input
                     id="password"
-                    type="password"
+                    type="text"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="أدخل كلمة المرور"
                     className="h-14 text-xl border-2 border-gray-300 focus:border-amber-500 font-semibold text-gray-900"
                     style={{ fontSize: '1.25rem', fontWeight: '600' }}
+                    autoComplete="current-password"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck="false"
+                    inputMode="text"
                   />
                 </div>
 
