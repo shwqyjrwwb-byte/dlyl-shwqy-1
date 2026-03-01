@@ -336,6 +336,17 @@ const finishingVideos = [
       },
     ],
   },
+  {
+    id: "concrete",
+    name: "شرح بند الخرسانة",
+    icon: Building2,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الخرسانة 🏗️",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZIpKFmTrmiNOoYxqKjurKN"
+      },
+    ],
+  },
 ]
 
 export default function FinishingExplanationPage() {
