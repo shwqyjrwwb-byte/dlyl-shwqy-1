@@ -222,7 +222,8 @@ export default function HomePage() {
                     value={userId}
                     onChange={(e) => setUserId(e.target.value)}
                     placeholder="أدخل الـ ID الخاص بك"
-                    className="h-14 text-lg border-2 border-gray-300 focus:border-amber-500 font-bold"
+                    className="h-14 text-xl border-2 border-gray-300 focus:border-amber-500 font-semibold text-gray-900"
+                    style={{ fontSize: '1.25rem', fontWeight: '600' }}
                   />
                 </div>
 
@@ -238,7 +239,8 @@ export default function HomePage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="أدخل كلمة المرور"
-                    className="h-14 text-lg border-2 border-gray-300 focus:border-amber-500 font-bold"
+                    className="h-14 text-xl border-2 border-gray-300 focus:border-amber-500 font-semibold text-gray-900"
+                    style={{ fontSize: '1.25rem', fontWeight: '600' }}
                   />
                 </div>
 

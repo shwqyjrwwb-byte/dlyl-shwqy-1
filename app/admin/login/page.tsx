@@ -79,7 +79,8 @@ export default function AdminLoginPage() {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="أدخل اسم المستخدم"
                 required
-                className="h-12 bg-white/5 border-yellow-500/30 text-white placeholder:text-gray-500 focus:border-yellow-500"
+                className="h-12 bg-white/5 border-yellow-500/30 text-white placeholder:text-gray-500 focus:border-yellow-500 text-xl font-semibold"
+                style={{ fontSize: '1.25rem', fontWeight: '600' }}
               />
             </div>
 
@@ -96,7 +97,8 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="أدخل كلمة المرور"
                 required
-                className="h-12 bg-white/5 border-yellow-500/30 text-white placeholder:text-gray-500 focus:border-yellow-500"
+                className="h-12 bg-white/5 border-yellow-500/30 text-white placeholder:text-gray-500 focus:border-yellow-500 text-xl font-semibold"
+                style={{ fontSize: '1.25rem', fontWeight: '600' }}
               />
             </div>
 

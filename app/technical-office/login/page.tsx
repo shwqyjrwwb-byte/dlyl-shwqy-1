@@ -126,9 +126,10 @@ export default function TechnicalOfficeLoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="أدخل اسم المستخدم"
-              className="h-12 text-lg"
+              className="h-12 text-xl font-semibold text-gray-900"
               required
               dir="ltr"
+              style={{ fontSize: '1.25rem', fontWeight: '600' }}
             />
           </div>
 
@@ -142,9 +143,10 @@ export default function TechnicalOfficeLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="أدخل كلمة المرور"
-              className="h-12 text-lg"
+              className="h-12 text-xl font-semibold text-gray-900"
               required
               dir="ltr"
+              style={{ fontSize: '1.25rem', fontWeight: '600' }}
             />
           </div>
 
