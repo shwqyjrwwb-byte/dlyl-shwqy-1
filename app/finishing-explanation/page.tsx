@@ -14,115 +14,115 @@ const finishingVideos = [
     videos: [
       {
         title: "إزاي تضمن إن شغل الكهرباء في مشروعك يكون دقيق ومستمر بدون مفاجآت؟ ⚡",
-        url: "https://www.youtube.com/watch?v=H7jwhnslpBY"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-1"
       },
       {
         title: "إيه اللي يخلي SmartLight اختيارنا الأول في أعمال الكهرباء؟ 🤔⚡",
-        url: "https://www.youtube.com/watch?v=0IAFbV3yTdg"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-2"
       },
       {
         title: "هل فكرت في يوم عن المخاطر اللي ممكن تسببها لو ركبت كهرباء التكييف والسخان غلط؟ ⚡",
-        url: "https://www.youtube.com/watch?v=NzPMqee0JQ0"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-3"
       },
       {
         title: "هل فكرت قبل كده ليه بطلنا نستخدم مواسير الزهر في السباكة ؟ 👍",
-        url: "https://www.youtube.com/watch?v=baoqNj1Jy-0"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-4"
       },
       {
         title: "لو عايز تعرف إزاي تبدأ تأسيس كهرباء الساوند سيستم وكهرباء المطبخ من البداية بطريقة صحيحة؟",
-        url: "https://www.youtube.com/watch?v=FfasPKAKkkQ"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-5"
       },
       {
         title: "ازاي تخلي سلم الفيلا ينور اول ما تدوس عليه وازاي بيتم التأسيس ليه؟ 👌",
-        url: "https://www.youtube.com/watch?v=BrQwChi8XoU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-6"
       },
       {
         title: "لو مش عايز تلاقي نفسك بتكسر في الحيطة عشان توصّل التليفزيون بعد التشطيب؟ أعرف الأساس الصح من الأول⚡",
-        url: "https://www.youtube.com/watch?v=lhb8RVwU2KI"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-7"
       },
       {
         title: "عارف إن أي غلطة في تركيب بؤوج الكهرباء ممكن تسبب مشاكل كتير في التشطيب ؟! 🤔",
-        url: "https://www.youtube.com/watch?v=TH8vCtFN-_0"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-8"
       },
       {
         title: "لو عايز تفهم تأسيسات الكهرباء صح وتعرف الفرق بين لوحة الكهرباء وأجهزة السمارت ⚡",
-        url: "https://www.youtube.com/watch?v=ei9kxOzfYgU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-9"
       },
       {
         title: "شرح مجموعة التليفزيون ✨",
-        url: "https://www.youtube.com/watch?v=zhRx5yzHn2c"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-10"
       },
       {
         title: "استخدامات القواطع ✨",
-        url: "https://www.youtube.com/watch?v=7mtudRd7w_A"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-11"
       },
       {
         title: "طريقة تأسيس مجموعة البوتجاز ✨",
-        url: "https://www.youtube.com/watch?v=wAMXTWYnFZ8"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-12"
       },
       {
         title: "تأسيس نظام الـ Smart✨",
-        url: "https://www.youtube.com/watch?v=oqKFbjc9heU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-13"
       },
       {
         title: "تأسيس الـ LED Profile في السقف ✨",
-        url: "https://www.youtube.com/watch?v=k2rBEykuXUM"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-14"
       },
       {
         title: "تأسيسات الكهرباء في الموقع✨",
-        url: "https://www.youtube.com/watch?v=verTPi5UdXY"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-15"
       },
       {
         title: "تأسيس كهرباء نقط المطبخ ✨",
-        url: "https://www.youtube.com/watch?v=mfoTUPF5rqk"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-16"
       },
       {
         title: "تأسيس الكهرباء مجموعة البوتجاز✨",
-        url: "https://www.youtube.com/watch?v=2_POdZXTxyM"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-17"
       },
       {
         title: "تأسيس الكهرباء لــ Magnetec Track✨",
-        url: "https://www.youtube.com/watch?v=Zrywiw3C9RA"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-18"
       },
       {
         title: "تأسيس الكهرباء للوزر المضئ الجزء الثالث✨",
-        url: "https://www.youtube.com/watch?v=Kocghe2_arU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-19"
       },
       {
         title: "تأسيس الكهرباء للوزر المضئ الجزء الثاني✨",
-        url: "https://www.youtube.com/watch?v=-biFY2OKDT4"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-20"
       },
       {
         title: "تأسيس الكهرباء للوزر المضئ ✨",
-        url: "https://www.youtube.com/watch?v=5Fn_Xy1wVvU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-21"
       },
       {
         title: "تعديل لتأسيس الكهرباء في المطبخ✨",
-        url: "https://www.youtube.com/watch?v=8bgYOCD-Lb4"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-22"
       },
       {
         title: "نصيحة مهمة لو هتعمل خوارنق جوة الكابينة الشاور ✨",
-        url: "https://www.youtube.com/watch?v=tYETZaWjsSI"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-23"
       },
       {
         title: "خطوات تنفيذ تأسيس الكهرباء الجزء الثاني✨",
-        url: "https://www.youtube.com/watch?v=_w3uUHv_ufU"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-24"
       },
       {
         title: "خطوات تنفيذ تأسيس الكهرباء الجزء الاول✨",
-        url: "https://www.youtube.com/watch?v=Kl-lxBd1r4A"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-25"
       },
       {
         title: "خطوات ظبط منسوب نقاط الكهرباء الجزء الثاني✨",
-        url: "https://www.youtube.com/watch?v=aiL5SLShSvI"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-26"
       },
       {
         title: "خطوات ظبط منسوب نقاط الكهرباء الجزء الاول✨",
-        url: "https://www.youtube.com/watch?v=48JAZK0VT5A"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-27"
       },
       {
         title: "خطوات تأسيس مجموعة التليفزيون الجزء الثاني ✨",
-        url: "https://www.youtube.com/watch?v=FcCYgwoMhKs"
+        url: "https://shawkygroup.com/finishing/plumbing-electrical-28"
       },
     ],
   },
@@ -133,23 +133,23 @@ const finishingVideos = [
     videos: [
       {
         title: "طريقة تركيب البورسلين ✨",
-        url: "https://www.youtube.com/watch?v=4gcCKM1UtNY"
+        url: "https://shawkygroup.com/finishing/porcelain-1"
       },
       {
         title: "طريقة تركيب البورسلين 60*120✨",
-        url: "https://www.youtube.com/watch?v=Ky12g41WZTw"
+        url: "https://shawkygroup.com/finishing/porcelain-2"
       },
       {
         title: "ادوات المستخدمة في تركيب البورسلين وقوة التحمل لكل نوع ✨",
-        url: "https://www.youtube.com/watch?v=iRikQzJK2vs"
+        url: "https://shawkygroup.com/finishing/porcelain-3"
       },
       {
         title: "طريقة تقسيط وميول البورسلين ✨",
-        url: "https://www.youtube.com/watch?v=lFkeq-O5KY8"
+        url: "https://shawkygroup.com/finishing/porcelain-4"
       },
       {
         title: "تركيب البورسلين بمادة سوداء ✨",
-        url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+        url: "https://shawkygroup.com/finishing/porcelain-5"
       },
     ],
   },
@@ -160,23 +160,23 @@ const finishingVideos = [
     videos: [
       {
         title: "طريقة تركيب البورسلين ✨",
-        url: "https://www.youtube.com/watch?v=4gcCKM1UtNY"
+        url: "https://shawkygroup.com/finishing/wood-1"
       },
       {
         title: "طريقة تركيب البورسلين 60*120✨",
-        url: "https://www.youtube.com/watch?v=Ky12g41WZTw"
+        url: "https://shawkygroup.com/finishing/wood-2"
       },
       {
         title: "ادوات المستخدمة في تركيب البورسلين وقوة التحمل لكل نوع ✨",
-        url: "https://www.youtube.com/watch?v=iRikQzJK2vs"
+        url: "https://shawkygroup.com/finishing/wood-3"
       },
       {
         title: "طريقة تقسيط وميول البورسلين ✨",
-        url: "https://www.youtube.com/watch?v=lFkeq-O5KY8"
+        url: "https://shawkygroup.com/finishing/wood-4"
       },
       {
         title: "تركيب البورسلين بمادة سوداء ✨",
-        url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+        url: "https://shawkygroup.com/finishing/wood-5"
       },
     ],
   },
@@ -187,19 +187,19 @@ const finishingVideos = [
     videos: [
       {
         title: "المقاول الشاطر رزق وطول ما انت بتحب شغلك هتعرف تبدع فيه 👌❤️",
-        url: "https://www.youtube.com/watch?v=7pMHEqnAd4o"
+        url: "https://shawkygroup.com/finishing/plastering-1"
       },
       {
         title: "هل في مقاسات لازم تلتزم بيها في تأميم الأبواب؟",
-        url: "https://www.youtube.com/watch?v=fyd4A0WpnlA"
+        url: "https://shawkygroup.com/finishing/plastering-2"
       },
       {
         title: "ازاي بيتم حساب بؤوج المحارة ✨",
-        url: "https://www.youtube.com/watch?v=NmMNlk1BGGo"
+        url: "https://shawkygroup.com/finishing/plastering-3"
       },
       {
         title: "نصيحة مهمة بخصوص المونة بتاعت المحارة✨",
-        url: "https://www.youtube.com/watch?v=bey4_chgR_M"
+        url: "https://shawkygroup.com/finishing/plastering-4"
       },
     ],
   },
@@ -210,15 +210,15 @@ const finishingVideos = [
     videos: [
       {
         title: "أحدث القطاعات الموجودة في السوق دلوقتي ولازم تبقى عارفها وانت بتشطب شقتك 👌❤️",
-        url: "https://www.youtube.com/watch?v=TNBrx54LXaM"
+        url: "https://shawkygroup.com/finishing/securit-1"
       },
       {
         title: "انواع الاكسسوارات والزجاج المستخدم في الكابينة الشاور ✨",
-        url: "https://www.youtube.com/watch?v=rLFy16fcpHs"
+        url: "https://shawkygroup.com/finishing/securit-2"
       },
       {
         title: "خطوات تركيب زجاج الكابينة الشاور ,, ✨",
-        url: "https://www.youtube.com/watch?v=c2MeCeDmIjQ"
+        url: "https://shawkygroup.com/finishing/securit-3"
       },
     ],
   },
@@ -229,7 +229,7 @@ const finishingVideos = [
     videos: [
       {
         title: "خطوات تركيب الفيوتيك !✨",
-        url: "https://www.youtube.com/watch?v=FC03lO03Xx4"
+        url: "https://shawkygroup.com/finishing/futuristic-1"
       },
     ],
   },
@@ -240,11 +240,11 @@ const finishingVideos = [
     videos: [
       {
         title: "نصايح مهمة في اعمال الرووف ✨",
-        url: "https://www.youtube.com/watch?v=Vn99LL__Qyg"
+        url: "https://shawkygroup.com/finishing/insulation-1"
       },
       {
         title: "شرح اعمال العزل الحراري للروف ✨",
-        url: "https://www.youtube.com/watch?v=1f8T10qY62"
+        url: "https://shawkygroup.com/finishing/insulation-2"
       },
     ],
   },
@@ -255,7 +255,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات حمام السباحة 🏊",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZhnuLWMhZopQLxp7qx9AQo"
+        url: "https://shawkygroup.com/finishing/swimming-pool"
       },
     ],
   },
@@ -266,7 +266,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الـ PVC 📺",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bb_SdjpETUloOHG4ANWTf4d"
+        url: "https://shawkygroup.com/finishing/pvc"
       },
     ],
   },
@@ -277,7 +277,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الالموتال 🪟",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bYgk3VOUDqCzFfvLaZmur27"
+        url: "https://shawkygroup.com/finishing/aluminum"
       },
     ],
   },
@@ -288,7 +288,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات السباكة 🚰",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZVKYksUSx-g4NgAM-QB5lR"
+        url: "https://shawkygroup.com/finishing/plumbing"
       },
     ],
   },
@@ -299,7 +299,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الدهان 🎨",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZXyI9LhBfLIunAKCMmQxRQ"
+        url: "https://shawkygroup.com/finishing/painting"
       },
     ],
   },
@@ -310,7 +310,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الرخام 💎",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0baABHJjgc7v_Do3DTdXFHEj"
+        url: "https://shawkygroup.com/finishing/marble"
       },
     ],
   },
@@ -321,7 +321,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الجبس بورد 📐",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bbDU0oAl9zvmBl64gpxYCmI"
+        url: "https://shawkygroup.com/finishing/gypsum"
       },
     ],
   },
@@ -332,7 +332,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات التكييفات ❄️",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZutAVKKPT5FtajWBPegnE5"
+        url: "https://shawkygroup.com/finishing/air-conditioning"
       },
     ],
   },
@@ -343,7 +343,7 @@ const finishingVideos = [
     videos: [
       {
         title: "شاهد جميع فيديوهات الخرسانة 🏗️",
-        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZIpKFmTrmiNOoYxqKjurKN"
+        url: "https://shawkygroup.com/finishing/concrete"
       },
     ],
   },
