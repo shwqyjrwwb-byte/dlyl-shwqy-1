@@ -292,6 +292,50 @@ const finishingVideos = [
       },
     ],
   },
+  {
+    id: "painting",
+    name: "شرح بند الدهان",
+    icon: Paintbrush,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الدهان 🎨",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZXyI9LhBfLIunAKCMmQxRQ"
+      },
+    ],
+  },
+  {
+    id: "marble",
+    name: "شرح بند الرخام",
+    icon: Mountain,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الرخام 💎",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0baABHJjgc7v_Do3DTdXFHEj"
+      },
+    ],
+  },
+  {
+    id: "gypsum",
+    name: "شرح بند الجبس بورد",
+    icon: Square,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الجبس بورد 📐",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bbDU0oAl9zvmBl64gpxYCmI"
+      },
+    ],
+  },
+  {
+    id: "air-conditioning",
+    name: "شرح بند التكييفات",
+    icon: Building2,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات التكييفات ❄️",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZutAVKKPT5FtajWBPegnE5"
+      },
+    ],
+  },
 ]
 
 export default function FinishingExplanationPage() {
