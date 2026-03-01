@@ -347,6 +347,11 @@ const departmentsData: Department[] = [
         position: "عامل مخزن",
         phone: "01010239983",
       },
+      {
+        name: "محمود حمودي",
+        position: "عامل مخزن",
+        phone: "01030102935",
+      },
     ],
   },
   {
