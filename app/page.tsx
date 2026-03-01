@@ -30,7 +30,7 @@ export default function HomePage() {
     }
 
     // التحقق من يوزر المدير الخاص للدليل
-    if (userId === "owner9528" && password === "123456") {
+    if (userId === "ahmed1" && password === "ahmed1") {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
       localStorage.setItem("employeeData", JSON.stringify({
