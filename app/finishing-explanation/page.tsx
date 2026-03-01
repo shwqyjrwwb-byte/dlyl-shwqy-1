@@ -4,7 +4,7 @@ import { useState } from "react"
 import { PageHeader } from "@/components/page-header"
 import { Card } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { FileText, Droplets, Zap, ExternalLink } from "lucide-react"
+import { FileText, Droplets, Zap, ExternalLink, Grid3X3, DoorOpen, Paintbrush, Square, Building2, Mountain } from "lucide-react"
 
 const finishingVideos = [
   {
@@ -123,6 +123,128 @@ const finishingVideos = [
       {
         title: "خطوات تأسيس مجموعة التليفزيون الجزء الثاني ✨",
         url: "https://www.youtube.com/watch?v=FcCYgwoMhKs"
+      },
+    ],
+  },
+  {
+    id: "porcelain",
+    name: "شرح بند البورسلين",
+    icon: Grid3X3,
+    videos: [
+      {
+        title: "طريقة تركيب البورسلين ✨",
+        url: "https://www.youtube.com/watch?v=4gcCKM1UtNY"
+      },
+      {
+        title: "طريقة تركيب البورسلين 60*120✨",
+        url: "https://www.youtube.com/watch?v=Ky12g41WZTw"
+      },
+      {
+        title: "ادوات المستخدمة في تركيب البورسلين وقوة التحمل لكل نوع ✨",
+        url: "https://www.youtube.com/watch?v=iRikQzJK2vs"
+      },
+      {
+        title: "طريقة تقسيط وميول البورسلين ✨",
+        url: "https://www.youtube.com/watch?v=lFkeq-O5KY8"
+      },
+      {
+        title: "تركيب البورسلين بمادة سوداء ✨",
+        url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+      },
+    ],
+  },
+  {
+    id: "wood",
+    name: "شرح بند الأخشاب",
+    icon: DoorOpen,
+    videos: [
+      {
+        title: "طريقة تركيب البورسلين ✨",
+        url: "https://www.youtube.com/watch?v=4gcCKM1UtNY"
+      },
+      {
+        title: "طريقة تركيب البورسلين 60*120✨",
+        url: "https://www.youtube.com/watch?v=Ky12g41WZTw"
+      },
+      {
+        title: "ادوات المستخدمة في تركيب البورسلين وقوة التحمل لكل نوع ✨",
+        url: "https://www.youtube.com/watch?v=iRikQzJK2vs"
+      },
+      {
+        title: "طريقة تقسيط وميول البورسلين ✨",
+        url: "https://www.youtube.com/watch?v=lFkeq-O5KY8"
+      },
+      {
+        title: "تركيب البورسلين بمادة سوداء ✨",
+        url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+      },
+    ],
+  },
+  {
+    id: "plastering",
+    name: "شرح بند المحارة",
+    icon: Paintbrush,
+    videos: [
+      {
+        title: "المقاول الشاطر رزق وطول ما انت بتحب شغلك هتعرف تبدع فيه 👌❤️",
+        url: "https://www.youtube.com/watch?v=7pMHEqnAd4o"
+      },
+      {
+        title: "هل في مقاسات لازم تلتزم بيها في تأميم الأبواب؟",
+        url: "https://www.youtube.com/watch?v=fyd4A0WpnlA"
+      },
+      {
+        title: "ازاي بيتم حساب بؤوج المحارة ✨",
+        url: "https://www.youtube.com/watch?v=NmMNlk1BGGo"
+      },
+      {
+        title: "نصيحة مهمة بخصوص المونة بتاعت المحارة✨",
+        url: "https://www.youtube.com/watch?v=bey4_chgR_M"
+      },
+    ],
+  },
+  {
+    id: "securit",
+    name: "شرح بند السيكوريت",
+    icon: Square,
+    videos: [
+      {
+        title: "أحدث القطاعات الموجودة في السوق دلوقتي ولازم تبقى عارفها وانت بتشطب شقتك 👌❤️",
+        url: "https://www.youtube.com/watch?v=TNBrx54LXaM"
+      },
+      {
+        title: "انواع الاكسسوارات والزجاج المستخدم في الكابينة الشاور ✨",
+        url: "https://www.youtube.com/watch?v=rLFy16fcpHs"
+      },
+      {
+        title: "خطوات تركيب زجاج الكابينة الشاور ,, ✨",
+        url: "https://www.youtube.com/watch?v=c2MeCeDmIjQ"
+      },
+    ],
+  },
+  {
+    id: "futuristic",
+    name: "شرح بند الفيوتك",
+    icon: Building2,
+    videos: [
+      {
+        title: "خطوات تركيب الفيوتيك !✨",
+        url: "https://www.youtube.com/watch?v=FC03lO03Xx4"
+      },
+    ],
+  },
+  {
+    id: "insulation",
+    name: "شرح بند العزل",
+    icon: Mountain,
+    videos: [
+      {
+        title: "نصايح مهمة في اعمال الرووف ✨",
+        url: "https://www.youtube.com/watch?v=Vn99LL__Qyg"
+      },
+      {
+        title: "شرح اعمال العزل الحراري للروف ✨",
+        url: "https://www.youtube.com/watch?v=1f8T10qY62"
       },
     ],
   },
