@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { 
   CheckCircle, XCircle, Clock, FileText, User, MapPin, 
-  Calendar, Phone, Eye, Download, Printer, ArrowRight, LogOut 
+  Calendar, Phone, Eye, Download, Printer, ArrowRight, LogOut, Wallet 
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -161,6 +161,56 @@ export default function WorkPermitsAdminPage() {
               <LogOut className="w-5 h-5" />
               تسجيل الخروج
             </Button>
+          </div>
+
+          {/* Quick Access Cards */}
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {/* تصريح الأعمال */}
+            <Card className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 hover:shadow-2xl transition-all cursor-pointer border-4 border-blue-400">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-white/20 p-4 rounded-xl">
+                  <FileText className="w-12 h-12" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-black mb-1">تصاريح الأعمال</h2>
+                  <p className="text-lg text-blue-100">إدارة ومراجعة التصاريح</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-3 mt-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                  <p className="text-2xl font-black">{permits.length}</p>
+                  <p className="text-xs text-blue-100">الإجمالي</p>
+                </div>
+                <div className="bg-yellow-500/20 backdrop-blur-sm rounded-lg p-3 text-center border border-yellow-400/30">
+                  <p className="text-2xl font-black">{permits.filter(p => p.status === "pending").length}</p>
+                  <p className="text-xs text-blue-100">قيد المراجعة</p>
+                </div>
+                <div className="bg-green-500/20 backdrop-blur-sm rounded-lg p-3 text-center border border-green-400/30">
+                  <p className="text-2xl font-black">{permits.filter(p => p.status === "approved").length}</p>
+                  <p className="text-xs text-blue-100">موافق عليها</p>
+                </div>
+              </div>
+            </Card>
+
+            {/* طلب صرف عهدة */}
+            <Link href="/admin/custody-request">
+              <Card className="bg-gradient-to-br from-emerald-600 to-emerald-800 text-white p-8 hover:shadow-2xl transition-all cursor-pointer border-4 border-emerald-400 h-full">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-white/20 p-4 rounded-xl">
+                    <Wallet className="w-12 h-12" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-black mb-1">طلب صرف عهدة</h2>
+                    <p className="text-lg text-emerald-100">إنشاء طلب صرف عهدة جديد</p>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mt-6">
+                  <p className="text-sm text-emerald-100 mb-2">✓ نموذج احترافي</p>
+                  <p className="text-sm text-emerald-100 mb-2">✓ طباعة وتحميل PDF</p>
+                  <p className="text-sm text-emerald-100">✓ سهل الاستخدام</p>
+                </div>
+              </Card>
+            </Link>
           </div>
           
           <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white p-8 rounded-2xl shadow-2xl">
