@@ -4,7 +4,7 @@ import { useState } from "react"
 import { PageHeader } from "@/components/page-header"
 import { Card } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { FileText, Droplets, Zap, ExternalLink, Grid3X3, DoorOpen, Paintbrush, Square, Building2, Mountain } from "lucide-react"
+import { FileText, Droplets, ExternalLink, Grid3X3, DoorOpen, Paintbrush, Square, Building2, Mountain } from "lucide-react"
 
 const finishingVideos = [
   {
@@ -245,6 +245,50 @@ const finishingVideos = [
       {
         title: "شرح اعمال العزل الحراري للروف ✨",
         url: "https://www.youtube.com/watch?v=1f8T10qY62"
+      },
+    ],
+  },
+  {
+    id: "swimming-pool",
+    name: "شرح بند حمام السباحة",
+    icon: Droplets,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات حمام السباحة 🏊",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZhnuLWMhZopQLxp7qx9AQo"
+      },
+    ],
+  },
+  {
+    id: "pvc",
+    name: "شرح بند الـ PVC",
+    icon: Square,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الـ PVC 📺",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bb_SdjpETUloOHG4ANWTf4d"
+      },
+    ],
+  },
+  {
+    id: "aluminum",
+    name: "شرح بند الالموتال",
+    icon: Building2,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات الالموتال 🪟",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bYgk3VOUDqCzFfvLaZmur27"
+      },
+    ],
+  },
+  {
+    id: "plumbing-playlist",
+    name: "شرح بند السباكة - Playlist",
+    icon: Droplets,
+    videos: [
+      {
+        title: "شاهد جميع فيديوهات السباكة 🚰",
+        url: "https://www.youtube.com/playlist?list=PLiXKKlCpt0bZVKYksUSx-g4NgAM-QB5lR"
       },
     ],
   },
