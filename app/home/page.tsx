@@ -10,7 +10,6 @@ import { PageBackgroundSlideshow } from "@/components/page-background-slideshow"
 import { ManagementChat } from "@/components/management-chat"
 import { BackgroundMusicPlayer } from "@/components/background-music-player"
 import { EmployeeProfileHeader } from "@/components/employee-profile-header"
-import { FinishingItemsSection } from "@/components/finishing-items-section"
 
 function HomeContent() {
   useEffect(() => {
@@ -91,8 +90,6 @@ function HomeContent() {
         </section>
 
         <SectionsGrid />
-
-        <FinishingItemsSection />
 
         <PartnersMarquee />
         
