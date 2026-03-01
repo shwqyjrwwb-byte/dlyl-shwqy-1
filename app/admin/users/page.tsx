@@ -53,27 +53,157 @@ export default function UsersManagementPage() {
     }
   }
 
-  const generatePassword = () => {
+  const generatePassword = (name: string) => {
+    // استخدام الرقم السري الثابت من القاموس إذا كان موجوداً
+    if (employeeUsernames[name]) {
+      return employeeUsernames[name].password
+    }
+    // إذا لم يكن موجوداً، توليد رقم سري عشوائي
     return Math.floor(100000 + Math.random() * 900000).toString()
   }
 
+  // قاموس اليوزرات الثابتة من ملف EMPLOYEE_USERNAMES.md
+  const employeeUsernames: Record<string, { userId: string; password: string }> = {
+    "ملك رؤوف": { userId: "malak", password: "482498" },
+    "محمد حسن": { userId: "mohamed.hassan", password: "511776" },
+    "م/ محمود عبد الغني (أفندينا)": { userId: "mahmoud.afandina", password: "861380" },
+    "م/ محمد شوقي": { userId: "mohamed.shawky", password: "593311" },
+    "م/ محمد نجيب": { userId: "mohamed.naguib", password: "726955" },
+    "م/ أحمد عبد الباسط": { userId: "ahmed.abdelbaset", password: "706597" },
+    "م/ محمد يوسف": { userId: "mohamed.youssef", password: "766726" },
+    "م/ أحمد عبد الغني": { userId: "ahmed.abdelghani", password: "706598" },
+    "محمد عبد المنعم": { userId: "mohamed.abdelmoneam", password: "800543" },
+    "هاجر عبد العزيز": { userId: "hagar", password: "800544" },
+    "هبه خالد": { userId: "heba.khaled", password: "356988" },
+    "عبد الرحمن فايز علي": { userId: "abdelrahman.fayez", password: "448579" },
+    "م/ مصطفى شوقي": { userId: "mostafa.shawky", password: "776674" },
+    "أحمد عبد الغني (كيتا)": { userId: "ahmed.keta", password: "800526" },
+    "اشرف ذكي": { userId: "ashraf.zaki", password: "827701" },
+    "انس عاطف محمد": { userId: "anas.atef", password: "340773" },
+    "محمود علاء انصاري": { userId: "mahmoud.alaa", password: "010618" },
+    "مؤمن مصطفى": { userId: "moamen.mostafa", password: "587005" },
+    "احمد حامد": { userId: "ahmed.hamed", password: "426815" },
+    "احمد رجب": { userId: "ahmed.ragab", password: "912261" },
+    "محمد عبيده": { userId: "mohamed.obaida", password: "690947" },
+    "احمد اشرف": { userId: "ahmed.ashraf", password: "500188" },
+    "محمد امين": { userId: "mohamed.amin", password: "860050" },
+    "اسلام عادل": { userId: "islam.adel", password: "044029" },
+    "علي": { userId: "ali.mohamed", password: "997103" },
+    "مصطفي كمال": { userId: "mostafa.kamal", password: "589130" },
+    "مصطفي عيد": { userId: "mostafa.eid", password: "498820" },
+    "محمد جمال": { userId: "mohamed.gamal", password: "864455" },
+    "عبدالرحمن محمد": { userId: "abdelrahman.mohamed", password: "159043" },
+    "احمد العزبي": { userId: "ahmed.elazaby", password: "273742" },
+    "حسين فيض الله": { userId: "hussein.faid", password: "322922" },
+    "محمد اشرف": { userId: "mohamed.ashraf", password: "492117" },
+    "محمود محسن": { userId: "mahmoud.mohsen", password: "640037" },
+    "محمد ماهر": { userId: "mohamed.maher", password: "629354" },
+    "محمد مدحت": { userId: "mohamed.medhat", password: "593094" },
+    "حسام الغدور": { userId: "hossam.ghandour", password: "244495" },
+    "كريم سامي": { userId: "karim.samy", password: "183789" },
+    "محسن عبدالرازق": { userId: "mohsen.abdelrazek", password: "091234" },
+    "عبدالنبي مرجان": { userId: "abdelnaby.morgan", password: "334460" },
+    "عماد شلبي": { userId: "emad.shalaby", password: "455556" },
+    "محمد غنام": { userId: "mohamed.ghannam", password: "003089" },
+    "احمد بسيوني": { userId: "ahmed.bassyouni", password: "221382" },
+    "محمد محمود الجميل": { userId: "mohamed.gameel", password: "264221" },
+    "عمرو خالد": { userId: "amr.khaled", password: "107025" },
+    "عبدالرحمن العراقي": { userId: "abdelrahman.iraqi", password: "074988" },
+    "بيشوي": { userId: "bishoy", password: "948825" },
+    "محمد صلاح": { userId: "mohamed.salah", password: "416769" },
+    "علي مختار": { userId: "ali.mokhtar", password: "602018" },
+    "احمد الشيخ (السادات)": { userId: "ahmed.elsheikh", password: "277915" },
+    "بيومي": { userId: "bayoumy", password: "973235" },
+    "شنوده": { userId: "shenouda", password: "285129" },
+    "احمد عوض": { userId: "ahmed.awad", password: "936377" },
+    "محمد عبدالعظيم": { userId: "mohamed.abdelazeem", password: "020263" },
+    "محمود ابو زيد": { userId: "mahmoud.abouzeid", password: "479394" },
+    "محمود اسماعيل": { userId: "mahmoud.ismail", password: "121549" },
+    "شادي مظهر": { userId: "shady.mazhar", password: "704637" },
+    "مؤمن يسري": { userId: "moamen.yousry", password: "293383" },
+    "المستشار عمرو عبد الله": { userId: "amr.abdullah", password: "088704" },
+    "محمود غريب": { userId: "mahmoud.gharib", password: "734095" },
+    "وائل رأفت أمين": { userId: "wael.rafat", password: "660739" },
+    "راضي شحاته": { userId: "rady.shehata", password: "864533" },
+    "مي عصام عبد العزيز": { userId: "mai.essam", password: "925721" },
+    "خالد محي الدين عبد القادر": { userId: "khaled.mohyeldin", password: "296258" },
+    "خالد عاطف عبد الغني محمد": { userId: "khaled.atef", password: "329792" },
+    "هبه توفيق": { userId: "heba.tawfik", password: "183223" },
+    "كريم عاطف": { userId: "karim.atef", password: "922582" },
+    "حسناء عماد": { userId: "hasnaa.emad", password: "544901" },
+    "عبد الله عصام": { userId: "abdullah.essam", password: "672999" },
+    "محمد سالم صلاح الدين": { userId: "mohamed.salem", password: "494073" },
+    "أشرف صابر": { userId: "ashraf.saber", password: "165846" },
+    "إسراء جلال": { userId: "esraa.galal", password: "594811" },
+    "هبه أبو المجد": { userId: "heba.aboelmagd", password: "827704" },
+    "بسمله زكي عزت السعيد": { userId: "basmala.zaki", password: "101122" },
+    "محمود هشام محمود نجاتي": { userId: "mahmoud.hesham", password: "861381" },
+    "عبد الرحمن البحري": { userId: "abdelrahman.bahary", password: "705524" },
+    "هشام مجدي كمال": { userId: "hesham.magdy", password: "253329" },
+    "أحمد حسن مصطفى حسن عبده": { userId: "ahmed.hassan", password: "466551" },
+    "هدير محمود محمد": { userId: "hadeer.mahmoud", password: "259055" },
+    "عبد المنعم يحيى عبد المنعم": { userId: "abdelmoneam.yahya", password: "788530" },
+    "حسن محمود عبد الحميد": { userId: "hassan.mahmoud", password: "621041" },
+    "عبد الرحمن هشام": { userId: "abdelrahman.hesham", password: "250312" },
+    "عمرو هشام محمد": { userId: "amr.hesham", password: "148438" },
+    "إسلام خالد": { userId: "islam.khaled", password: "679887" },
+    "يارا يسري شعبان": { userId: "yara.yousry", password: "997506" },
+    "سارة أحمد محمد أحمد": { userId: "sara.ahmed", password: "101181" },
+    "كيرلس زكريا غطاس عوض": { userId: "kyrillos.zakaria", password: "411913" },
+    "آيه نعيم أنور محمود": { userId: "aya.naeem", password: "800548" },
+    "فرح تامر محمد": { userId: "farah.tamer", password: "473346" },
+    "عبد الله رضا محمد عبد العزيز": { userId: "abdullah.reda", password: "119496" },
+    "مريم يوسف": { userId: "maryam.youssef", password: "593289" },
+    "بسنت عنتر": { userId: "bassant.antar", password: "864603" },
+    "اسماء محمد عبد العليم": { userId: "asmaa.mohamed", password: "800518" },
+    "دعاء جمال عبد المنعم": { userId: "doaa.gamal", password: "841543" },
+    "يوسف مجدي محرم": { userId: "youssef.magdy", password: "119629" },
+    "ايات حامد حسن علي": { userId: "ayat.hamed", password: "504072" },
+    "ندى عمرو محمد": { userId: "nada.amr", password: "864759" },
+    "حسام خالد محمود": { userId: "hossam.khaled", password: "883633" },
+    "أسماء حسين": { userId: "asmaa.hussein", password: "865758" },
+    "سعيد سمير عبد العزيز علي": { userId: "saeed.samir", password: "086941" },
+    "حبيبه منصور": { userId: "habiba.mansour", password: "367635" },
+    "رنا وحيد": { userId: "rana.waheed", password: "630606" },
+    "نيفين عيد محمد": { userId: "neveen.eid", password: "545667" },
+    "يوسف علاء محمد عبد الهادي": { userId: "youssef.alaa", password: "620606" },
+    "ملك خالد خليل": { userId: "malak.khaled", password: "863141" },
+    "هدير خالد": { userId: "hadeer.khaled", password: "800534" },
+    "ندى حامد سعيد حامد": { userId: "nada.hamed", password: "864748" },
+    "محمد عزب عرب محمد السيد": { userId: "mohamed.azab", password: "654499" },
+    "فاطمه راضي أحمد صادق": { userId: "fatma.rady", password: "402956" },
+    "محمد يحيي عبدالحميد عبد الرازق": { userId: "mohamed.yahya", password: "946616" },
+    "امنيه مصطفى": { userId: "omnia.mostafa", password: "800552" },
+    "محمد يسري": { userId: "mohamed.yousry", password: "605351" },
+    "محمد سعيد محمد": { userId: "mohamed.saeed", password: "865930" },
+    "م/ سامح عبد الصبور": { userId: "sameh.abdelsabour", password: "864735" },
+    "اسامة حمدي أحمد ابراهيم": { userId: "osama.hamdy", password: "800523" },
+    "احمد خالد": { userId: "ahmed.khaled", password: "612784" },
+    "حسام اشرف فرج احمد": { userId: "hossam.ashraf", password: "836360" },
+    "حنان عباس": { userId: "hanan.abbas", password: "088455" },
+    "محمد محمد عبد العليم": { userId: "mohamed.abdelhalim", password: "767222" },
+    "محمود علي": { userId: "mahmoud.ali", password: "093894" },
+    "م/ أحمد أبو السعود": { userId: "ahmed.abulsoud", password: "444748" },
+    "عزام": { userId: "azzam", password: "108751" },
+  }
+
   const generateUserId = (name: string, index: number) => {
-    // توليد يوزر عشوائي بالكامل
+    // استخدام اليوزر الثابت من القاموس إذا كان موجوداً
+    if (employeeUsernames[name]) {
+      return employeeUsernames[name].userId
+    }
+    
+    // إذا لم يكن موجوداً، توليد يوزر عشوائي
     const chars = 'abcdefghijklmnopqrstuvwxyz'
     const numbers = '0123456789'
-    
-    // 4 حروف عشوائية
     let randomChars = ''
     for (let i = 0; i < 4; i++) {
       randomChars += chars.charAt(Math.floor(Math.random() * chars.length))
     }
-    
-    // 4 أرقام عشوائية
     let randomNumbers = ''
     for (let i = 0; i < 4; i++) {
       randomNumbers += numbers.charAt(Math.floor(Math.random() * numbers.length))
     }
-    
     return `${randomChars}${randomNumbers}`
   }
 
@@ -87,7 +217,7 @@ export default function UsersManagementPage() {
       department: emp.department,
       image: emp.image,
       userId: generateUserId(emp.name, index),
-      password: generatePassword(),
+      password: generatePassword(emp.name),
       createdAt: new Date().toISOString(),
     }))
 
@@ -130,7 +260,7 @@ export default function UsersManagementPage() {
   const regeneratePassword = (userId: string) => {
     const updatedUsers = users.map(user => 
       user.userId === userId 
-        ? { ...user, password: generatePassword() }
+        ? { ...user, password: generatePassword(user.name) }
         : user
     )
     setUsers(updatedUsers)
