@@ -63,6 +63,41 @@ const specifications = [
     ],
   },
   {
+    id: "plumbing-electrical-videos",
+    name: "شرح بند السباكة",
+    icon: Droplets,
+    items: [
+      "إزاي تضمن إن شغل الكهرباء في مشروعك يكون دقيق ومستمر بدون مفاجآت؟ ⚡|https://www.youtube.com/watch?v=H7jwhnslpBY",
+      "إيه اللي يخلي SmartLight اختيارنا الأول في أعمال الكهرباء؟ 🤔⚡|https://www.youtube.com/watch?v=0IAFbV3yTdg",
+      "هل فكرت في يوم عن المخاطر اللي ممكن تسببها لو ركبت كهرباء التكييف والسخان غلط؟ ⚡|https://www.youtube.com/watch?v=NzPMqee0JQ0",
+      "هل فكرت قبل كده ليه بطلنا نستخدم مواسير الزهر في السباكة ؟ 👍|https://www.youtube.com/watch?v=baoqNj1Jy-0",
+      "لو عايز تعرف إزاي تبدأ تأسيس كهرباء الساوند سيستم وكهرباء المطبخ من البداية بطريقة صحيحة؟|https://www.youtube.com/watch?v=FfasPKAKkkQ",
+      "ازاي تخلي سلم الفيلا ينور اول ما تدوس عليه وازاي بيتم التأسيس ليه؟ 👌|https://www.youtube.com/watch?v=BrQwChi8XoU",
+      "لو مش عايز تلاقي نفسك بتكسر في الحيطة عشان توصّل التليفزيون بعد التشطيب؟ أعرف الأساس الصح من الأول⚡|https://www.youtube.com/watch?v=lhb8RVwU2KI",
+      "عارف إن أي غلطة في تركيب بؤوج الكهرباء ممكن تسبب مشاكل كتير في التشطيب ؟! 🤔|https://www.youtube.com/watch?v=TH8vCtFN-_0",
+      "لو عايز تفهم تأسيسات الكهرباء صح وتعرف الفرق بين لوحة الكهرباء وأجهزة السمارت ⚡|https://www.youtube.com/watch?v=ei9kxOzfYgU",
+      "شرح مجموعة التليفزيون ✨|https://www.youtube.com/watch?v=zhRx5yzHn2c",
+      "استخدامات القواطع ✨|https://www.youtube.com/watch?v=7mtudRd7w_A",
+      "طريقة تأسيس مجموعة البوتجاز ✨|https://www.youtube.com/watch?v=wAMXTWYnFZ8",
+      "تأسيس نظام الـ Smart✨|https://www.youtube.com/watch?v=oqKFbjc9heU",
+      "تأسيس الـ LED Profile في السقف ✨|https://www.youtube.com/watch?v=k2rBEykuXUM",
+      "تأسيسات الكهرباء في الموقع✨|https://www.youtube.com/watch?v=verTPi5UdXY",
+      "تأسيس كهرباء نقط المطبخ ✨|https://www.youtube.com/watch?v=mfoTUPF5rqk",
+      "تأسيس الكهرباء مجموعة البوتجاز✨|https://www.youtube.com/watch?v=2_POdZXTxyM",
+      "تأسيس الكهرباء لــ Magnetec Track✨|https://www.youtube.com/watch?v=Zrywiw3C9RA",
+      "تأسيس الكهرباء للوزر المضئ الجزء الثالث✨|https://www.youtube.com/watch?v=Kocghe2_arU",
+      "تأسيس الكهرباء للوزر المضئ الجزء الثاني✨|https://www.youtube.com/watch?v=-biFY2OKDT4",
+      "تأسيس الكهرباء للوزر المضئ ✨|https://www.youtube.com/watch?v=5Fn_Xy1wVvU",
+      "تعديل لتأسيس الكهرباء في المطبخ✨|https://www.youtube.com/watch?v=8bgYOCD-Lb4",
+      "نصيحة مهمة لو هتعمل خوارنق جوة الكابينة الشاور ✨|https://www.youtube.com/watch?v=tYETZaWjsSI",
+      "خطوات تنفيذ تأسيس الكهرباء الجزء الثاني✨|https://www.youtube.com/watch?v=_w3uUHv_ufU",
+      "خطوات تنفيذ تأسيس الكهرباء الجزء الاول✨|https://www.youtube.com/watch?v=Kl-lxBd1r4A",
+      "خطوات ظبط منسوب نقاط الكهرباء الجزء الثاني✨|https://www.youtube.com/watch?v=aiL5SLShSvI",
+      "خطوات ظبط منسوب نقاط الكهرباء الجزء الاول✨|https://www.youtube.com/watch?v=48JAZK0VT5A",
+      "خطوات تأسيس مجموعة التليفزيون الجزء الثاني ✨|https://www.youtube.com/watch?v=FcCYgwoMhKs",
+    ],
+  },
+  {
     id: "electrical-foundation",
     name: "الكهرباء - تأسيس المرحلة الأولى",
     icon: Zap,
@@ -366,22 +401,40 @@ export function SpecificationsGrid() {
 
             <ScrollArea className="h-[500px]" dir="rtl" style={{ direction: "rtl" }}>
               <div className="space-y-3 pr-4" style={{ direction: "rtl" }}>
-                {selectedSpec.items.map((item, index) => (
-                  <div key={index} className="flex gap-3 items-start" style={{ direction: "rtl", textAlign: "right" }}>
-                    <span
-                      className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary text-xs flex items-center justify-center font-bold"
-                      style={{ fontFamily: "inherit" }}
-                    >
-                      {index + 1}
-                    </span>
-                    <p
-                      className="text-muted-foreground text-sm leading-relaxed flex-1"
-                      style={{ textAlign: "right", direction: "rtl" }}
-                    >
-                      {item}
-                    </p>
-                  </div>
-                ))}
+                {selectedSpec.items.map((item, index) => {
+                  // تحقق إذا كان العنصر يحتوي على رابط
+                  const hasLink = item.includes('|https://')
+                  const [text, link] = hasLink ? item.split('|') : [item, null]
+                  
+                  return (
+                    <div key={index} className="flex gap-3 items-start" style={{ direction: "rtl", textAlign: "right" }}>
+                      <span
+                        className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary text-xs flex items-center justify-center font-bold"
+                        style={{ fontFamily: "inherit" }}
+                      >
+                        {index + 1}
+                      </span>
+                      {hasLink ? (
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 text-sm leading-relaxed flex-1 underline hover:no-underline transition-all"
+                          style={{ textAlign: "right", direction: "rtl" }}
+                        >
+                          {text}
+                        </a>
+                      ) : (
+                        <p
+                          className="text-muted-foreground text-sm leading-relaxed flex-1"
+                          style={{ textAlign: "right", direction: "rtl" }}
+                        >
+                          {text}
+                        </p>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </ScrollArea>
           </Card>
