@@ -361,6 +361,17 @@ export default function FinishingExplanationPage() {
         icon={FileText}
       />
       
+      {/* صورة شرح بنود التشطيب */}
+      <div className="max-w-6xl mx-auto px-4 mt-8">
+        <div className="w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/20 bg-white">
+          <img
+            src="/images/شرح بنود التشطيب.png"
+            alt="شرح بنود التشطيب"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+      </div>
+      
       <section className="py-8 px-4" dir="rtl">
         <div className="max-w-6xl mx-auto">
           {/* Categories */}

@@ -11,7 +11,6 @@ import {
   DollarSign, FileText, Printer, Download, ArrowRight 
 } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function CustodyRequestPage() {
   const [formData, setFormData] = useState({
@@ -60,13 +59,11 @@ export default function CustodyRequestPage() {
           </div>
           
           {/* صورة نموذج صرف العهدة */}
-          <div className="mt-6 relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-200">
-            <Image
+          <div className="mt-6 w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-200 bg-white">
+            <img
               src="/images/صرف العهد.png"
               alt="نموذج صرف العهدة"
-              fill
-              className="object-contain bg-white"
-              priority
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

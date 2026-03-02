@@ -4,7 +4,6 @@ import { WorkPermitForm } from "@/components/work-permit-form"
 import Link from "next/link"
 import { ArrowRight, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 
 export default function WorkPermitPage() {
   return (
@@ -29,13 +28,11 @@ export default function WorkPermitPage() {
 
         {/* Title with image */}
         <div className="text-center mb-8">
-          <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden shadow-2xl">
-            <Image
+          <div className="w-full mb-6 rounded-2xl overflow-hidden shadow-2xl bg-white">
+            <img
               src="/images/تصريح اعمال.png"
               alt="تصريح أعمال"
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-auto object-contain"
             />
           </div>
           <h1 className="text-4xl font-black text-gray-900 mb-3">تصريح دخول ومباشرة أعمال تشطيبات</h1>
