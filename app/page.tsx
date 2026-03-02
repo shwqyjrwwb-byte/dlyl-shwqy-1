@@ -305,6 +305,13 @@ export default function HomePage() {
     // التحقق من يوزرات الأقسام أولاً
     if (departmentUsers[userId] && departmentUsers[userId].password === password) {
       const dept = departmentUsers[userId]
+      
+      // امسح جميع صلاحيات المناطق القديمة (يوزرات الأقسام ليس لها صلاحيات مناطق)
+      for (let i = 1; i <= 6; i++) {
+        localStorage.removeItem(`area_${i}_auth`)
+        localStorage.removeItem(`area_${i}_timestamp`)
+      }
+      
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
       localStorage.setItem("employeeData", JSON.stringify({
@@ -351,6 +358,12 @@ export default function HomePage() {
 
       // إذا كان المهندس له منطقة، نحفظ صلاحيات المكتب الفني
       if ('areaId' in user && user.areaId) {
+        // أولاً: امسح جميع صلاحيات المناطق القديمة
+        for (let i = 1; i <= 6; i++) {
+          localStorage.removeItem(`area_${i}_auth`)
+          localStorage.removeItem(`area_${i}_timestamp`)
+        }
+        // ثانياً: احفظ صلاحية المنطقة الخاصة بالمهندس فقط
         localStorage.setItem(`area_${user.areaId}_auth`, "true")
         localStorage.setItem(`area_${user.areaId}_timestamp`, Date.now().toString())
       }
