@@ -271,7 +271,7 @@ export default function HomePage() {
       "bassant.antar": { name: "بسنت عنتر", password: "864603", position: "مديرة خدمة العملاء", department: "خدمة العملاء" },
       "asmaa.mohamed": { name: "اسماء محمد عبد العليم", password: "800518", position: "خدمه عملاء العاصمة", department: "خدمة العملاء" },
       "doaa.gamal": { name: "دعاء جمال عبد المنعم", password: "841543", position: "خدمة عملاء القاهرة الجديدة", department: "خدمة العملاء" },
-      "youssef.magdy": { name: "يوسف مجدي محرم", password: "119629", position: "خدمة عملاء التجمع", department: "خدمة العملاء" },
+      "youssef.magdy": { name: "يوسف مجدي محمد", password: "119629", position: "خدمة عملاء وسط - أكتوبر", department: "خدمة العملاء" },
       "ayat.hamed": { name: "ايات حامد حسن علي", password: "504072", position: "خدمه عملاء", department: "خدمة العملاء" },
       "ahmed.abdelghani2": { name: "م/ أحمد عبد الغني", password: "706599", position: "مدير قسم الفرش", department: "الفرش والديكور" },
       "nada.amr": { name: "ندى عمرو محمد", password: "864759", position: "مهندسة بقسم الفرش والديكور", department: "الفرش والديكور" },

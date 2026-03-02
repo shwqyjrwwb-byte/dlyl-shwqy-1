@@ -198,7 +198,7 @@ export default function UsersManagementPage() {
     "بسنت عنتر": { userId: "bassant.antar", password: "864603" },
     "اسماء محمد عبد العليم": { userId: "asmaa.mohamed", password: "800518" },
     "دعاء جمال عبد المنعم": { userId: "doaa.gamal", password: "841543" },
-    "يوسف مجدي محرم": { userId: "youssef.magdy", password: "119629" },
+    "يوسف مجدي محمد": { userId: "youssef.magdy", password: "119629" },
     "ايات حامد حسن علي": { userId: "ayat.hamed", password: "504072" },
     "ندى عمرو محمد": { userId: "nada.amr", password: "864759" },
     "حسام خالد محمود": { userId: "hossam.khaled", password: "883633" },
