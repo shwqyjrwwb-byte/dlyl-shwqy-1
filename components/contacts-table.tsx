@@ -238,7 +238,7 @@ const departmentsData: Department[] = [
       {
         name: "هاجر عبد العزيز",
         position: "HR",
-        phone: "1110800543",
+        phone: "1000657652",
         image: "/images/hagar-abdelaziz.jpeg",
       },
       {
@@ -959,6 +959,11 @@ const departmentsData: Department[] = [
         image: "/images/مريم يوسف.jpeg",
       },
       {
+        name: "المهندسة آية البيه",
+        position: "مهندسة مكتب فني",
+        phone: "",
+      },
+      {
         name: "علاء فارس",
         position: "مهندس مكتب فني",
         phone: "0000000000",
@@ -1042,39 +1047,49 @@ const departmentsData: Department[] = [
     name: "التعاقدات",
     manager: {
       name: "حبيبه منصور",
-      position: "موظفه تعاقدات",
+      position: "Team Leader",
       phone: "1222367635",
       image: "/images/habiba-mansour.jpeg",
     },
     team: [
       {
+        name: "هدير خالد",
+        position: "مسئولة تعاقدات",
+        phone: "1110800534",
+        image: "/images/هدير خالد.jpeg",
+      },
+      {
         name: "رنا وحيد",
-        position: "موظفه تعاقدات",
+        position: "موظفة مبيعات",
         phone: "1222630606",
         image: "/images/rana-waheed.jpeg",
       },
       {
         name: "نيفين عيد محمد",
-        position: "موظفه تعاقدات",
+        position: "موظفة مبيعات",
         phone: "1273545667",
         image: "/images/neveen.jpeg",
       },
       {
         name: "يوسف علاء محمد عبد الهادي",
-        position: "موظف تعاقدات - سيلز",
+        position: "موظف مبيعات",
         phone: "1222620606",
         image: "/images/youssef-ola.jpeg",
       },
       {
         name: "ملك خالد خليل",
-        position: "موظفه تعاقدات",
+        position: "موظفة مبيعات",
         phone: "1278863141",
       },
       {
-        name: "هدير خالد",
-        position: "مسئولة تعاقدات",
-        phone: "1110800534",
-        image: "/images/هدير خالد.jpeg",
+        name: "عبد الرحمن عنتر",
+        position: "موظف مبيعات",
+        phone: "1148827729",
+      },
+      {
+        name: "محمد مصطفى",
+        position: "موظف مبيعات",
+        phone: "",
       },
     ],
   },
