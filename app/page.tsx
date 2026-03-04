@@ -10,6 +10,7 @@ import { User, Lock, LogIn, Settings } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { PageBackgroundSlideshow } from "@/components/page-background-slideshow"
+import { saveLoginCredentials } from "@/lib/auth-storage"
 
 export default function HomePage() {
   const router = useRouter()
@@ -33,6 +34,7 @@ export default function HomePage() {
     if ((userId === "gm" && password === "9528") || (userId === "الرقم السري" && password === "9528")) {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
+      saveLoginCredentials(userId, password)
       localStorage.setItem("employeeData", JSON.stringify({
         name: "م/ أحمد شوقي",
         position: "رئيس مجلس الإدارة",
@@ -72,6 +74,7 @@ export default function HomePage() {
     if (userId === "QTY" && password === "mm212") {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
+      saveLoginCredentials(userId, password)
       localStorage.setItem("employeeData", JSON.stringify({
         name: "محمود إسماعيل",
         position: "مدير الجودة",
@@ -110,6 +113,7 @@ export default function HomePage() {
     if (userId === "QTY2" && password === "mm2123") {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
+      saveLoginCredentials(userId, password)
       localStorage.setItem("employeeData", JSON.stringify({
         name: "شادي مظهر",
         position: "مهندس جودة",
@@ -314,6 +318,7 @@ export default function HomePage() {
       
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
+      saveLoginCredentials(userId, password)
       localStorage.setItem("employeeData", JSON.stringify({
         name: dept.name,
         position: dept.position,
@@ -348,6 +353,7 @@ export default function HomePage() {
       const user = defaultUsers[userId]
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
+      saveLoginCredentials(userId, password)
       localStorage.setItem("employeeData", JSON.stringify({
         name: user.name,
         position: user.position,
