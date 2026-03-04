@@ -30,7 +30,7 @@ export default function DashboardLoginPage() {
     setIsLoading(true)
 
     // التحقق من كلمة المرور
-    if (role === "admin" && password === "ahmed1") {
+    if (role === "admin" && password === "9528") {
       localStorage.setItem("dashboardLoggedIn", "true")
       localStorage.setItem("dashboardRole", "admin")
       localStorage.setItem("dashboardLoginTime", new Date().toISOString())

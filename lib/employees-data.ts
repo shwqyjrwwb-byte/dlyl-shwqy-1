@@ -118,7 +118,7 @@ export function addOtherDepartments() {
     { name: "خالد محي الدين عبد القادر", position: "محاسب", phone: "1121296258", image: "/images/خالد محي.jpeg", department: "الحسابات" },
     { name: "خالد عاطف عبد الغني محمد", position: "محاسب مخزن", phone: "1287329792", image: "/images/خالد عاطف.jpeg", department: "الحسابات" },
     { name: "هبه توفيق", position: "مسئولة تحويلات", phone: "1151183223", image: "/images/heba-tawfik.jpeg", department: "الحسابات" },
-    { name: "كريم عاطف", position: "مسئول إضافات", phone: "1114922582", image: "/images/karim-atef.jpeg", department: "الحسابات" },
+    { name: "كريم عاطف", position: "مدير قسم حسابات العملاء", phone: "1114922582", image: "/images/karim-atef.jpeg", department: "الحسابات" },
     { name: "حسناء عماد", position: "مسئول إضافات", phone: "1273544901", image: "/images/hasnaa-emad-new.jpeg", department: "الحسابات" },
     { name: "عبد الله عصام", position: "مسئول إضافات", phone: "1110672999", image: "/images/abdullah-essam.jpeg", department: "الحسابات" },
     { name: "محمد سالم صلاح الدين", position: "مسئول إضافات", phone: "1515494073", image: "/images/mohamed-salem-updated.jpeg", department: "الحسابات" },

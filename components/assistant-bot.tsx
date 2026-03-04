@@ -66,7 +66,7 @@ const employeesData = [
   // الحسابات
   { name: "وائل رأفت أمين", position: "مدير الحسابات", phone: "01103660739", department: "الحسابات" },
   { name: "راضي شحاته", position: "أمين خزينة", phone: "01278864533", department: "الحسابات" },
-  { name: "كريم عاطف", position: "مسئول إضافات", phone: "01114922582", department: "الحسابات" },
+  { name: "كريم عاطف", position: "مدير قسم حسابات العملاء", phone: "01114922582", department: "الحسابات" },
   { name: "حسناء عماد", position: "مسئول إضافات", phone: "01273544901", department: "الحسابات" },
   { name: "عبد الله عصام", position: "مسئول إضافات", phone: "01110672999", department: "الحسابات" },
   { name: "محمد سالم صلاح الدين", position: "مسئول إضافات", phone: "01515494073", department: "الحسابات" },
