@@ -57,15 +57,15 @@ export default function CustodyRequestPage() {
               </div>
             </div>
           </div>
-          
-          {/* صورة نموذج صرف العهدة */}
-          <div className="mt-6 w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-200 bg-white">
-            <img
-              src="/images/صرف العهد.png"
-              alt="نموذج صرف العهدة"
-              className="w-full h-auto object-contain"
-            />
-          </div>
+        </div>
+
+        {/* صورة نموذج صرف العهدة - خارج البطاقة */}
+        <div className="mb-8 w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-200 bg-white">
+          <img
+            src="/images/صرف العهد.png"
+            alt="نموذج صرف العهدة"
+            className="w-full h-auto object-contain"
+          />
         </div>
 
         <Card className="p-8 bg-white shadow-2xl border-4 border-emerald-200">
