@@ -53,10 +53,17 @@ export function EmployeeProfileHeader() {
       }
     }
 
+    // حذف بيانات الجلسة فقط (نبقي على userId و userPassword للتسجيل التلقائي)
     localStorage.removeItem("userLoggedIn")
-    localStorage.removeItem("userId")
     localStorage.removeItem("employeeData")
     localStorage.removeItem("loginTime")
+    
+    // حذف صلاحيات المناطق
+    for (let i = 1; i <= 6; i++) {
+      localStorage.removeItem(`area_${i}_auth`)
+      localStorage.removeItem(`area_${i}_timestamp`)
+    }
+    
     router.push("/")
   }
 

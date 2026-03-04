@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { User, Lock, LogIn, Settings } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { PageBackgroundSlideshow } from "@/components/page-background-slideshow"
-import { saveLoginCredentials } from "@/lib/auth-storage"
+import { saveLoginCredentials, getLoginCredentials } from "@/lib/auth-storage"
 
 export default function HomePage() {
   const router = useRouter()
@@ -18,6 +18,17 @@ export default function HomePage() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+
+  // التحقق من وجود بيانات محفوظة عند تحميل الصفحة
+  useEffect(() => {
+    const credentials = getLoginCredentials()
+    if (credentials) {
+      setUserId(credentials.userId)
+      setPassword(credentials.password)
+      // يمكن تفعيل التسجيل التلقائي هنا إذا أردت
+      // handleAutoLogin(credentials.userId, credentials.password)
+    }
+  }, [])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -612,6 +623,23 @@ export default function HomePage() {
                 >
                   {isLoading ? "جاري التحقق..." : "دخول"}
                 </Button>
+
+                {/* زر حذف البيانات المحفوظة */}
+                {(userId || password) && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      localStorage.removeItem("userId")
+                      localStorage.removeItem("userPassword")
+                      setUserId("")
+                      setPassword("")
+                    }}
+                    className="w-full h-12 text-sm font-bold border-2 border-red-300 text-red-600 hover:bg-red-50"
+                  >
+                    حذف البيانات المحفوظة
+                  </Button>
+                )}
               </form>
 
               <div className="mt-8 pt-6 border-t-2 border-gray-200">
