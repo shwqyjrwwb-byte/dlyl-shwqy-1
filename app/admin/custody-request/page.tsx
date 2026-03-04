@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { 
   Wallet, Calendar, User, Briefcase, MapPin, 
-  DollarSign, FileText, Printer, Download, ArrowRight 
+  DollarSign, FileText, Printer, Download, ArrowRight, Send 
 } from "lucide-react"
 import Link from "next/link"
 
@@ -27,12 +27,44 @@ export default function CustodyRequestPage() {
     managerSignature: ""
   })
 
-  const handlePrint = () => {
-    window.print()
+  const handleSendToWhatsApp = () => {
+    // التحقق من أن الحقول المهمة مملوءة
+    if (!formData.employeeName || !formData.amount) {
+      alert("يرجى ملء اسم الموظف والمبلغ على الأقل")
+      return
+    }
+
+    // إنشاء رسالة WhatsApp
+    const message = `
+*طلب صرف عهدة*
+━━━━━━━━━━━━━━━━━━━━
+
+📅 *التاريخ:* ${formData.date}
+
+👤 *اسم الموظف:* ${formData.employeeName}
+💼 *الوظيفة:* ${formData.jobTitle || 'غير محدد'}
+💰 *المبلغ المطلوب:* ${formData.amount}
+
+📝 *مقابل أعمال:*
+${formData.workDescription || 'غير محدد'}
+
+👥 *اسم العميل:* ${formData.clientName || 'غير محدد'}
+📍 *الموقع:* ${formData.location || 'غير محدد'}
+💳 *رصيد العهد:* ${formData.balance || 'غير محدد'}
+
+━━━━━━━━━━━━━━━━━━━━
+تم الإرسال من نظام شوقي جروب
+    `.trim()
+
+    // إنشاء رابط WhatsApp
+    const whatsappUrl = `https://wa.me/1278864533?text=${encodeURIComponent(message)}`
+    
+    // فتح WhatsApp
+    window.open(whatsappUrl, '_blank')
   }
 
-  const handleDownload = () => {
-    alert("سيتم تحميل الطلب كملف PDF")
+  const handlePrint = () => {
+    window.print()
   }
 
   return (
@@ -225,19 +257,19 @@ export default function CustodyRequestPage() {
 
           <div className="flex gap-4 mt-8 pt-8 border-t-4 border-emerald-200">
             <Button
-              onClick={handlePrint}
+              onClick={handleSendToWhatsApp}
               className="flex-1 h-14 bg-emerald-600 hover:bg-emerald-700 text-white gap-2 text-lg font-black shadow-xl"
             >
-              <Printer className="w-6 h-6" />
-              طباعة الطلب
+              <Send className="w-6 h-6" />
+              إرسال الطلب
             </Button>
             <Button
-              onClick={handleDownload}
+              onClick={handlePrint}
               variant="outline"
               className="flex-1 h-14 gap-2 text-lg font-black border-2 shadow-xl"
             >
-              <Download className="w-6 h-6" />
-              تحميل PDF
+              <Printer className="w-6 h-6" />
+              طباعة الطلب
             </Button>
           </div>
         </Card>
