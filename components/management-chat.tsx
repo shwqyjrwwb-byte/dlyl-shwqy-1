@@ -11,7 +11,7 @@ interface Announcement {
   id: string
   type: "text" | "voice" | "image" | "video"
   content: string
-  fileUrl?: string
+  fileData?: string // base64 data
   fileName?: string
   senderName: string
   senderTitle: string
@@ -44,13 +44,21 @@ export function ManagementChat() {
   const loadMessages = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch("/api/announcements")
-      const data = await response.json()
-      if (data.success) {
-        setMessages(data.announcements)
+      // قراءة الرسائل من localStorage
+      const storedAnnouncements = localStorage.getItem("announcements")
+      if (storedAnnouncements) {
+        const announcements = JSON.parse(storedAnnouncements)
+        // ترتيب الرسائل من الأحدث للأقدم
+        const sortedAnnouncements = announcements.sort((a: Announcement, b: Announcement) => 
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+        setMessages(sortedAnnouncements)
+      } else {
+        setMessages([])
       }
     } catch (error) {
       console.error("Error loading messages:", error)
+      setMessages([])
     }
     setIsLoading(false)
   }
@@ -160,20 +168,20 @@ export function ManagementChat() {
                         </div>
                       )}
 
-                      {msg.type === "voice" && msg.fileUrl && (
+                      {msg.type === "voice" && msg.fileData && (
                         <div className="bg-green-50 rounded-lg p-3 border border-green-200">
                           <div className="flex items-center gap-2 mb-2">
                             <Mic className="w-4 h-4 text-green-600" />
                             <p className="text-sm font-bold text-green-700">رسالة صوتية</p>
                           </div>
-                          <audio controls src={msg.fileUrl} className="w-full" />
+                          <audio controls src={msg.fileData} className="w-full" />
                           {msg.content && (
                             <p className="text-sm text-gray-600 mt-2">{msg.content}</p>
                           )}
                         </div>
                       )}
 
-                      {msg.type === "image" && msg.fileUrl && (
+                      {msg.type === "image" && msg.fileData && (
                         <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
                           <div className="flex items-center gap-2 mb-2">
                             <ImageIcon className="w-4 h-4 text-blue-600" />
@@ -181,7 +189,7 @@ export function ManagementChat() {
                           </div>
                           <div className="relative w-full h-48 rounded-lg overflow-hidden">
                             <Image
-                              src={msg.fileUrl}
+                              src={msg.fileData}
                               alt="صورة"
                               fill
                               className="object-cover"
@@ -193,13 +201,13 @@ export function ManagementChat() {
                         </div>
                       )}
 
-                      {msg.type === "video" && msg.fileUrl && (
+                      {msg.type === "video" && msg.fileData && (
                         <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
                           <div className="flex items-center gap-2 mb-2">
                             <Video className="w-4 h-4 text-purple-600" />
                             <p className="text-sm font-bold text-purple-700">فيديو</p>
                           </div>
-                          <video controls src={msg.fileUrl} className="w-full rounded-lg" />
+                          <video controls src={msg.fileData} className="w-full rounded-lg" />
                           {msg.content && (
                             <p className="text-sm text-gray-600 mt-2">{msg.content}</p>
                           )}

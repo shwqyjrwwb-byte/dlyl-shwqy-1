@@ -65,59 +65,79 @@ export function SendMessageModal({ isOpen, onClose }: SendMessageModalProps) {
     setIsSending(true)
     
     try {
-      let fileUrl = null
+      let fileData = null
       let fileName = null
 
-      // رفع الملف إذا كان موجود
+      // تحويل الملف إلى base64
       if (file) {
-        // في الإنتاج، يجب رفع الملف لخادم أو cloud storage
-        fileUrl = URL.createObjectURL(file)
+        fileData = await fileToBase64(file)
         fileName = file.name
       } else if (audioBlob && messageType === "voice") {
-        fileUrl = URL.createObjectURL(audioBlob)
+        fileData = await blobToBase64(audioBlob)
         fileName = `voice-${Date.now()}.webm`
       }
 
-      const response = await fetch("/api/announcements", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type: messageType,
-          content: message,
-          fileUrl,
-          fileName,
-        }),
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        alert("تم إرسال الرسالة بنجاح!")
-        
-        // إرسال إشعار للموظفين
-        if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification('قرار جديد من الإدارة', {
-            body: messageType === 'text' ? message.substring(0, 50) : 'رسالة جديدة من رئيس مجلس الإدارة',
-            icon: '/images/d8-aa-d8-b5-d9-85-d9-8a-d9-85-20-d8-a8-d8-af-d9-88-d9-86-20-d8-b9-d9-86-d9-88-d8-a7-d9-86-20-281-29.jpeg',
-          })
-        }
-        
-        setMessage("")
-        setFile(null)
-        setAudioBlob(null)
-        setAudioUrl(null)
-        onClose()
-      } else {
-        alert("فشل في إرسال الرسالة")
+      const newAnnouncement = {
+        id: Date.now().toString(),
+        type: messageType,
+        content: message,
+        fileData,
+        fileName,
+        senderName: "م/ أحمد شوقي",
+        senderTitle: "رئيس مجلس الإدارة",
+        senderImage: "/images/d8-aa-d8-b5-d9-85-d9-8a-d9-85-20-d8-a8-d8-af-d9-88-d9-86-20-d8-b9-d9-86-d9-88-d8-a7-d9-86-20-281-29.jpeg",
+        createdAt: new Date().toISOString(),
       }
+
+      // حفظ الرسالة في localStorage
+      const existingAnnouncements = JSON.parse(localStorage.getItem("announcements") || "[]")
+      existingAnnouncements.push(newAnnouncement)
+      localStorage.setItem("announcements", JSON.stringify(existingAnnouncements))
+
+      alert("تم إرسال الرسالة بنجاح!")
+      
+      // إرسال إشعار للموظفين
+      if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('قرار جديد من الإدارة', {
+          body: messageType === 'text' ? message.substring(0, 50) : 'رسالة جديدة من رئيس مجلس الإدارة',
+          icon: '/images/d8-aa-d8-b5-d9-85-d9-8a-d9-85-20-d8-a8-d8-af-d9-88-d9-86-20-d8-b9-d9-86-d9-88-d8-a7-d9-86-20-281-29.jpeg',
+        })
+      }
+      
+      setMessage("")
+      setFile(null)
+      setAudioBlob(null)
+      setAudioUrl(null)
+      onClose()
+      
+      // إعادة تحميل الصفحة لعرض الرسالة الجديدة
+      window.location.reload()
     } catch (error) {
       console.error("Error sending message:", error)
       alert("حدث خطأ أثناء الإرسال")
     }
     
     setIsSending(false)
+  }
+
+  // دالة لتحويل File إلى base64
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = error => reject(error)
+    })
+  }
+
+  // دالة لتحويل Blob إلى base64
+  const blobToBase64 = (blob: Blob): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(blob)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = error => reject(error)
+    })
   }
 
   return (
