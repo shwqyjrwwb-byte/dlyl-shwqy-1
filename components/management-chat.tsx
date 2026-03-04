@@ -44,15 +44,10 @@ export function ManagementChat() {
   const loadMessages = async () => {
     setIsLoading(true)
     try {
-      // قراءة الرسائل من localStorage
-      const storedAnnouncements = localStorage.getItem("announcements")
-      if (storedAnnouncements) {
-        const announcements = JSON.parse(storedAnnouncements)
-        // ترتيب الرسائل من الأحدث للأقدم
-        const sortedAnnouncements = announcements.sort((a: Announcement, b: Announcement) => 
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )
-        setMessages(sortedAnnouncements)
+      const response = await fetch("/api/announcements")
+      const data = await response.json()
+      if (data.success) {
+        setMessages(data.announcements)
       } else {
         setMessages([])
       }
