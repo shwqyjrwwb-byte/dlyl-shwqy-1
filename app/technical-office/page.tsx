@@ -39,7 +39,7 @@ const initialAreas: AreaData[] = [
   },
   { 
     id: 2, 
-    name: "القاهرة الجديدة", 
+    name: "التجمع الخامس", 
     clientsCount: 17, 
     color: "from-green-500/10 to-green-600/10",
     image: "",
@@ -48,7 +48,7 @@ const initialAreas: AreaData[] = [
   },
   { 
     id: 3, 
-    name: "التجمع الخامس", 
+    name: "القاهرة الجديدة", 
     clientsCount: 23, 
     color: "from-purple-500/10 to-purple-600/10",
     image: "",
