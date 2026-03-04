@@ -1023,12 +1023,6 @@ const departmentsData: Department[] = [
         image: "/images/nada-amr.jpeg",
       },
       {
-        name: "حسام خالد محمود",
-        position: "مهندس 3d",
-        phone: "1126883633",
-        image: "/images/hossam-technical.jpeg",
-      },
-      {
         name: "أسماء حسين",
         position: "مسؤولة بند التكيفات",
         phone: "1278865758",

@@ -279,7 +279,6 @@ export default function HomePage() {
       "ayat.hamed": { name: "ايات حامد حسن علي", password: "504072", position: "خدمه عملاء", department: "خدمة العملاء" },
       "ahmed.abdelghani2": { name: "م/ أحمد عبد الغني", password: "706599", position: "مدير قسم الفرش", department: "الفرش والديكور" },
       "nada.amr": { name: "ندى عمرو محمد", password: "864759", position: "مهندسة بقسم الفرش والديكور", department: "الفرش والديكور" },
-      "hossam.khaled": { name: "حسام خالد محمود", password: "883633", position: "مهندس 3d", department: "الفرش والديكور" },
       "asmaa.hussein": { name: "أسماء حسين", password: "865758", position: "مسؤولة بند التكيفات", department: "الفرش والديكور" },
       "saeed.samir": { name: "سعيد سمير عبد العزيز علي", password: "086941", position: "مسؤل بند المشتريات الكهربي", department: "الفرش والديكور" },
       "habiba.mansour": { name: "حبيبه منصور", password: "367635", position: "موظفه تعاقدات", department: "التعاقدات" },
