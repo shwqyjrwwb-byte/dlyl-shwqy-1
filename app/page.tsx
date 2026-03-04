@@ -181,7 +181,7 @@ export default function HomePage() {
     }
 
     // قاموس اليوزرات الثابتة - جميع الموظفين
-    const defaultUsers: Record<string, { name: string; password: string; position: string; department: string; areaId?: number }> = {
+    const defaultUsers: Record<string, { name: string; password: string; position: string; department: string; areaId?: number; areaIds?: number[] }> = {
       "malak": { name: "ملك رؤوف", password: "482498", position: "مديرة مكتب م/ أحمد شوقي", department: "مكتب م/ أحمد شوقي" },
       "mohamed.hassan": { name: "محمد حسن", password: "511776", position: "المدير العام", department: "الإدارة العامة" },
       "mahmoud.afandina": { name: "م/ محمود عبد الغني (أفندينا)", password: "861380", position: "مدير قسم الجبس بورد والرخام", department: "مديرين البنود" },
@@ -294,8 +294,8 @@ export default function HomePage() {
       "mohamed.yahya": { name: "محمد يحيي عبدالحميد عبد الرازق", password: "946616", position: "مسؤول قسم السيراميك", department: "السيراميك" },
       "omnia.mostafa": { name: "امنيه مصطفى", password: "800552", position: "منسق سيراميك", department: "السيراميك" },
       "mohamed.yousry": { name: "محمد يسري", password: "605351", position: "منسق سيراميك", department: "السيراميك" },
-      "mohamed.saeed": { name: "محمد سعيد محمد", password: "865930", position: "مدير قسم التشغيل", department: "التشغيل" },
-      "sameh.abdelsabour": { name: "م/ سامح عبد الصبور", password: "864735", position: "مدير مشاريع", department: "التشغيل" },
+      "mohamed.saeed": { name: "محمد سعيد محمد", password: "865930", position: "مدير قسم التشغيل", department: "التشغيل", areaIds: [4, 5, 6] },
+      "sameh.abdelsabour": { name: "م/ سامح عبد الصبور", password: "864735", position: "مدير مشاريع", department: "التشغيل", areaIds: [1, 2, 3] },
       "osama.hamdy": { name: "اسامة حمدي أحمد ابراهيم", password: "800523", position: "مسئول مقاولين", department: "التشغيل" },
       "ahmed.khaled": { name: "احمد خالد", password: "612784", position: "مسئول مقاولين", department: "التشغيل" },
       "hossam.ashraf": { name: "حسام اشرف فرج احمد", password: "836360", position: "مسئول البوفيه", department: "البوفيه" },
@@ -362,7 +362,7 @@ export default function HomePage() {
       }))
       localStorage.setItem("loginTime", new Date().toISOString())
 
-      // إذا كان المهندس له منطقة، نحفظ صلاحيات المكتب الفني
+      // إذا كان المهندس له منطقة أو مناطق، نحفظ صلاحيات المكتب الفني
       if ('areaId' in user && user.areaId) {
         // أولاً: امسح جميع صلاحيات المناطق القديمة
         for (let i = 1; i <= 6; i++) {
@@ -372,6 +372,18 @@ export default function HomePage() {
         // ثانياً: احفظ صلاحية المنطقة الخاصة بالمهندس فقط
         localStorage.setItem(`area_${user.areaId}_auth`, "true")
         localStorage.setItem(`area_${user.areaId}_timestamp`, Date.now().toString())
+      } else if ('areaIds' in user && user.areaIds && user.areaIds.length > 0) {
+        // إذا كان له مناطق متعددة
+        // أولاً: امسح جميع صلاحيات المناطق القديمة
+        for (let i = 1; i <= 6; i++) {
+          localStorage.removeItem(`area_${i}_auth`)
+          localStorage.removeItem(`area_${i}_timestamp`)
+        }
+        // ثانياً: احفظ صلاحيات المناطق الخاصة به
+        user.areaIds.forEach(areaId => {
+          localStorage.setItem(`area_${areaId}_auth`, "true")
+          localStorage.setItem(`area_${areaId}_timestamp`, Date.now().toString())
+        })
       }
 
       try {

@@ -1049,14 +1049,14 @@ const departmentsData: Department[] = [
       name: "حبيبه منصور",
       position: "Team Leader",
       phone: "1222367635",
-      image: "/images/habiba-mansour.jpeg",
+      image: "/images/حبيبه منصور.jfif",
     },
     team: [
       {
         name: "هدير خالد",
         position: "مسئولة تعاقدات",
         phone: "1110800534",
-        image: "/images/هدير خالد.jpeg",
+        image: "/images/هدير خالد.jfif",
       },
       {
         name: "رنا وحيد",
@@ -1080,11 +1080,13 @@ const departmentsData: Department[] = [
         name: "ملك خالد خليل",
         position: "موظفة مبيعات",
         phone: "1278863141",
+        image: "/images/ملك خالد.jpeg",
       },
       {
         name: "عبد الرحمن عنتر",
         position: "موظف مبيعات",
         phone: "1148827729",
+        image: "/images/عبد الرحمن عنتر.jfif",
       },
       {
         name: "محمد مصطفى",
