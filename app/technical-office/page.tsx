@@ -30,55 +30,55 @@ interface AreaData {
 const initialAreas: AreaData[] = [
   { 
     id: 1, 
-    name: "القاهرة الجديدة", 
+    name: "العاصمة الإدارية", 
     clientsCount: 25, 
     color: "from-blue-500/10 to-blue-600/10",
-    image: "",
+    image: "/images/areas/العاصمه الاداريه.png",
+    clients: [],
+    driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
+  },
+  { 
+    id: 2, 
+    name: "القاهرة الجديدة", 
+    clientsCount: 25, 
+    color: "from-green-500/10 to-green-600/10",
+    image: "/images/areas/القاهره الجديده.png",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1HbwL6NKJhIbPqONsczTWK7sXBl5l2qGv?usp=drive_link"
   },
   { 
-    id: 2, 
+    id: 3, 
     name: "التجمع الخامس", 
     clientsCount: 17, 
-    color: "from-green-500/10 to-green-600/10",
-    image: "",
+    color: "from-purple-500/10 to-purple-600/10",
+    image: "/images/areas/التجمع الخامس.png",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1hk92APPjFUGfWbWv_FdPZ6SRLGW01cOz?usp=sharing"
   },
   { 
-    id: 3, 
+    id: 4, 
     name: "أكتوبر", 
     clientsCount: 16, 
-    color: "from-purple-500/10 to-purple-600/10",
-    image: "",
+    color: "from-orange-500/10 to-orange-600/10",
+    image: "/images/areas/اكتوبر.png",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1szoma6_PqGnsMmWtZkxL7PT51rMIfbRF?usp=sharing"
   },
   { 
-    id: 4, 
+    id: 5, 
     name: "وسط", 
     clientsCount: 23, 
-    color: "from-orange-500/10 to-orange-600/10",
-    image: "",
+    color: "from-pink-500/10 to-pink-600/10",
+    image: "/images/areas/وسط.png",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/161L8kXX93ZTVG9xHY0xuedQ1G01tB7Wp?usp=sharing"
-  },
-  { 
-    id: 5, 
-    name: "العاصمة الإدارية", 
-    clientsCount: 25, 
-    color: "from-pink-500/10 to-pink-600/10",
-    image: "",
-    clients: [],
-    driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
   },
   { 
     id: 6, 
     name: "الأقاليم", 
     clientsCount: 15, 
     color: "from-teal-500/10 to-teal-600/10",
-    image: "",
+    image: "/images/areas/اقاليم.png",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1gp2s_AyuGdj1vFgLyy2GW1F8r_IQ3Dh0?usp=sharing"
   },
