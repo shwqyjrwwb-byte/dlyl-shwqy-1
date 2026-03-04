@@ -33,7 +33,7 @@ export async function GET() {
       { name: "اشرف ذكي", position: "Producer - Photographer", phone: "1103827701", image: "/images/ashraf-zaki-new.jpeg", department: "السوشيال ميديا" },
       { name: "انس عاطف محمد", position: "Producer", phone: "1112340773", image: "/images/anas-atef-new.jpeg", department: "السوشيال ميديا" },
       { name: "محمود علاء انصاري", position: "Moderator", phone: "1120010618", image: "/images/367a7b04-cef9-4944-88b4-a8c098c99fa2.jpeg", department: "السوشيال ميديا" },
-      { name: "مؤمن مصطفى", position: "Content Creator", phone: "1122587005", image: "/images/moamen-mostafa.jpeg", department: "السوشيال ميديا" },
+      { name: "مؤمن مصطفى", position: "Content Creator", phone: "1122587005", image: "/images/مؤمن مصطفي.jpeg", department: "السوشيال ميديا" },
     ]
 
     return NextResponse.json({

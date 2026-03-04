@@ -298,7 +298,7 @@ const departmentsData: Department[] = [
         name: "مؤمن مصطفى",
         position: "Content Creator",
         phone: "1122587005",
-        image: "/images/moamen-mostafa.jpeg",
+        image: "/images/مؤمن مصطفي.jpeg",
       },
     ],
   },
