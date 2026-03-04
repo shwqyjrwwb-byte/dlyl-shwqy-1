@@ -781,7 +781,7 @@ const departmentsData: Department[] = [
       // حسابات عملاء
       {
         name: "كريم عاطف",
-        position: "مسئول إضافات - حسابات عملاء",
+        position: "مدير قسم حسابات العملاء",
         phone: "1114922582",
         image: "/images/karim-atef.jpeg",
       },
