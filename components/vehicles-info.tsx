@@ -122,6 +122,16 @@ const getDayColor = (area: string) => {
   return colors[area] || "bg-gray-400"
 }
 
+const developers = [
+  {
+    id: 1,
+    name: "عمر عابدين",
+    position: "مطور شركة",
+    image: "/images/غمر عبدين.webp",
+    role: "Developer"
+  }
+]
+
 export function VehiclesInfo() {
   return (
     <section className="py-8 px-4">
