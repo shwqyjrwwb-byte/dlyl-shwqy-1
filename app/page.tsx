@@ -304,6 +304,8 @@ export default function HomePage() {
       "mahmoud.ali": { name: "محمود علي", password: "093894", position: "مسئول معرض الدهانات", department: "معرض الدهانات" },
       "ahmed.abulsoud": { name: "م/ أحمد أبو السعود", password: "444748", position: "مدير تكنولوجيا المعلومات", department: "IT" },
       "azzam": { name: "عزام", password: "108751", position: "مسؤول السيارات", department: "السيارات" },
+      "abdelrahman.antar": { name: "عبد الرحمن عنتر", password: "827729", position: "موظف مبيعات", department: "التعاقدات" },
+      "aya.elbieh": { name: "المهندسة آية البيه", password: "900000", position: "مهندسة مكتب فني", department: "المكتب الفني" },
     }
 
     // التحقق من يوزرات الأقسام أولاً
