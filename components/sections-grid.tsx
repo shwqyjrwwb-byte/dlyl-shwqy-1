@@ -20,7 +20,7 @@ const sections = [
     title: "فيديوهاتنا",
     description: "شاهد أعمالنا ومشاريعنا المميزة",
     image: "/images/فيديوهتنا.png",
-    href: "https://www.youtube.com/@ShawkyGroup",
+    href: "https://shawkygroup.com/",
     isExternal: true,
   },
   {
