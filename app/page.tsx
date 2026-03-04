@@ -617,6 +617,12 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
+
+            {/* Version and Developer - Bottom Right */}
+            <div className="fixed bottom-4 right-4 text-right">
+              <p className="text-white text-xs font-bold drop-shadow-lg">v1.2.65</p>
+              <p className="text-amber-200 text-xs font-bold drop-shadow-lg">by dev omar abdeen</p>
+            </div>
           </div>
         </div>
     </main>
