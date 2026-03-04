@@ -30,7 +30,7 @@ export default function HomePage() {
     }
 
     // التحقق من يوزر رئيس مجلس الإدارة - صلاحيات كاملة
-    if (userId === "gm" && password === "9528") {
+    if ((userId === "gm" && password === "9528") || (userId === "الرقم السري" && password === "9528")) {
       localStorage.setItem("userLoggedIn", "true")
       localStorage.setItem("userId", userId)
       localStorage.setItem("employeeData", JSON.stringify({
