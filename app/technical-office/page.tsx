@@ -30,7 +30,7 @@ interface AreaData {
 const initialAreas: AreaData[] = [
   { 
     id: 1, 
-    name: "العاصمة الإدارية", 
+    name: "القاهرة الجديدة", 
     clientsCount: 25, 
     color: "from-blue-500/10 to-blue-600/10",
     image: "",
@@ -48,8 +48,8 @@ const initialAreas: AreaData[] = [
   },
   { 
     id: 3, 
-    name: "القاهرة الجديدة", 
-    clientsCount: 23, 
+    name: "أكتوبر", 
+    clientsCount: 16, 
     color: "from-purple-500/10 to-purple-600/10",
     image: "",
     clients: [],
@@ -66,8 +66,8 @@ const initialAreas: AreaData[] = [
   },
   { 
     id: 5, 
-    name: "أكتوبر", 
-    clientsCount: 16, 
+    name: "العاصمة الإدارية", 
+    clientsCount: 25, 
     color: "from-pink-500/10 to-pink-600/10",
     image: "",
     clients: [],
