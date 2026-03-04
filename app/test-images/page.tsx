@@ -1,10 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function TestImagesPage() {
   const [errors, setErrors] = useState<Record<string, boolean>>({})
+  const [origin, setOrigin] = useState("")
+
+  useEffect(() => {
+    // Get window.location.origin only on client side
+    setOrigin(window.location.origin)
+  }, [])
 
   const testImages = [
     { name: "Accounting", path: "/images/accounting.png" },
@@ -47,7 +53,7 @@ export default function TestImagesPage() {
         <div className="mb-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <h2 className="text-xl font-semibold mb-2">معلومات النظام:</h2>
           <p>Environment: {process.env.NODE_ENV}</p>
-          <p>Base Path: {window.location.origin}</p>
+          {origin && <p>Base Path: {origin}</p>}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
