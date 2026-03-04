@@ -31,7 +31,7 @@ export function EmployeeProfileHeader() {
       const data = JSON.parse(employeeData)
       setEmployee(data)
       // التحقق إذا كان المدير
-      setIsAdmin(userId === "owner9528")
+      setIsAdmin(userId === "gm9528" || userId === "gm")
     }
   }, [router])
 
