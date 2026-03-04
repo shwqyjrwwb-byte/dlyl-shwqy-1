@@ -47,15 +47,22 @@ const areaCredentials: Record<number, { username: string; password: string; name
   },
 }
 
-// يوزرات المهندسين لكل منطقة
-const engineerCredentials: Record<number, { username: string; password: string }[]> = {
-  1: [{ username: "ahmed.elazaby", password: "273742" }], // العاصمة
-  2: [{ username: "mostafa.kamal", password: "589130" }], // القاهرة الجديدة
-  3: [{ username: "mohamed.medhat", password: "593094" }], // التجمع
-  4: [{ username: "ahmed.bassyouni", password: "221382" }], // وسط
-  5: [{ username: "ahmed.hamed", password: "426815" }], // أكتوبر
-  6: [{ username: "mohamed.salah", password: "416769" }], // الأقاليم
+// يوزرات المهندسين لكل منطقة مع معلومات إضافية
+const engineerCredentials: Record<number, { username: string; password: string; areaId: number }[]> = {
+  1: [{ username: "ahmed.elazaby", password: "273742", areaId: 1 }], // العاصمة
+  2: [{ username: "mostafa.kamal", password: "589130", areaId: 2 }], // القاهرة الجديدة
+  3: [{ username: "mohamed.medhat", password: "593094", areaId: 3 }], // التجمع
+  4: [{ username: "ahmed.bassyouni", password: "221382", areaId: 4 }], // وسط
+  5: [{ username: "ahmed.hamed", password: "426815", areaId: 5 }], // أكتوبر
+  6: [{ username: "mohamed.salah", password: "416769", areaId: 6 }], // الأقاليم
 }
+
+// قائمة المديرين الذين لهم صلاحيات كاملة
+const adminCredentials = [
+  { username: "gm", password: "9528" }, // رئيس مجلس الإدارة
+  { username: "QTY", password: "mm212" }, // مدير الجودة
+  { username: "QTY2", password: "mm2123" }, // مهندس الجودة
+]
 
 export default function TechnicalOfficeLoginPage() {
   const router = useRouter()
@@ -80,27 +87,35 @@ export default function TechnicalOfficeLoginPage() {
       return
     }
 
-    // Master account - يدخل على كل المناطق
-    const isMasterAccount = username === "admin" && password === "admin2026"
+    const currentAreaId = parseInt(areaId)
+
+    // التحقق من المديرين (صلاحيات كاملة)
+    const isAdmin = adminCredentials.some(admin => admin.username === username && admin.password === password)
     
-    // يوزر رئيس مجلس الإدارة - صلاحيات كاملة
-    const isChairman = username === "gm" && password === "9528"
-    
-    // يوزر مدير الجودة - يدخل على كل المناطق
-    const isQualityManager = username === "QTY" && password === "mm212"
-    
-    // يوزر مهندس الجودة - يدخل على كل المناطق
-    const isQualityEngineer = username === "QTY2" && password === "mm2123"
-    
-    // التحقق من يوزر المهندس المسؤول عن المنطقة
-    const areaEngineers = engineerCredentials[parseInt(areaId)] || []
+    // التحقق من المهندس المسؤول عن المنطقة
+    const areaEngineers = engineerCredentials[currentAreaId] || []
     const isAreaEngineer = areaEngineers.some(eng => eng.username === username && eng.password === password)
     
-    // التحقق من بيانات الدخول
-    if (isMasterAccount || isChairman || isQualityManager || isQualityEngineer || isAreaEngineer || (username === areaInfo.username && password === areaInfo.password)) {
-      // حفظ معلومات تسجيل الدخول في localStorage
-      localStorage.setItem(`area_${areaId}_auth`, "true")
-      localStorage.setItem(`area_${areaId}_timestamp`, Date.now().toString())
+    // التحقق من بيانات الدخول العامة للمنطقة
+    const isAreaCredential = username === areaInfo.username && password === areaInfo.password
+
+    // Master account
+    const isMasterAccount = username === "admin" && password === "admin2026"
+
+    if (isMasterAccount || isAdmin || isAreaCredential) {
+      // المديرين والـ Master account يدخلون مباشرة بدون تسجيل دخول
+      // حفظ صلاحيات جميع المناطق
+      for (let i = 1; i <= 6; i++) {
+        localStorage.setItem(`area_${i}_auth`, "true")
+        localStorage.setItem(`area_${i}_timestamp`, Date.now().toString())
+      }
+      
+      // الانتقال مباشرة إلى Google Drive
+      window.location.href = areaInfo.driveLink
+    } else if (isAreaEngineer) {
+      // المهندس يدخل على منطقته مباشرة بدون تسجيل دخول
+      localStorage.setItem(`area_${currentAreaId}_auth`, "true")
+      localStorage.setItem(`area_${currentAreaId}_timestamp`, Date.now().toString())
       
       // الانتقال مباشرة إلى Google Drive
       window.location.href = areaInfo.driveLink

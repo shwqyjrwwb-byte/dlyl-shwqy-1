@@ -88,6 +88,31 @@ export default function TechnicalOfficePage() {
   const router = useRouter()
   const [areas, setAreas] = useState<AreaData[]>(initialAreas)
   const [loading, setLoading] = useState(false)
+  const [userPermissions, setUserPermissions] = useState<number[]>([])
+
+  useEffect(() => {
+    // التحقق من صلاحيات المستخدم
+    const permissions: number[] = []
+    for (let i = 1; i <= 6; i++) {
+      if (localStorage.getItem(`area_${i}_auth`) === "true") {
+        permissions.push(i)
+      }
+    }
+    setUserPermissions(permissions)
+  }, [])
+
+  const handleAreaClick = (areaId: number) => {
+    // إذا كان المستخدم لديه صلاحية على هذه المنطقة، يدخل مباشرة
+    if (userPermissions.includes(areaId)) {
+      const area = areas.find(a => a.id === areaId)
+      if (area?.driveLink) {
+        window.location.href = area.driveLink
+      }
+    } else {
+      // وإلا يذهب لصفحة تسجيل الدخول
+      router.push(`/technical-office/login?area=${areaId}`)
+    }
+  }
 
   const totalClients = areas.reduce((sum, area) => sum + area.clientsCount, 0)
   return (
@@ -156,11 +181,13 @@ export default function TechnicalOfficePage() {
                 <div className="p-6 bg-gradient-to-b from-card to-card/80 space-y-3">
                   {/* زر الدخول للمنطقة */}
                   <Button
-                    onClick={() => router.push(`/technical-office/login?area=${area.id}`)}
+                    onClick={() => handleAreaClick(area.id)}
                     className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition-all font-bold shadow-lg hover:shadow-xl hover:scale-105 duration-300 h-auto"
                   >
                     <FolderOpen className="w-6 h-6" />
-                    <span className="text-lg">الدخول إلى ملفات المنطقة</span>
+                    <span className="text-lg">
+                      {userPermissions.includes(area.id) ? "فتح الملفات" : "تسجيل الدخول"}
+                    </span>
                   </Button>
                 </div>
               </Card>

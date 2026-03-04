@@ -134,6 +134,35 @@ export function VehiclesInfo() {
             className="w-full h-auto object-contain"
           />
         </div>
+
+        {/* قسم المطورين */}
+        <div className="mt-12">
+          <h2 className="text-3xl font-bold text-center mb-8 text-amber-700">فريق التطوير</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {developers.map((dev) => (
+              <Card key={dev.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative h-64 bg-gray-200">
+                  {dev.image ? (
+                    <img
+                      src={dev.image}
+                      alt={dev.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
+                      <User className="w-16 h-16 text-gray-600" />
+                    </div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-800">{dev.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{dev.position}</p>
+                  <Badge className="bg-amber-600 hover:bg-amber-700">{dev.role}</Badge>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
