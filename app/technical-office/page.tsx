@@ -33,25 +33,25 @@ const initialAreas: AreaData[] = [
     name: "العاصمة الإدارية", 
     clientsCount: 25, 
     color: "from-blue-500/10 to-blue-600/10",
-    image: "/images/areas/العاصمه .png",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1HbwL6NKJhIbPqONsczTWK7sXBl5l2qGv?usp=drive_link"
   },
   { 
     id: 2, 
     name: "القاهرة الجديدة", 
-    clientsCount: 23, 
+    clientsCount: 17, 
     color: "from-green-500/10 to-green-600/10",
-    image: "/images/areas/القاهره الجديده.jpeg",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1hk92APPjFUGfWbWv_FdPZ6SRLGW01cOz?usp=sharing"
   },
   { 
     id: 3, 
     name: "التجمع الخامس", 
-    clientsCount: 17, 
+    clientsCount: 23, 
     color: "from-purple-500/10 to-purple-600/10",
-    image: "/images/areas/التجمع .jpeg",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1szoma6_PqGnsMmWtZkxL7PT51rMIfbRF?usp=sharing"
   },
@@ -60,7 +60,7 @@ const initialAreas: AreaData[] = [
     name: "وسط", 
     clientsCount: 23, 
     color: "from-orange-500/10 to-orange-600/10",
-    image: "/images/areas/وسط.png",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/161L8kXX93ZTVG9xHY0xuedQ1G01tB7Wp?usp=sharing"
   },
@@ -69,7 +69,7 @@ const initialAreas: AreaData[] = [
     name: "أكتوبر", 
     clientsCount: 16, 
     color: "from-pink-500/10 to-pink-600/10",
-    image: "/images/areas/اكتوبر.jpeg",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1wohvwk2TZMEhwoaXW9YeKVZumBJn3l8-?usp=sharing"
   },
@@ -78,7 +78,7 @@ const initialAreas: AreaData[] = [
     name: "الأقاليم", 
     clientsCount: 15, 
     color: "from-teal-500/10 to-teal-600/10",
-    image: "/images/areas/اقاليم .jpeg",
+    image: "",
     clients: [],
     driveLink: "https://drive.google.com/drive/folders/1gp2s_AyuGdj1vFgLyy2GW1F8r_IQ3Dh0?usp=sharing"
   },
